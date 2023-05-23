@@ -1,0 +1,32 @@
+name: Build
+
+ on:
+   pull_request:
+   workflow_dispatch:
+   push:
+    branches:
+      - master
+
+ jobs:
+   build:
+     name: Build
+     runs-on: [ubuntu-latest]
+     steps:
+     - name: Checkout
+       uses: actions/checkout@v3
+
+     - name: Setup Nodejs
+       uses: actions/setup-node@v3
+       with:
+         node-version: 18.x
+
+     - name: Install dependencies
+       run: npm ci
+
+    - name: Lint
+      run: |
+        npm run lint
+        npm run lint:editorconfig
+
+     - name: Build
+       run: npm run build
