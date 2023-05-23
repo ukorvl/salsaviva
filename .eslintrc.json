@@ -1,0 +1,18 @@
+{
+    "extends": [
+        "plugin:jsx-a11y/recommended",
+        "next"
+    ],
+    "rules": {
+        "semi": [
+            1,
+            "always"
+        ],
+        "quotes": [
+            1,
+            "single"
+        ],
+        "array-bracket-spacing": 1,
+        "object-curly-spacing": 1
+    }
+}
