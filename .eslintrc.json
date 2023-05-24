@@ -1,18 +1,34 @@
 {
-    "extends": [
-        "plugin:jsx-a11y/recommended",
-        "next"
+  "extends": [
+    "plugin:jsx-a11y/recommended",
+    "next"
+  ],
+  "rules": {
+    "semi": [
+      1,
+      "always"
     ],
-    "rules": {
-        "semi": [
-            1,
-            "always"
-        ],
-        "quotes": [
-            1,
-            "single"
-        ],
-        "array-bracket-spacing": 1,
-        "object-curly-spacing": 1
+    "quotes": [
+      1,
+      "single"
+    ],
+    "array-bracket-spacing": 1,
+    "object-curly-spacing": 1
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.cy.*"
+      ],
+      "plugins": [
+        "cypress"
+      ],
+      "extends": [
+        "plugin:cypress/recommended"
+      ],
+      "env": {
+        "cypress/globals": true
+      }
     }
+  ]
 }

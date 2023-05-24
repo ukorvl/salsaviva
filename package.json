@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:editorconfig": "npx editorconfig-checker"
+    "lint:editorconfig": "npx editorconfig-checker",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@types/node": "20.1.1",
@@ -22,8 +23,10 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "cypress": "^12.12.0",
     "eslint": "^8.41.0",
     "eslint-config-next": "^13.4.3",
+    "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-jsx-a11y": "^6.7.1"
   }
 }
