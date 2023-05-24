@@ -1,104 +1,104 @@
 {
-    "extends": [
-        "plugin:jsx-a11y/recommended",
-        "plugin:jsdoc/recommended",
-        "next"
+  "extends": [
+    "plugin:jsx-a11y/recommended",
+    "plugin:jsdoc/recommended",
+    "next"
+  ],
+  "rules": {
+    "semi": [
+      1,
+      "always"
     ],
-    "rules": {
-        "semi": [
-            1,
-            "always"
-        ],
-        "quotes": [
-            1,
-            "single"
-        ],
-        "array-bracket-spacing": 1,
-        "object-curly-spacing": 1,
-        "jsdoc/require-jsdoc": [
-            "warn",
-            {
-                "publicOnly": false,
-                "contexts": [
-                    "TSInterfaceDeclaration",
-                    "TSTypeAliasDeclaration",
-                    "TSEnumDeclaration"
-                ],
-                "require": {
-                    "FunctionExpression": true,
-                    "ClassDeclaration": true,
-                    "MethodDefinition": true,
-                    "ArrowFunctionExpression": true,
-                    "ClassExpression": true
-                }
-            }
-        ],
-        "jsdoc/require-description-complete-sentence": 1,
-        "import/newline-after-import": 1,
-        "import/order": [
-            "warn",
-            {
-                "groups": [
-                    "builtin",
-                    "external",
-                    "internal",
-                    [
-                        "sibling",
-                        "parent",
-                        "index"
-                    ],
-                    [
-                        "object"
-                    ]
-                ],
-                "pathGroups": [
-                    {
-                        "pattern": "next",
-                        "group": "external",
-                        "position": "before"
-                    },
-                    {
-                        "pattern": "./*.scss",
-                        "group": "type",
-                        "position": "after"
-                    }
-                ],
-                "pathGroupsExcludedImportTypes": [
-                    "react"
-                ],
-                "newlines-between": "never",
-                "warnOnUnassignedImports": true
-            }
-        ]
-    },
-    "overrides": [
-        {
-            "files": [
-                "*.cy.*"
-            ],
-            "plugins": [
-                "cypress"
-            ],
-            "extends": [
-                "plugin:cypress/recommended"
-            ],
-            "env": {
-                "cypress/globals": true
-            }
-        }
+    "quotes": [
+      1,
+      "single"
     ],
-    "settings": {
-        "import/parsers": {
-            "@typescript-eslint/parser": [
-                ".ts",
-                ".tsx"
-            ]
-        },
-        "import/resolver": {
-            "typescript": {
-                "alwaysTryTypes": true,
-                "project": "./tsconfig.json"
-            }
+    "array-bracket-spacing": 1,
+    "object-curly-spacing": 1,
+    "jsdoc/require-jsdoc": [
+      "warn",
+      {
+        "publicOnly": false,
+        "contexts": [
+          "TSInterfaceDeclaration",
+          "TSTypeAliasDeclaration",
+          "TSEnumDeclaration"
+        ],
+        "require": {
+          "FunctionExpression": true,
+          "ClassDeclaration": true,
+          "MethodDefinition": true,
+          "ArrowFunctionExpression": true,
+          "ClassExpression": true
         }
+      }
+    ],
+    "jsdoc/require-description-complete-sentence": 1,
+    "import/newline-after-import": 1,
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          [
+            "sibling",
+            "parent",
+            "index"
+          ],
+          [
+            "object"
+          ]
+        ],
+        "pathGroups": [
+          {
+            "pattern": "next",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "./*.scss",
+            "group": "type",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
+        "newlines-between": "never",
+        "warnOnUnassignedImports": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.cy.*"
+      ],
+      "plugins": [
+        "cypress"
+      ],
+      "extends": [
+        "plugin:cypress/recommended"
+      ],
+      "env": {
+        "cypress/globals": true
+      }
     }
+  ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  }
 }
