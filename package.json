@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:editorconfig": "npx editorconfig-checker",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@types/node": "20.1.1",
@@ -28,6 +29,8 @@
     "eslint-config-next": "^13.4.3",
     "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-jsdoc": "^44.2.5",
-    "eslint-plugin-jsx-a11y": "^6.7.1"
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "prettier": "^2.8.8",
+    "husky": "^8.0.0"
   }
 }

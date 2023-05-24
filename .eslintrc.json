@@ -1,29 +1,15 @@
 {
-  "extends": [
-    "plugin:jsx-a11y/recommended",
-    "plugin:jsdoc/recommended",
-    "next"
-  ],
+  "extends": ["plugin:jsx-a11y/recommended", "plugin:jsdoc/recommended", "next"],
   "rules": {
-    "semi": [
-      1,
-      "always"
-    ],
-    "quotes": [
-      1,
-      "single"
-    ],
+    "semi": [1, "always"],
+    "quotes": [1, "single"],
     "array-bracket-spacing": 1,
     "object-curly-spacing": 1,
     "jsdoc/require-jsdoc": [
       "warn",
       {
         "publicOnly": false,
-        "contexts": [
-          "TSInterfaceDeclaration",
-          "TSTypeAliasDeclaration",
-          "TSEnumDeclaration"
-        ],
+        "contexts": ["TSInterfaceDeclaration", "TSTypeAliasDeclaration", "TSEnumDeclaration"],
         "require": {
           "FunctionExpression": true,
           "ClassDeclaration": true,
@@ -38,19 +24,7 @@
     "import/order": [
       "warn",
       {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          [
-            "sibling",
-            "parent",
-            "index"
-          ],
-          [
-            "object"
-          ]
-        ],
+        "groups": ["builtin", "external", "internal", ["sibling", "parent", "index"], ["object"]],
         "pathGroups": [
           {
             "pattern": "next",
@@ -58,14 +32,12 @@
             "position": "before"
           },
           {
-            "pattern": "./*.scss",
+            "pattern": "./*.css",
             "group": "type",
             "position": "after"
           }
         ],
-        "pathGroupsExcludedImportTypes": [
-          "react"
-        ],
+        "pathGroupsExcludedImportTypes": ["react"],
         "newlines-between": "never",
         "warnOnUnassignedImports": true
       }
@@ -73,15 +45,9 @@
   },
   "overrides": [
     {
-      "files": [
-        "*.cy.*"
-      ],
-      "plugins": [
-        "cypress"
-      ],
-      "extends": [
-        "plugin:cypress/recommended"
-      ],
+      "files": ["*.cy.*"],
+      "plugins": ["cypress"],
+      "extends": ["plugin:cypress/recommended"],
       "env": {
         "cypress/globals": true
       }
@@ -89,10 +55,7 @@
   ],
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx"
-      ]
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
       "typescript": {
