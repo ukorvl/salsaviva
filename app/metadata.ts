@@ -3,7 +3,10 @@
  */
 
 const metadata = {
-  title: 'Salsaviva',
+  title: {
+    default: 'Salsaviva',
+    template: 'Salsaviva | %s',
+  },
   description: 'Salsa, Bachata and Kizomba in Yerevan',
   keywords: [
     'Salsa',
