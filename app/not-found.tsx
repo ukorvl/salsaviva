@@ -1,5 +1,8 @@
 import Link from 'next/link';
 
+/**
+ * @returns React component.
+ */
 export default function NotFound() {
   return (
     <div>

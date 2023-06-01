@@ -1,7 +1,11 @@
-'use client'; // Error components must be Client Components
+'use client';
 
 import {useEffect} from 'react';
 
+/**
+ * @param {{error: Error; reset: () => void}} props Props.
+ * @returns React component.
+ */
 export default function Error({error, reset}: {error: Error; reset: () => void}) {
   useEffect(() => {
     // Log the error to an error reporting service
