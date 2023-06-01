@@ -1,0 +1,15 @@
+:root {
+  --c-text-light: #fefefe;
+  --c-text-black: #18132d;
+  --c-primary: #4f5bac;
+  --c-alternate: #160f59;
+  --c-accent0: #9e2077;
+  --c-accent1: #933293;
+  --c-accent2: #602e87;
+  --c-accent3: #3f71b8;
+
+  --animation-mode-base: ease-out;
+  --animation-duration-short: 0.15s;
+  --animation-duration-med: 0.3s;
+  --animation-duration-long: 0.6s;
+}
