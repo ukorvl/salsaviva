@@ -1,3 +1,4 @@
+import '@/lib/fontawesome/configure';
 import meta from './metadata';
 import {kumbhSans, robotoMono} from './fonts';
 import './css/globals.css';

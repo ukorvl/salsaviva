@@ -12,7 +12,4 @@ config.autoAddCss = false;
 /**
  * Adds only required icons.
  */
-export default function configureIcons() {
-  // Import @fortawesome/free-brands-svg-icons
-  library.add(faInstagram, faTelegram, faWhatsapp);
-}
+library.add(faInstagram, faTelegram, faWhatsapp);
