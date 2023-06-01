@@ -3,7 +3,7 @@
  * These variables are used in tailwindCSS config.
  */
 
-import { Roboto_Mono, Kumbh_Sans } from 'next/font/google';
+import {Roboto_Mono, Kumbh_Sans} from 'next/font/google';
 
 export const robotoMono = Roboto_Mono({
   subsets: ['latin'],

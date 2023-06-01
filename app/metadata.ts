@@ -19,6 +19,7 @@ const metadata = {
   colorScheme: 'dark',
   themeColor: '#602e87',
   authors: [{name: 'Ukorvl', url: 'https://github.com/ukorvl'}],
+  manifest: '/manifest.json',
   openGraph: {
     title: 'Salsaviva',
     description: 'Salsa, Bachata and Kizomba in Yerevan',
