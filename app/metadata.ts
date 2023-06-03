@@ -26,7 +26,6 @@ const metadata = {
   openGraph: {
     title: 'Salsaviva',
     description: 'Salsa, Bachata and Kizomba in Yerevan',
-    siteName: 'Next.js',
     images: [
       {
         url: 'https://nextjs.org/og.png',
@@ -46,8 +45,7 @@ const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Salsaviva',
-    description: 'The React Framework for the Web',
-    creator: '@ukorvl',
+    description: 'Salsa, Bachata and Kizomba in Yerevan',
     images: ['https://nextjs.org/og.png'],
   },
   viewport: {
