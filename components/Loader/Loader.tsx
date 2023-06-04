@@ -32,7 +32,7 @@ export default function Loader({size = 'md', grow = false}: LoaderProps) {
 
   const bouncingElementClassName = clsx('motion-safe:animate-bounce h-5 w-5 m-2 bg-white');
 
-  const bouncingElementViewBox = '0 0 24 24';
+  //const bouncingElementViewBox = '0 0 24 24';
 
   return (
     <div
@@ -49,15 +49,15 @@ export default function Loader({size = 'md', grow = false}: LoaderProps) {
   );
 }
 
-function mapSizeToRem(s: LoaderSize) {
-  switch (s) {
-    case 'md':
-      return 1;
-    case 'lg':
-      return 2;
-    case 'sm':
-      return 0.75;
-    default:
-      return 1;
-  }
-}
+// function mapSizeToRem(s: LoaderSize) {
+//   switch (s) {
+//     case 'md':
+//       return 1;
+//     case 'lg':
+//       return 2;
+//     case 'sm':
+//       return 0.75;
+//     default:
+//       return 1;
+//   }
+// }
