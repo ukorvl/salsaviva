@@ -1,4 +1,5 @@
-export const disableInDevMode = process.env.NEXT_PUBLIC_DISABLE_GA_IN_DEV_MODE;
+export const disableInDevMode =
+  process.env.NEXT_PUBLIC_DISABLE_GA_IN_DEV_MODE?.toLowerCase() === 'true';
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
 
 if (!disableInDevMode && !GA_TRACKING_ID) {
