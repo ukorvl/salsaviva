@@ -14,9 +14,9 @@ export const metadata = meta;
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className={`${robotoMono.variable} ${kumbhSans.variable}`}>
+      <body className={`${robotoMono.variable} ${kumbhSans.variable} antialiased`}>
         <WithGtag />
-        <main className="flex min-h-screen flex-col items-center justify-between p-24 font-sans">
+        <main className="flex min-h-screen flex-col items-center justify-center p-24 font-sans">
           {children}
         </main>
         <Footer />

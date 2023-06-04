@@ -1,4 +1,5 @@
 const colors = require('./tailwind/colors');
+const corePlugins = require('./tailwind/corePlugins');
 const fontFamily = require('./tailwind/fontFamily');
 
 /** @type {import('tailwindcss').Config} */
@@ -11,7 +12,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: fontFamily,
-      colors: colors
+      colors: colors,
     },
   },
+  corePlugins: corePlugins,
 };
