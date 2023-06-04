@@ -1,5 +1,5 @@
-import {AnimatePresence} from 'framer-motion';
 import '@/lib/fontawesome/configure';
+import Footer from '@/components/Footer/Footer';
 import meta from './metadata';
 import {kumbhSans, robotoMono} from './fonts';
 import './css/globals.css';
@@ -14,13 +14,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <body className={`${robotoMono.variable} ${kumbhSans.variable}`}>
-        <AnimatePresence
-          mode="wait"
-          initial={false}
-          onExitComplete={() => window.scrollTo(0, 0)}
-        >
+        <main className="flex min-h-screen flex-col items-center justify-between p-24 font-sans">
           {children}
-        </AnimatePresence>
+        </main>
+        <Footer />
       </body>
     </html>
   );

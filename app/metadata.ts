@@ -2,7 +2,10 @@
  * @file Default page metadata.
  */
 
-const metadata = {
+import {Metadata} from 'next';
+import {origin} from './origin';
+
+const metadata: Metadata = {
   title: {
     default: 'Salsaviva',
     template: 'Salsaviva | %s',
@@ -23,6 +26,7 @@ const metadata = {
   themeColor: '#602e87',
   authors: [{name: 'Ukorvl', url: 'https://github.com/ukorvl'}],
   manifest: '/manifest.json',
+  metadataBase: new URL(origin),
   openGraph: {
     title: 'Salsaviva',
     description: 'Salsa, Bachata and Kizomba in Yerevan',
