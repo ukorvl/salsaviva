@@ -5,6 +5,7 @@
     "quotes": [1, "single"],
     "array-bracket-spacing": 1,
     "object-curly-spacing": 1,
+    "no-console": 1,
     "jsdoc/require-jsdoc": [
       "warn",
       {

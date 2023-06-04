@@ -24,13 +24,12 @@ type LoaderProps = {
  * @returns React component.
  */
 export default function Loader({size = 'md', grow = false}: LoaderProps) {
-  console.log(size);
   const containerClassName = clsx(
     'flex justify-content-center align-items-center p-4',
     grow && 'min-h-screen w-full',
   );
 
-  const bouncingElementClassName = clsx('motion-safe:animate-bounce h-5 w-5 m-2 bg-white');
+  const bouncingElementClassName = clsx('motion-safe:animate-bounce h-5 w-5 m-2 bg-white', size);
 
   //const bouncingElementViewBox = '0 0 24 24';
 
