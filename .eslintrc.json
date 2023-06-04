@@ -5,6 +5,7 @@
     "quotes": [1, "single"],
     "array-bracket-spacing": 1,
     "object-curly-spacing": 1,
+    "no-console": 1,
     "jsdoc/require-jsdoc": [
       "warn",
       {
@@ -21,6 +22,7 @@
     ],
     "jsdoc/require-description-complete-sentence": 1,
     "jsdoc/require-returns-type": 0,
+    "jsdoc/require-param-type": 0,
     "import/newline-after-import": 1,
     "import/order": [
       "warn",
