@@ -2,8 +2,14 @@
  * @file Default page metadata.
  */
 
-const metadata = {
-  title: 'Salsaviva',
+import {Metadata} from 'next';
+import {origin} from './origin';
+
+const metadata: Metadata = {
+  title: {
+    default: 'Salsaviva',
+    template: 'Salsaviva | %s',
+  },
   description: 'Salsa, Bachata and Kizomba in Yerevan',
   keywords: [
     'Salsa',
@@ -20,10 +26,10 @@ const metadata = {
   themeColor: '#602e87',
   authors: [{name: 'Ukorvl', url: 'https://github.com/ukorvl'}],
   manifest: '/manifest.json',
+  metadataBase: new URL(origin),
   openGraph: {
     title: 'Salsaviva',
     description: 'Salsa, Bachata and Kizomba in Yerevan',
-    siteName: 'Next.js',
     images: [
       {
         url: 'https://nextjs.org/og.png',
@@ -43,8 +49,7 @@ const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Salsaviva',
-    description: 'The React Framework for the Web',
-    creator: '@ukorvl',
+    description: 'Salsa, Bachata and Kizomba in Yerevan',
     images: ['https://nextjs.org/og.png'],
   },
   viewport: {
