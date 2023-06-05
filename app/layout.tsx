@@ -16,7 +16,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en">
       <body className={`${robotoMono.variable} ${kumbhSans.variable} antialiased`}>
         <WithGtag />
-        <main className="flex min-h-screen flex-col items-center justify-center p-24 font-sans">
+        <main className="flex min-h-screen flex-col items-center justify-center p-24 font-sans text-white">
           {children}
         </main>
         <Footer />

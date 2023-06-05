@@ -16,5 +16,8 @@ module.exports = [
   'margin',
   'animation',
   'height',
-  'width'
+  'width',
+  'display',
+  'userSelect',
+  'textColor',
 ];

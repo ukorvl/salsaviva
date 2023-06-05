@@ -3,9 +3,10 @@
  */
 export default function Title() {
   return (
-    <div className="font-mono text-5xl text-center">
-      <span className="font-light">SALSA</span>
-      <span className="font-bold">VIVA</span>
+    <div className="font-mono text-5xl select-none text-justify">
+      <h1 className="font-light inline">SALSA</h1>
+      <h1 className="font-bold inline">VIVA</h1>
+      <h6 className="font-sans font-light m-3">SOCIAL DANCE SCHOOL</h6>
     </div>
   );
 }
