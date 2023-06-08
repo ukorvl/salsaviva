@@ -1,4 +1,4 @@
-import Title from '@/app/#components/Title/Title';
+import Title from '@/components/Title/Title';
 
 /**
  * @returns React component.

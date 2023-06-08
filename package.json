@@ -9,7 +9,8 @@
     "lint": "next lint",
     "lint:editorconfig": "npx editorconfig-checker",
     "cypress": "cypress open",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "blur-img": "node ./scripts/generateBlured.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

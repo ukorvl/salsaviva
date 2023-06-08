@@ -21,7 +21,7 @@ const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px,
  * @param {LazyImageProps} props Props.
  * @returns React component.
  */
-export default function LazyImage({src, blurDataURL}: LazyImageProps) {
+export default function AnimatedImage({src, blurDataURL}: LazyImageProps) {
   const [isInView, setIsInView] = useState(false);
 
   return (

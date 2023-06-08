@@ -17,15 +17,13 @@ const variants = {
   },
 };
 
-const colors = ['#FF008C', '#D309E1', '#9C1AFF', '#7700FF', '#4400FF'];
-
 /**
  *
  * @param root0
  * @param root0.i
  */
-export const MenuItem = ({i}) => {
-  const style = {border: `2px solid ${colors[i]}`};
+export const MenuItem = () => {
+  const style = {border: '2px solid white'};
   return (
     <motion.li
       variants={variants}

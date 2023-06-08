@@ -1,4 +1,4 @@
-import Loader from '@/app/#components/Loader/Loader';
+import Loader from '@/components/Loader/Loader';
 
 /**
  * @returns React component.
