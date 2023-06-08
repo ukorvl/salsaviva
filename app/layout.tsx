@@ -3,7 +3,7 @@ import Footer from '@/components/Footer/Footer';
 import WithGtag from '@/lib/gtag/WithGtag';
 import meta from './metadata';
 import {kumbhSans, robotoMono} from './fonts';
-import './css/globals.css';
+import './globals.css';
 
 export const metadata = meta;
 

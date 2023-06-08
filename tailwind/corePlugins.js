@@ -20,4 +20,6 @@ module.exports = [
   'display',
   'userSelect',
   'textColor',
+  'columns',
+  'container'
 ];

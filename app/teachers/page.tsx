@@ -12,5 +12,11 @@ export const metadata: Metadata = {
  * @returns React component.
  */
 export default function Teachers() {
-  return <div>Teachers</div>;
+  return (
+    <div className="gap-8 columns-3 ...">
+      <div>dcdcs</div>
+      <div>sdcsdcd</div>
+      <div>sdcsdcsdcsdcsdc</div>
+    </div>
+  );
 }

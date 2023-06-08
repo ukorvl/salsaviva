@@ -1,4 +1,5 @@
 const colors = require('./tailwind/colors');
+const container = require('./tailwind/container');
 const corePlugins = require('./tailwind/corePlugins');
 const fontFamily = require('./tailwind/fontFamily');
 
@@ -14,6 +15,7 @@ module.exports = {
       fontFamily: fontFamily,
       colors: colors,
     },
+    container: container,
   },
   corePlugins: corePlugins,
 };

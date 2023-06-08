@@ -1,12 +1,30 @@
 {
-  "name": "Next.JS Progressive Web App",
+  "name": "Salsaviva - Salsa, Bachata and Kizomba in Yerevan",
   "short_name": "Salsaviva",
-  "theme_color": "#ffffff",
-  "background_color": "#004740",
+  "description": "Social dance school in Yerevan",
+  "theme_color": "#18132d",
+  "background_color": "#18132d",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
-  "icons": [],
+  "icons": [
+    {
+      "src": "/logo/logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/logo/logo_maskable.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/logo/logo_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
   "splash_pages": null
 }

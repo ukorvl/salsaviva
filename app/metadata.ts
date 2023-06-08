@@ -21,9 +21,10 @@ const metadata: Metadata = {
     'latina',
     'dance studio',
     'dance school',
+    'social dance',
   ],
   colorScheme: 'dark',
-  themeColor: '#602e87',
+  themeColor: '#18132d',
   authors: [{name: 'Ukorvl', url: 'https://github.com/ukorvl'}],
   manifest: '/manifest.json',
   metadataBase: new URL(origin),
@@ -57,15 +58,23 @@ const metadata: Metadata = {
     initialScale: 1,
     maximumScale: 1,
   },
-  icons: {
-    icon: '/icon.png',
-    shortcut: '/shortcut-icon.png',
-    apple: '/apple-icon.png',
-    other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/apple-touch-icon-precomposed.png',
+  icons: [
+    {
+      rel: 'icon',
+      sizes: 'any',
+      url: '/logo/favicon.ico',
     },
-  },
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      url: '/logo/icon.svg',
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      url: '/logo/apple-touch-icon.png',
+    },
+  ],
   robots: {
     index: true,
     follow: true,
