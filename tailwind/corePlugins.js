@@ -21,5 +21,6 @@ module.exports = [
   'userSelect',
   'textColor',
   'columns',
-  'container'
+  'container',
+  'letterSpacing'
 ];

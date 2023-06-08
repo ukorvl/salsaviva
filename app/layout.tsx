@@ -1,5 +1,5 @@
 import '@/lib/fontawesome/configure';
-import Footer from '@/components/Footer/Footer';
+import Footer from '@/app/#components/Footer/Footer';
 import WithGtag from '@/lib/gtag/WithGtag';
 import meta from './metadata';
 import {kumbhSans, robotoMono} from './fonts';

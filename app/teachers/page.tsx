@@ -13,7 +13,7 @@ export const metadata: Metadata = {
  */
 export default function Teachers() {
   return (
-    <div className="gap-8 columns-3 ...">
+    <div className="gap-8 xs:columns-3">
       <div>dcdcs</div>
       <div>sdcsdcd</div>
       <div>sdcsdcsdcsdcsdc</div>
