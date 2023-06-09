@@ -2,26 +2,22 @@
  * @file Gallery images configuration.
  */
 
-import type {LazyImageProps} from '../#components/AnimatedImage/AnimatedImage';
-
-const config: Omit<LazyImageProps, 'blurDataURL'>[] = [
-  {src: '/0.png'},
-  {src: '/1.png'},
-  {src: '/2.png'},
-  {src: '/3.png'},
-  {src: '/4.png'},
-  {src: '/5.png'},
-  {src: '/6.png'},
-  {src: '/7.png'},
-  {src: '/8.png'},
-  {src: '/9.png'},
-  {src: '/10.png'},
-  {src: '/11.png'},
+const config: Array<{fileName: string}> = [
+  {fileName: '/0.png'},
+  {fileName: '/1.png'},
+  {fileName: '/2.png'},
+  {fileName: '/3.png'},
+  {fileName: '/4.png'},
+  {fileName: '/5.png'},
+  {fileName: '/6.png'},
+  {fileName: '/7.png'},
+  {fileName: '/8.png'},
+  {fileName: '/9.png'},
+  {fileName: '/10.png'},
+  {fileName: '/11.png'},
 ];
 
-// eslint-disable-next-line jsdoc/require-jsdoc
-function addBlurPrefix(src: string) {
-  return `/blured${src}`;
-}
-
-export default config.map(({src}) => ({src, blurDataURL: addBlurPrefix(src)}));
+export default config.map(({fileName}) => ({
+  src: `/gallery/${fileName}`,
+  blurDataURL: `/gallery/blured/${fileName}`,
+}));
