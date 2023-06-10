@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss/defaultConfig').corePlugins} */
 module.exports = [
+  'preflight',
   'accessibility',
   'fontWeight',
   'fontFamily',
@@ -22,5 +23,5 @@ module.exports = [
   'textColor',
   'columns',
   'container',
-  'letterSpacing'
+  'letterSpacing',
 ];

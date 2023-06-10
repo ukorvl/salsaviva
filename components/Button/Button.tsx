@@ -18,19 +18,24 @@ type ButtonProps = ButtonOwnProps &
 /**
  * @returns React component.
  */
-export default function Button({}: ButtonProps) {
-  return forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-    {className, ...restProps},
-    ref,
-  ) {
-    const cn = clsx(className);
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  {className, children, ...restProps},
+  ref,
+) {
+  const cn = clsx(
+    className,
+    'inline-flex items-center justify-center gap-4 relative p-4 overflow-hidden font-medium text-white bg-red rounded-lg',
+  );
 
-    return (
-      <button
-        className={cn}
-        ref={ref}
-        {...restProps}
-      ></button>
-    );
-  });
-}
+  return (
+    <button
+      className={cn}
+      ref={ref}
+      {...restProps}
+    >
+      {children}
+    </button>
+  );
+});
+
+export default Button;
