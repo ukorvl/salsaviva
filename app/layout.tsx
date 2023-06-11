@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import '@/lib/fontawesome/configure';
 import Footer from '@/components/Footer/Footer';
 import WithGtag from '@/lib/gtag/WithGtag';
@@ -7,6 +8,15 @@ import {kumbhSans, robotoMono} from './fonts';
 import './globals.css';
 
 export const metadata = meta;
+
+const bodyCn = clsx(
+  robotoMono.variable,
+  kumbhSans.variable,
+  'antialiased',
+  'min-h-screen',
+  'font-sans',
+  'text-white',
+);
 
 /**
  * @param {{children}} props Props.
