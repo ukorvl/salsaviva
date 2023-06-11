@@ -28,6 +28,12 @@ module.exports = [
   'columns',
   'container',
   'ringColor',
+  'ringWidth',
   'overflow',
-  'backgroundImage'
+  'backgroundImage',
+  'gap',
+  'outlineStyle',
+  'transitionProperty',
+  'transitionTimingFunction',
+  'transitionDuration'
 ];

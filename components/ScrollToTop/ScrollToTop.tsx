@@ -23,7 +23,7 @@ const variants = {
  * @returns React component.
  */
 export default function ScrollToTopButton({offset = 1000, ...restProps}: ScrollToTopButtonProps) {
-  const [visible, setVisible] = useState(getScrollOffset() >= offset);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line jsdoc/require-jsdoc
@@ -44,7 +44,7 @@ export default function ScrollToTopButton({offset = 1000, ...restProps}: ScrollT
       aria-hidden={true}
       {...restProps}
     >
-      <FontAwesomeIcon icon={['fas', 'circle-up']} />
+      <FontAwesomeIcon icon={['fas', 'circle-arrow-up']} />
     </motion.button>
   );
 }
