@@ -37,6 +37,7 @@ export default function ScrollToTopButton({offset = 1000, ...restProps}: ScrollT
 
   return (
     <motion.button
+      className="absolute"
       animate={visible ? 'visible' : 'hidden'}
       variants={variants}
       onClick={() => scrollToTop()}

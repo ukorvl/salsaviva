@@ -1,6 +1,7 @@
 import '@/lib/fontawesome/configure';
 import Footer from '@/components/Footer/Footer';
 import WithGtag from '@/lib/gtag/WithGtag';
+import ScrollToTopButton from '@/components/ScrollToTop/ScrollToTop';
 import meta from './metadata';
 import {kumbhSans, robotoMono} from './fonts';
 import './globals.css';
@@ -20,6 +21,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <WithGtag />
         <main className="flex flex-col items-center justify-center p-24">{children}</main>
         <Footer />
+        <ScrollToTopButton
+          bottom={150}
+          right={150}
+        />
       </body>
     </html>
   );

@@ -24,5 +24,12 @@ module.exports = [
   'columns',
   'container',
   'letterSpacing',
-  'backgroundColor'
+  'backgroundColor',
+  'gradientColorStops',
+  'position',
+  'borderRadius',
+  'gradientColorStops',
+  'columns',
+  'container',
+  'ringColor',
 ];
