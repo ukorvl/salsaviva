@@ -16,7 +16,10 @@ const bodyCn = clsx(
   'min-h-screen',
   'font-sans',
   'text-white',
+  'bg-black',
 );
+
+const mainCn = clsx('flex', 'fkex-col', 'items-center', 'justify-center', 'p-24');
 
 /**
  * @param {{children}} props Props.
@@ -25,11 +28,9 @@ const bodyCn = clsx(
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body
-        className={`${robotoMono.variable} ${kumbhSans.variable} antialiased min-h-screen font-sans text-white bg-black`}
-      >
+      <body className={bodyCn}>
         <WithGtag />
-        <main className="flex flex-col items-center justify-center p-24">{children}</main>
+        <main className={mainCn}>{children}</main>
         <Footer />
         <ScrollToTopButton
           bottom={150}

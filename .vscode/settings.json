@@ -1,5 +1,5 @@
 {
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
   "typescript.preferences.quoteStyle": "single",
-  "tailwindCSS.experimental.classRegex": ["clsx(*)"]
+  "tailwindCSS.experimental.classRegex": [["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]]
 }
