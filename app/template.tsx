@@ -2,6 +2,8 @@
 
 import {motion, AnimatePresence} from 'framer-motion';
 import {LocationChangeTracker} from '@/lib/gtag/LocationChangeTracker';
+import Menu from '@/components/Menu/Menu';
+import topMenuCongif from './topMenuCongif';
 
 /**
  * @param {{children}} props Props.
@@ -22,6 +24,17 @@ export default function Template({children}: {children: React.ReactNode}) {
             damping: 20,
           }}
         >
+          <Menu>
+            <Menu.Toggle />
+            <Menu.List>
+              {topMenuCongif.map((props, idx) => (
+                <Menu.Item
+                  key={idx}
+                  {...props}
+                />
+              ))}
+            </Menu.List>
+          </Menu>
           {children}
         </motion.div>
       </AnimatePresence>
