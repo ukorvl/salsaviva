@@ -36,7 +36,7 @@ const buttonVariantMap: Record<ButtonVariant, string> = {
 };
 
 const buttonSizeMap: Record<ButtonSize, string> = {
-  sm: 'px-2 py-1 rounded-md',
+  sm: 'px-2 py-1 rounded-md text-sm',
   md: 'px-4 py-2 rounded-lg',
   lg: 'px-8 py-4 rounded-xl',
 };

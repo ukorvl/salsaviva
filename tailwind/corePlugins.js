@@ -35,5 +35,5 @@ module.exports = [
   'outlineStyle',
   'transitionProperty',
   'transitionTimingFunction',
-  'transitionDuration'
+  'transitionDuration',
 ];
