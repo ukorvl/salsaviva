@@ -22,7 +22,7 @@ const variants = {
  * @param {ScrollToTopButtonProps} props Props.
  * @returns React component.
  */
-export default function ScrollToTopButton({offset = 1000, ...restProps}: ScrollToTopButtonProps) {
+export default function ScrollToTopButton({offset = 1000, ...position}: ScrollToTopButtonProps) {
   const [visible, setVisible] = useState(false);
 
   const scrollHandler: ScrollHandler = useCallback(
@@ -41,7 +41,7 @@ export default function ScrollToTopButton({offset = 1000, ...restProps}: ScrollT
       variants={variants}
       onClick={() => scrollToTop()}
       aria-hidden={true}
-      {...restProps}
+      style={position}
     >
       <FontAwesomeIcon icon={['fas', 'circle-arrow-up']} />
     </motion.button>

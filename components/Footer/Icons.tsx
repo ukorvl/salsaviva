@@ -10,7 +10,7 @@ type IconConfig = {
   href: string;
 } & FontAwesomeIconProps;
 
-const {FACEBOOK_ADDRESS, INSTAGRAM_ADDRESS, TELEGRAM_ADDRESS} = envConfig;
+const {FACEBOOK_ADDRESS, INSTAGRAM_ADDRESS, TELEGRAM_ADDRESS, WHATSAPP_ADDRESS} = envConfig;
 
 /**
  * Social icons config.
@@ -24,7 +24,7 @@ const iconsConfig: IconConfig[] = [
   },
   {
     icon: ['fab', 'instagram'],
-    href: INSTAGRAM_ADDRESS,
+    href: WHATSAPP_ADDRESS,
     size: '2x',
     target: '_blank',
   },

@@ -3,6 +3,7 @@
 import {motion, AnimatePresence} from 'framer-motion';
 import {LocationChangeTracker} from '@/lib/gtag/LocationChangeTracker';
 import Menu from '@/components/Menu/Menu';
+import useDynamicFavicon from '@/lib/dynamicFavicon/useDynamicFavicon';
 import topMenuCongif from './topMenuCongif';
 
 /**
@@ -10,6 +11,8 @@ import topMenuCongif from './topMenuCongif';
  * @returns Global template.
  */
 export default function Template({children}: {children: React.ReactNode}) {
+  useDynamicFavicon();
+
   return (
     <>
       <LocationChangeTracker />
