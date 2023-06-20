@@ -7,3 +7,8 @@
   link.href = 'https://yourdomain.com/favicon.ico';
   document.getElementsByTagName('head')[0].appendChild(link);
 })();
+
+/**
+ *
+ */
+export default function changeFavicon() {}

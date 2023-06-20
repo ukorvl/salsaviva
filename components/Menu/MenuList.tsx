@@ -1,6 +1,7 @@
-import {FocusEvent, ReactNode, useCallback, useContext} from 'react';
+import {FocusEvent, ReactNode, useCallback, useContext, useRef} from 'react';
 import {useHotkeys} from 'react-hotkeys-hook';
 import useScroll from '@/utils/useScroll';
+import useDimensions from '@/utils/useDimensions';
 import {MenuContext} from './MenuContext';
 
 /**
@@ -16,9 +17,11 @@ type MenuListProps = {
  */
 export default function MenuList({children}: MenuListProps) {
   const {setIsOpen} = useContext(MenuContext);
+  const containerRef = useRef(null);
   const close = useCallback(() => setIsOpen(false), [setIsOpen]);
   useHotkeys('esc', close);
   useScroll(close);
+  const {height} = useDimensions();
 
   // eslint-disable-next-line jsdoc/require-jsdoc
   const onBlur = (e: FocusEvent<HTMLDivElement, Element>) => {
@@ -27,5 +30,12 @@ export default function MenuList({children}: MenuListProps) {
     }
   };
 
-  return <div onBlur={onBlur}>{children}</div>;
+  return (
+    <div
+      onBlur={onBlur}
+      ref={containerRef}
+    >
+      {children}
+    </div>
+  );
 }
