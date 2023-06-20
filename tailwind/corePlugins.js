@@ -9,6 +9,7 @@ module.exports = [
   'textAlign',
   'flex',
   'flexDirection',
+  'flexWrap',
   'alignItems',
   'justifyContent',
   'minHeight',

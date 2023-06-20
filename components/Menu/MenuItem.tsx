@@ -1,4 +1,13 @@
 import {motion} from 'framer-motion';
+import {forwardRef, useContext} from 'react';
+import {MenuContext} from './MenuContext';
+
+/**
+ * Props.
+ */
+type MenuItemProps = {
+  className?: string;
+};
 
 const variants = {
   open: {
@@ -18,26 +27,23 @@ const variants = {
 };
 
 /**
- *
- * @param root0
- * @param root0.i
+ * @param {MenuItemProps} props Props.
+ * @returns React componenet.
  */
-export const MenuItem = () => {
-  const style = {border: '2px solid white'};
+const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(function MenuItem({className}, ref) {
+  const {setIsOpen} = useContext(MenuContext);
+
   return (
     <motion.li
       variants={variants}
       whileHover={{scale: 1.1}}
       whileTap={{scale: 0.95}}
+      ref={ref}
     >
-      <div
-        className="icon-placeholder"
-        style={style}
-      />
-      <div
-        className="text-placeholder"
-        style={style}
-      />
+      <div className="icon-placeholder" />
+      <div className="text-placeholder" />
     </motion.li>
   );
-};
+});
+
+export default MenuItem;

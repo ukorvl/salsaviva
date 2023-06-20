@@ -1,9 +1,9 @@
 'use client';
 
-import {CSSProperties, useEffect, useState} from 'react';
+import {CSSProperties, useCallback, useState} from 'react';
 import {motion} from 'framer-motion';
-import throttle from 'lodash/throttle';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import useScroll, {ScrollHandler} from '@/utils/useScroll';
 
 /**
  * Props.
@@ -25,15 +25,14 @@ const variants = {
 export default function ScrollToTopButton({offset = 1000, ...restProps}: ScrollToTopButtonProps) {
   const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    // eslint-disable-next-line jsdoc/require-jsdoc
-    const onScroll = throttle(() => {
-      setVisible(getScrollOffset() >= offset);
-    });
+  const scrollHandler: ScrollHandler = useCallback(
+    ({scrollTop}) => {
+      setVisible(scrollTop ? scrollTop > offset : false);
+    },
+    [offset],
+  );
 
-    document.addEventListener('scroll', onScroll);
-    return () => document.removeEventListener('scroll', onScroll);
-  }, [offset]);
+  useScroll(scrollHandler);
 
   return (
     <motion.button
@@ -47,11 +46,6 @@ export default function ScrollToTopButton({offset = 1000, ...restProps}: ScrollT
       <FontAwesomeIcon icon={['fas', 'circle-arrow-up']} />
     </motion.button>
   );
-}
-
-// eslint-disable-next-line jsdoc/require-jsdoc
-function getScrollOffset() {
-  return document.documentElement.scrollTop;
 }
 
 // eslint-disable-next-line jsdoc/require-jsdoc

@@ -1,5 +1,5 @@
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import {faInstagram, faTelegram, faWhatsapp} from '@fortawesome/free-brands-svg-icons';
+import {faInstagram, faTelegram, faWhatsapp, faFacebook} from '@fortawesome/free-brands-svg-icons';
 // eslint-disable-next-line import/order
 import {faCircleArrowUp} from '@fortawesome/free-solid-svg-icons';
 
@@ -13,4 +13,4 @@ config.autoAddCss = false;
 /**
  * Adds only required icons.
  */
-library.add(faInstagram, faTelegram, faWhatsapp, faCircleArrowUp);
+library.add(faInstagram, faTelegram, faWhatsapp, faCircleArrowUp, faFacebook);
