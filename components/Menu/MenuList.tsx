@@ -1,7 +1,7 @@
 import {FocusEvent, ReactNode, useCallback, useContext, useRef} from 'react';
 import {useHotkeys} from 'react-hotkeys-hook';
-import useScroll from '@/utils/useScroll';
-import useDimensions from '@/utils/useDimensions';
+import useScroll from '@/lib/shared/useScroll';
+import useDimensions from '@/lib/shared/useDimensions';
 import {MenuContext} from './MenuContext';
 
 /**

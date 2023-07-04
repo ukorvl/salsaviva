@@ -3,7 +3,7 @@
 import {CSSProperties, useCallback, useState} from 'react';
 import {motion} from 'framer-motion';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import useScroll, {ScrollHandler} from '@/utils/useScroll';
+import useScroll, {ScrollHandler} from '@/lib/shared/useScroll';
 
 /**
  * Props.
