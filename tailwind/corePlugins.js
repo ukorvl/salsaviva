@@ -37,4 +37,5 @@ module.exports = [
   'transitionProperty',
   'transitionTimingFunction',
   'transitionDuration',
+  'backgroundClip',
 ];
