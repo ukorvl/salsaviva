@@ -1,18 +1,10 @@
-import {FontAwesomeIcon, FontAwesomeIconProps} from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
 import {memo} from 'react';
 import envConfig from '@/lib/env/envConfig';
 
 const {LOCATION_ADDRESS_TEXT, LOCATION_GOOGLE_MAPS_LINK} = envConfig;
-
-/**
- * Social icons config.
- */
-const iconProps: FontAwesomeIconProps = {
-  size: '2xl',
-  icon: ['fas', 'location-dot'],
-};
 
 const containerCn = clsx('flex', 'justify-center', 'flex-nowrap', 'gap-4');
 
