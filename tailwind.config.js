@@ -1,8 +1,7 @@
-const backgroundImage = require('./tailwind/backgroundImage');
 const colors = require('./tailwind/colors');
 const container = require('./tailwind/container');
-const corePlugins = require('./tailwind/corePlugins');
 const fontFamily = require('./tailwind/fontFamily');
+const letterSpacing = require('./tailwind/letterSpacing');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -15,9 +14,8 @@ module.exports = {
     extend: {
       fontFamily: fontFamily,
       colors: colors,
-      backgroundImage: backgroundImage,
+      letterSpacing: letterSpacing,
     },
     container: container,
   },
-  corePlugins: corePlugins,
 };

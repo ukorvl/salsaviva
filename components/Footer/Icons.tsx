@@ -2,6 +2,7 @@ import {FontAwesomeIcon, FontAwesomeIconProps} from '@fortawesome/react-fontawes
 import clsx from 'clsx';
 import Link from 'next/link';
 import {twMerge} from 'tailwind-merge';
+import {memo} from 'react';
 import envConfig from '@/lib/env/envConfig';
 
 /**
@@ -43,7 +44,7 @@ const iconsConfig: IconConfig[] = [
   },
 ];
 
-const iconsCn = clsx('flex', 'justify-center', 'flex-nowrap', 'gap-4 select-none');
+const iconsCn = clsx('flex', 'justify-center', 'flex-nowrap', 'gap-4', 'select-none');
 const iconCn = clsx('');
 /**
  * @todo Add gradient color on hover.
@@ -52,13 +53,14 @@ const iconCn = clsx('');
 /**
  * @returns React component.
  */
-export default function Icons() {
+function Icons() {
   return (
     <div className={iconsCn}>
-      {iconsConfig.map(({href, className, ...rest}) => (
+      {iconsConfig.map(({href, target, className, ...rest}) => (
         <Link
           key={href}
           href={href}
+          target={target}
         >
           <FontAwesomeIcon
             className={twMerge(iconCn, className)}
@@ -69,3 +71,5 @@ export default function Icons() {
     </div>
   );
 }
+
+export default memo(Icons);

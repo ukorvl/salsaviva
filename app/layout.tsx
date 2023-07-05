@@ -16,7 +16,7 @@ const bodyCn = clsx(
   'min-h-screen',
   'font-sans',
   'text-white',
-  'bg-black',
+  '',
 );
 
 const mainCn = clsx('flex', 'fkex-col', 'items-center', 'justify-center', 'p-24');

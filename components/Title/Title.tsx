@@ -4,9 +4,9 @@ import {memo} from 'react';
 import {Variants, motion} from 'framer-motion';
 
 const titleCn =
-  'font-light text-8xl text-transparent bg-clip-text bg-gradient-to-r from-accent3 to-accent1';
-const subtitleCn = 'font-sans text-3xl font-light tracking-wide mt-3';
-const titleContainerCn = 'font-sans select-none w-500';
+  'font-light text-9xl text-transparent bg-clip-text bg-gradient-to-r from-accent3 to-accent1';
+const subtitleCn = 'text-2xl font-light tracking-widest text-center';
+const titleContainerCn = 'font-sans select-none';
 
 const variants: Variants = {
   visible: {opacity: 1},
