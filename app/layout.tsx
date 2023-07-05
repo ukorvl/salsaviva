@@ -13,13 +13,14 @@ const bodyCn = clsx(
   robotoMono.variable,
   kumbhSans.variable,
   'antialiased',
-  'min-h-screen',
   'font-sans',
   'text-white',
-  '',
+  'bg-alternate',
+  'flex',
+  'flex-col',
 );
 
-const mainCn = clsx('flex', 'fkex-col', 'items-center', 'justify-center', 'p-24');
+const mainCn = clsx('flex', 'flex-col', 'items-center', 'justify-center', 'p-24', 'min-h-screen');
 
 /**
  * @param {{children}} props Props.

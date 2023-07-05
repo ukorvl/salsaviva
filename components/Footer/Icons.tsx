@@ -26,13 +26,13 @@ const iconsConfig: IconConfig[] = [
   },
   {
     icon: ['fab', 'instagram'],
-    href: WHATSAPP_ADDRESS,
+    href: INSTAGRAM_ADDRESS,
     size: '2x',
     target: '_blank',
   },
   {
     icon: ['fab', 'whatsapp'],
-    href: INSTAGRAM_ADDRESS,
+    href: WHATSAPP_ADDRESS,
     size: '2x',
     target: '_blank',
   },

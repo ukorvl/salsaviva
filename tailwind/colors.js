@@ -1,7 +1,7 @@
 /** @type {Record<string, string>} */
 module.exports = {
   'white': '#fefefe',
-  'black': '#110728',
+  'black': '#000000',
   'primary': '#4f5bac',
   'alternate': '#110728',
   'accent0': '#9e2077',

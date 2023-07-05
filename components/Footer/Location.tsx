@@ -7,6 +7,7 @@ import envConfig from '@/lib/env/envConfig';
 const {LOCATION_ADDRESS_TEXT, LOCATION_GOOGLE_MAPS_LINK} = envConfig;
 
 const containerCn = clsx('flex', 'justify-center', 'flex-nowrap', 'gap-4');
+const addressCn = clsx('animated-link');
 
 /**
  * @returns React component.
@@ -22,7 +23,7 @@ function Location() {
           size="2xl"
           icon={['fas', 'location-dot']}
         />
-        <address>{LOCATION_ADDRESS_TEXT}</address>
+        <address className={addressCn}>{LOCATION_ADDRESS_TEXT}</address>
       </Link>
     </div>
   );
