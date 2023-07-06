@@ -19,13 +19,6 @@ export default function Contact() {
       <Button size="lg">Submit</Button>
       <Button size="sm">Submit</Button>
       <Button variant="alternate">Submit</Button>
-      <Button outline>Submit</Button>
-      <Button
-        variant="alternate"
-        outline
-      >
-        Submit
-      </Button>
     </div>
   );
 }

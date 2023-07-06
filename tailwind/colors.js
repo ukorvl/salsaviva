@@ -1,6 +1,7 @@
 /** @type {Record<string, string>} */
 module.exports = {
   'white': '#fefefe',
+  'transparent-white': 'rgba(255,255,255,0.5)',
   'black': '#111111',
   'primary': '#4f5bac',
   'alternate': '#110728',

@@ -18,8 +18,6 @@ type ButtonSize = 'sm' | 'md' | 'lg';
 type ButtonOwnProps = {
   /** @default 'default' */
   variant?: ButtonVariant;
-  /** @default false */
-  outline?: boolean;
   /** @default 'md' */
   size?: ButtonSize;
 };
@@ -29,11 +27,6 @@ type ButtonOwnProps = {
  */
 type ButtonProps = ButtonOwnProps &
   Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'ref'>;
-
-const buttonVariantMap: Record<ButtonVariant, string> = {
-  default: '',
-  alternate: '',
-};
 
 const buttonSizeMap: Record<ButtonSize, string> = {
   sm: 'px-2 py-1 rounded-md text-sm',
@@ -52,35 +45,29 @@ const baseButtonCn = clsx(
   'select-none',
   'focus:ring-4',
   'focus:outline-none',
+  'focus:ring-white',
 );
 
 const buttonDefaultCn = clsx(
-  'bg-gradient-to-br from-accent0 to-accent2',
-  'focus:ring-accent2',
-  'hover:from-accent1 hover:to-accent3',
+  'bg-gradient-to-br from-accent1 to-accent3',
+  'hover:from-accent0 hover:to-accent2',
 );
 
-const buttonAlternateCn = clsx('');
+const buttonAlternateCn = clsx('hover:bg-transparent-white', 'focus:bg-transparent-white');
 
-const buttonOutlineCn = clsx('');
+const buttonVariantMap: Record<ButtonVariant, string> = {
+  default: buttonDefaultCn,
+  alternate: buttonAlternateCn,
+};
 
 /**
  * @returns React component.
  */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  {variant = 'default', size = 'md', className, outline = false, children, ...restProps},
+  {variant = 'default', size = 'md', className, children, ...restProps},
   ref,
 ) {
-  const cn = twMerge(
-    clsx(
-      baseButtonCn,
-      buttonVariantMap[variant],
-      buttonSizeMap[size],
-      variant === 'default' ? buttonDefaultCn : buttonAlternateCn,
-      outline && buttonOutlineCn,
-    ),
-    className,
-  );
+  const cn = twMerge(clsx(baseButtonCn, buttonVariantMap[variant], buttonSizeMap[size]), className);
 
   return (
     <button
