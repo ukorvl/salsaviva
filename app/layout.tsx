@@ -15,9 +15,9 @@ const bodyCn = clsx(
   'antialiased',
   'font-sans',
   'text-white',
-  'bg-alternate',
   'flex',
   'flex-col',
+  'bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-alternate via-alternate to-black',
 );
 
 const mainCn = clsx('flex', 'flex-col', 'items-center', 'justify-center', 'p-24', 'min-h-screen');

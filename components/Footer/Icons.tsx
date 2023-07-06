@@ -45,7 +45,7 @@ const iconsConfig: IconConfig[] = [
 ];
 
 const iconsCn = clsx('flex', 'justify-center', 'flex-nowrap', 'gap-4', 'select-none');
-const iconCn = clsx('');
+const iconCn = clsx('hover:scale-105 hover:-translate-y-0.5 transition-transform');
 /**
  * @todo Add gradient color on hover.
  */
