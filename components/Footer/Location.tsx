@@ -16,7 +16,7 @@ function Location() {
   return (
     <div className={containerCn}>
       <Link
-        href={LOCATION_GOOGLE_MAPS_LINK ?? 'fe'}
+        href={LOCATION_GOOGLE_MAPS_LINK}
         target="_blank"
       >
         <FontAwesomeIcon
