@@ -2,7 +2,7 @@
 
 import {memo, useRef} from 'react';
 import {Variants, motion} from 'framer-motion';
-import useDynamicBackground from '@/components/Title/useDynamicBackground';
+import useTitleDynamicBackground from './useTitleDynamicBackground';
 
 const titleCn = 'font-light text-9xl text-transparent bg-clip-text';
 const subtitleCn = 'text-2xl font-light tracking-widest text-center';
@@ -19,7 +19,7 @@ const variants: Variants = {
  */
 function Title() {
   const ref = useRef(null);
-  useDynamicBackground(ref);
+  useTitleDynamicBackground(ref);
 
   return (
     <motion.div

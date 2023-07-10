@@ -12,7 +12,7 @@ const delay = 50;
  * Hook to change title background on mouse move over element.
  * @param ref Ref.
  */
-export default function useDynamicBackground<T extends HTMLElement>(ref: RefObject<T>) {
+export default function useTitleDynamicBackground<T extends HTMLElement>(ref: RefObject<T>) {
   useEffect(() => {
     const element = ref.current;
 
