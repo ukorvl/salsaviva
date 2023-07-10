@@ -15,7 +15,7 @@ type MenuToggleProps = {
   className?: string;
 };
 
-const containerCn = clsx('absolute', 'top-16', 'right-16', 'z-10');
+const containerCn = clsx('absolute', 'top-16', 'right-16', 'z-20');
 const btnCn = clsx('rounded-full w-24 h-24');
 
 // eslint-disable-next-line jsdoc/require-jsdoc

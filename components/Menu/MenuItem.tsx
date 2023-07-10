@@ -36,9 +36,10 @@ const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(function MenuItem({cla
   return (
     <motion.li
       variants={variants}
-      whileHover={{scale: 1.1}}
+      whileHover={{scale: 1.05}}
       whileTap={{scale: 0.95}}
       ref={ref}
+      onClick={() => setIsOpen(false)}
     >
       <div className="icon-placeholder" />
       <div className="text-placeholder" />

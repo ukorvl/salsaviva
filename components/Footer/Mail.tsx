@@ -4,6 +4,7 @@ import envConfig from '@/lib/env/envConfig';
 
 const {CONTACT_EMAIL} = envConfig;
 
+const containerCn = clsx('flex', 'justify-center');
 const anchorCn = clsx('animated-link');
 
 /**
@@ -11,12 +12,14 @@ const anchorCn = clsx('animated-link');
  */
 function Mail() {
   return (
-    <a
-      className={anchorCn}
-      href={`mailto:${CONTACT_EMAIL}`}
-    >
-      {CONTACT_EMAIL}
-    </a>
+    <div className={containerCn}>
+      <a
+        className={anchorCn}
+        href={`mailto:${CONTACT_EMAIL}`}
+      >
+        {CONTACT_EMAIL}
+      </a>
+    </div>
   );
 }
 

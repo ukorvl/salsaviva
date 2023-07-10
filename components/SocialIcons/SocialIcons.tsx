@@ -44,8 +44,19 @@ const iconsConfig: IconConfig[] = [
   },
 ];
 
-const iconsCn = clsx('flex', 'justify-center', 'flex-nowrap', 'gap-4', 'select-none');
+const iconsCn = clsx(
+  'flex',
+  'flex-col',
+  'justify-center',
+  'gap-4',
+  'select-none',
+  'absolute',
+  'left-4',
+  '-translate-y-2/4',
+  'top-2/4',
+);
 const iconCn = clsx('hover:scale-105 hover:-translate-y-0.5 transition-transform');
+
 /**
  * @todo Add gradient color on hover.
  */
@@ -53,7 +64,7 @@ const iconCn = clsx('hover:scale-105 hover:-translate-y-0.5 transition-transform
 /**
  * @returns React component.
  */
-function Icons() {
+function SocialIcons() {
   return (
     <div className={iconsCn}>
       {iconsConfig.map(({href, target, className, ...rest}) => (
@@ -72,4 +83,4 @@ function Icons() {
   );
 }
 
-export default memo(Icons);
+export default memo(SocialIcons);

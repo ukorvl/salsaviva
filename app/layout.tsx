@@ -3,6 +3,7 @@ import '@/lib/fontawesome/configure';
 import Footer from '@/components/Footer/Footer';
 import WithGtag from '@/lib/gtag/WithGtag';
 import ScrollToTopButton from '@/components/ScrollToTop/ScrollToTop';
+import SocialIcons from '@/components/SocialIcons/SocialIcons';
 import meta from './metadata';
 import {kumbhSans, robotoMono} from './fonts';
 import './globals.css';
@@ -17,10 +18,11 @@ const bodyCn = clsx(
   'text-white',
   'flex',
   'flex-col',
+  'min-h-screen',
   'bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-black via-alternate to-black',
 );
 
-const mainCn = clsx('flex', 'flex-col', 'items-center', 'justify-center', 'p-24', 'min-h-screen');
+const mainCn = clsx('flex', 'flex-col', 'items-center', 'justify-center', 'p-24');
 
 /**
  * @param {{children}} props Props.
@@ -31,6 +33,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en">
       <body className={bodyCn}>
         <WithGtag />
+        <SocialIcons />
         <main className={mainCn}>{children}</main>
         <Footer />
         <ScrollToTopButton

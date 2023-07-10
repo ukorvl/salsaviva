@@ -1,4 +1,5 @@
 import {ReactNode, useState} from 'react';
+import useDisableBodyScroll from '@/lib/shared/useDisableBodyScroll';
 import MenuItem from './MenuItem';
 import MenuToggle from './MenuToggle';
 import MenuList from './MenuList';
@@ -19,6 +20,7 @@ type MenuProps = {
  */
 export default function Menu({initialOpen = false, children}: MenuProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
+  useDisableBodyScroll(isOpen);
 
   return <MenuContext.Provider value={{isOpen, setIsOpen}}>{children}</MenuContext.Provider>;
 }

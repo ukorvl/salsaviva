@@ -4,6 +4,7 @@ import envConfig from '@/lib/env/envConfig';
 
 const {CONTACT_PHONE} = envConfig;
 
+const containerCn = clsx('flex', 'justify-center');
 const telCn = clsx('animated-link', 'tracking-wider');
 
 /**
@@ -11,12 +12,14 @@ const telCn = clsx('animated-link', 'tracking-wider');
  */
 function Phone() {
   return (
-    <a
-      className={telCn}
-      href={`tel:${CONTACT_PHONE}`}
-    >
-      {CONTACT_PHONE}
-    </a>
+    <div className={containerCn}>
+      <a
+        className={telCn}
+        href={`tel:${CONTACT_PHONE}`}
+      >
+        {CONTACT_PHONE}
+      </a>
+    </div>
   );
 }
 

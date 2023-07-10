@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {memo} from 'react';
+import clsx from 'clsx';
 import envConfig from '@/lib/env/envConfig';
 
 const {FACEBOOK_ADDRESS, INSTAGRAM_ADDRESS, TELEGRAM_ADDRESS} = envConfig;
@@ -20,13 +21,14 @@ const linksConfig = [
 ] as const;
 
 const linkCn = 'animated-link';
+const containerCn = clsx('flex', 'justify-center', 'gap-16', 'w-full');
 
 /**
  * @returns React component.
  */
 function SocialLinksList() {
   return (
-    <div>
+    <div className={containerCn}>
       {linksConfig.map(({title, href}) => (
         <Link
           key={title}

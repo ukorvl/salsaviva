@@ -25,6 +25,10 @@
     width: 100%;
   }
 
+  .animated-link:focus {
+    outline: none;
+  }
+
   .animated-link:focus:after {
     width: 100%;
   }
