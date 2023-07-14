@@ -9,7 +9,7 @@ export type ScrollHandler = (props: {scrollTop?: number}) => void;
 const delay = 50;
 
 /**
- * Hook to change title background on mouse move over element.
+ * Hook to change title background on mouse move.
  * @param ref Ref.
  */
 export default function useTitleDynamicBackground<T extends HTMLElement>(ref: RefObject<T>) {
@@ -20,14 +20,15 @@ export default function useTitleDynamicBackground<T extends HTMLElement>(ref: Re
       return;
     }
 
-    element.style.backgroundColor = 'white';
-    element.style.backgroundSize = '0';
+    element.style.backgroundPosition = '-25% 70%';
+
     const handleResize = debounce((e: MouseEvent) => {
-      element.style.backgroundColor = 'red';
+      //const {clientX, clientY} = e;
+      element.style.backgroundSize = '0 30%';
     }, delay);
 
-    window.addEventListener('mouseover', handleResize);
+    document.addEventListener('mouseover', handleResize);
 
-    return () => window.removeEventListener('mouseover', handleResize);
+    return () => document.removeEventListener('mouseover', handleResize);
   }, [ref]);
 }

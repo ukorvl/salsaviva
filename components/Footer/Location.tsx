@@ -6,7 +6,7 @@ import envConfig from '@/lib/env/envConfig';
 const {LOCATION_ADDRESS_TEXT, LOCATION_GOOGLE_MAPS_LINK} = envConfig;
 
 const containerCn = clsx('flex', 'justify-center', 'flex-nowrap', 'gap-4');
-const addressCn = clsx('non-italic');
+const addressCn = clsx('not-italic');
 const linkCn = clsx('animated-link');
 
 /**
