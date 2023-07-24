@@ -62,17 +62,17 @@ const metadata: Metadata = {
     {
       rel: 'icon',
       sizes: 'any',
-      url: '/logo/favicon.ico',
+      url: '/icons/favicon.ico',
     },
     {
       rel: 'icon',
       type: 'image/svg+xml',
-      url: '/logo/icon.svg',
+      url: '/icons/icon.svg',
     },
     {
       rel: 'apple-touch-icon',
       sizes: '180x180',
-      url: '/logo/apple-touch-icon.png',
+      url: '/icons/apple-touch-icon.png',
     },
   ],
   robots: {

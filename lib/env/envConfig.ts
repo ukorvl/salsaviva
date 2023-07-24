@@ -1,14 +1,14 @@
 const envNames = [
-  'CONTACT_PHONE',
-  'WHATSAPP_ADDRESS',
-  'FACEBOOK_ADDRESS',
-  'INSTAGRAM_ADDRESS',
-  'TELEGRAM_ADDRESS',
-  'CONTACT_EMAIL',
+  'NEXT_PUBLIC_CONTACT_PHONE',
+  'NEXT_PUBLIC_WHATSAPP_ADDRESS',
+  'NEXT_PUBLIC_FACEBOOK_ADDRESS',
+  'NEXT_PUBLIC_INSTAGRAM_ADDRESS',
+  'NEXT_PUBLIC_TELEGRAM_ADDRESS',
+  'NEXT_PUBLIC_CONTACT_EMAIL',
   'NEXT_PUBLIC_DISABLE_GA_IN_DEV_MODE',
   'NEXT_PUBLIC_GA_TRACKING_ID',
-  'LOCATION_GOOGLE_MAPS_LINK',
-  'LOCATION_ADDRESS_TEXT',
+  'NEXT_PUBLIC_LOCATION_GOOGLE_MAPS_LINK',
+  'NEXT_PUBLIC_LOCATION_ADDRESS_TEXT',
 ] as const;
 
 /**
@@ -25,7 +25,8 @@ const getEnvironmentVariable = (environmentVariable: EnvName): string => {
   const unvalidatedEnvironmentVariable = process.env[environmentVariable];
 
   if (!unvalidatedEnvironmentVariable) {
-    throw new Error(`Couldn't find environment variable: ${environmentVariable}`);
+    // throw new Error(`Couldn't find environment variable: ${environmentVariable}`);
+    return '';
   } else {
     return unvalidatedEnvironmentVariable;
   }

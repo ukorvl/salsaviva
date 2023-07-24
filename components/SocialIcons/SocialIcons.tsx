@@ -1,48 +1,9 @@
-import {FontAwesomeIcon, FontAwesomeIconProps} from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
 import {twMerge} from 'tailwind-merge';
 import {memo} from 'react';
-import envConfig from '@/lib/env/envConfig';
-
-/**
- * Icon configuration.
- */
-type IconConfig = {
-  href: string;
-} & FontAwesomeIconProps;
-
-const {FACEBOOK_ADDRESS, INSTAGRAM_ADDRESS, TELEGRAM_ADDRESS, WHATSAPP_ADDRESS} = envConfig;
-
-/**
- * Social icons config.
- */
-const iconsConfig: IconConfig[] = [
-  {
-    icon: ['fab', 'facebook'],
-    href: FACEBOOK_ADDRESS,
-    size: '2x',
-    target: '_blank',
-  },
-  {
-    icon: ['fab', 'instagram'],
-    href: INSTAGRAM_ADDRESS,
-    size: '2x',
-    target: '_blank',
-  },
-  {
-    icon: ['fab', 'whatsapp'],
-    href: WHATSAPP_ADDRESS,
-    size: '2x',
-    target: '_blank',
-  },
-  {
-    icon: ['fab', 'telegram'],
-    href: TELEGRAM_ADDRESS,
-    size: '2x',
-    target: '_blank',
-  },
-];
+import iconsConfig from './iconsConfig';
 
 const iconsCn = clsx(
   'flex',

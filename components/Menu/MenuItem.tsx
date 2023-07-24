@@ -1,11 +1,14 @@
-import {motion} from 'framer-motion';
-import {forwardRef, useContext} from 'react';
+import {m} from 'framer-motion';
+import {ReactNode, forwardRef, useContext} from 'react';
+import clsx from 'clsx';
+import {twMerge} from 'tailwind-merge';
 import {MenuContext} from './MenuContext';
 
 /**
  * Props.
  */
 type MenuItemProps = {
+  children: ReactNode;
   className?: string;
 };
 
@@ -26,24 +29,29 @@ const variants = {
   },
 };
 
+const itemCn = clsx('text-4xl', 'm-2', 'text-center');
+
 /**
  * @param {MenuItemProps} props Props.
  * @returns React componenet.
  */
-const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(function MenuItem({className}, ref) {
+const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(function MenuItem(
+  {children, className},
+  ref,
+) {
   const {setIsOpen} = useContext(MenuContext);
 
   return (
-    <motion.li
+    <m.li
       variants={variants}
       whileHover={{scale: 1.05}}
       whileTap={{scale: 0.95}}
       ref={ref}
       onClick={() => setIsOpen(false)}
+      className={twMerge(itemCn, className)}
     >
-      <div className="icon-placeholder" />
-      <div className="text-placeholder" />
-    </motion.li>
+      {children}
+    </m.li>
   );
 });
 

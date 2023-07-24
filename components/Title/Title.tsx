@@ -1,9 +1,8 @@
 'use client';
 
-import {memo, useRef} from 'react';
-import {Variants, motion} from 'framer-motion';
+import {memo} from 'react';
+import {Variants, m} from 'framer-motion';
 import clsx from 'clsx';
-import useTitleDynamicBackground from './useTitleDynamicBackground';
 
 const titleCn = clsx('font-light', 'text-9xl', 'text-transparent', 'bg-clip-text', 'z-10');
 const subtitleCn = clsx('text-2xl', 'font-light', 'tracking-widest', 'text-center');
@@ -12,7 +11,7 @@ const titleContainerCn = clsx(
   'select-none',
   'bg-gradient-to-r',
   'from-accent3',
-  'to-accent1',
+  'to-accent0',
   'bg-clip-text',
 );
 
@@ -25,11 +24,8 @@ const variants: Variants = {
  * @returns React component.
  */
 function Title() {
-  const ref = useRef(null);
-  useTitleDynamicBackground(ref);
-
   return (
-    <motion.div
+    <m.div
       className={titleContainerCn}
       initial="hidden"
       whileInView="visible"
@@ -37,14 +33,11 @@ function Title() {
       transition={{duration: 0.5, delay: 0.3}}
       variants={variants}
     >
-      <h1
-        className={titleCn}
-        ref={ref}
-      >
+      <h1 className={titleCn}>
         SALSA<span className="font-extrabold">VIVA</span>
       </h1>
       <h6 className={subtitleCn}>SOCIAL DANCE SCHOOL</h6>
-    </motion.div>
+    </m.div>
   );
 }
 

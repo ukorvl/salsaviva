@@ -1,7 +1,7 @@
 'use client';
 
 import {CSSProperties, useCallback, useState} from 'react';
-import {motion} from 'framer-motion';
+import {m} from 'framer-motion';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import useScroll, {ScrollHandler} from '@/lib/shared/useScroll';
 
@@ -35,7 +35,7 @@ export default function ScrollToTopButton({offset = 1000, ...position}: ScrollTo
   useScroll(scrollHandler);
 
   return (
-    <motion.button
+    <m.button
       className="absolute"
       animate={visible ? 'visible' : 'hidden'}
       variants={variants}
@@ -44,7 +44,7 @@ export default function ScrollToTopButton({offset = 1000, ...position}: ScrollTo
       style={position}
     >
       <FontAwesomeIcon icon={['fas', 'circle-arrow-up']} />
-    </motion.button>
+    </m.button>
   );
 }
 

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import {memo} from 'react';
 import envConfig from '@/lib/env/envConfig';
 
-const {CONTACT_PHONE} = envConfig;
+const {NEXT_PUBLIC_CONTACT_PHONE} = envConfig;
 
 const containerCn = clsx('flex', 'justify-center');
 const telCn = clsx('animated-link', 'tracking-wider');
@@ -15,9 +15,9 @@ function Phone() {
     <div className={containerCn}>
       <a
         className={telCn}
-        href={`tel:${CONTACT_PHONE}`}
+        href={`tel:${NEXT_PUBLIC_CONTACT_PHONE}`}
       >
-        {CONTACT_PHONE}
+        {NEXT_PUBLIC_CONTACT_PHONE}
       </a>
     </div>
   );

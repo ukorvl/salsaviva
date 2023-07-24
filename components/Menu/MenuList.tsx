@@ -1,8 +1,9 @@
-import {FocusEvent, ReactNode, useCallback, useContext, useRef} from 'react';
-import {motion} from 'framer-motion';
+import {FocusEvent, ReactNode, useCallback, useContext} from 'react';
+import {m} from 'framer-motion';
 import {useHotkeys} from 'react-hotkeys-hook';
 import clsx from 'clsx';
 import useScroll from '@/lib/shared/useScroll';
+import useWindowDimensions from '@/lib/shared/useWindowDimensions';
 import {MenuContext} from './MenuContext';
 
 /**
@@ -14,7 +15,7 @@ type MenuListProps = {
 
 const navVariants = {
   // eslint-disable-next-line jsdoc/require-jsdoc
-  open: (height = 1000) => ({
+  open: (height: number) => ({
     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
     transition: {
       type: 'spring',
@@ -33,24 +34,19 @@ const navVariants = {
   },
 };
 
-const variants = {
-  open: {
-    transition: {staggerChildren: 0.07, delayChildren: 0.2},
-  },
-  closed: {
-    transition: {staggerChildren: 0.05, staggerDirection: -1},
-  },
-};
-
-const navCn =
-  clsx();
-  // 'absolute',
-  // 'top-0',
-  // 'left-0',
-  // 'w-full',
-  // 'h-full',
-  // 'z-10',
-  // 'bg-alternate',
+const navCn = clsx(
+  'absolute',
+  'top-0',
+  'left-0',
+  'w-full',
+  'h-full',
+  'z-10',
+  'bg-alternate',
+  'flex',
+  'flex-col',
+  'items-center',
+  'justify-center',
+);
 
 /**
  * @param {MenuListProps} props Props.
@@ -58,10 +54,11 @@ const navCn =
  */
 export default function MenuList({children}: MenuListProps) {
   const {isOpen, setIsOpen} = useContext(MenuContext);
-  const containerRef = useRef(null);
   const close = useCallback(() => setIsOpen(false), [setIsOpen]);
   useHotkeys('esc', close);
   useScroll(close);
+
+  const {height} = useWindowDimensions();
 
   // eslint-disable-next-line jsdoc/require-jsdoc
   const onBlur = (e: FocusEvent<HTMLUListElement, Element>) => {
@@ -71,20 +68,15 @@ export default function MenuList({children}: MenuListProps) {
   };
 
   return (
-    <motion.nav
+    <m.nav
       initial={false}
       animate={isOpen ? 'open' : 'closed'}
-      //custom={height}
-      ref={containerRef}
+      custom={height}
       className={navCn}
+      variants={navVariants}
+      onBlur={onBlur}
     >
-      <motion.ul
-        onBlur={onBlur}
-        ref={containerRef}
-        variants={variants}
-      >
-        {children}
-      </motion.ul>
-    </motion.nav>
+      {children}
+    </m.nav>
   );
 }

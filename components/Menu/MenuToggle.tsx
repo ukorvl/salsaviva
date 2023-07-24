@@ -1,6 +1,6 @@
 'use client';
 
-import {SVGMotionProps, motion} from 'framer-motion';
+import {SVGMotionProps, Variants, m} from 'framer-motion';
 import {forwardRef, memo, useContext} from 'react';
 import clsx from 'clsx';
 import {twMerge} from 'tailwind-merge';
@@ -15,12 +15,17 @@ type MenuToggleProps = {
   className?: string;
 };
 
+const menuVariants: Variants = {
+  visible: {opacity: 1},
+  hidden: {opacity: 0},
+};
+
 const containerCn = clsx('absolute', 'top-16', 'right-16', 'z-20');
 const btnCn = clsx('rounded-full w-24 h-24');
 
 // eslint-disable-next-line jsdoc/require-jsdoc
 const Path = ({variants}: SVGMotionProps<SVGPathElement>) => (
-  <motion.path
+  <m.path
     fill="white"
     strokeWidth="4"
     stroke="white"
@@ -45,11 +50,12 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(function MenuT
   };
 
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="visible"
       viewport={{once: true}}
-      transition={{duration: 0.5, delay: 0.3}}
+      transition={{duration: 0.75, delay: 1}}
+      variants={menuVariants}
       className={containerCn}
       animate={isOpen ? 'open' : 'closed'}
     >
@@ -78,7 +84,7 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(function MenuT
           />
         </svg>
       </Button>
-    </motion.div>
+    </m.div>
   );
 });
 

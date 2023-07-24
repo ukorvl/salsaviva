@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import {memo} from 'react';
 import envConfig from '@/lib/env/envConfig';
 
-const {CONTACT_EMAIL} = envConfig;
+const {NEXT_PUBLIC_CONTACT_EMAIL} = envConfig;
 
 const containerCn = clsx('flex', 'justify-center');
 const anchorCn = clsx('animated-link');
@@ -15,9 +15,9 @@ function Mail() {
     <div className={containerCn}>
       <a
         className={anchorCn}
-        href={`mailto:${CONTACT_EMAIL}`}
+        href={`mailto:${NEXT_PUBLIC_CONTACT_EMAIL}`}
       >
-        {CONTACT_EMAIL}
+        {NEXT_PUBLIC_CONTACT_EMAIL}
       </a>
     </div>
   );

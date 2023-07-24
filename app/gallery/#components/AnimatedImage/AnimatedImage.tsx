@@ -1,7 +1,7 @@
 'use client';
 
 import {useState} from 'react';
-import {motion} from 'framer-motion';
+import {m} from 'framer-motion';
 import Image from 'next/image';
 
 /**
@@ -25,7 +25,7 @@ export default function AnimatedImage({src, blurDataURL}: LazyImageProps) {
   const [isInView, setIsInView] = useState(false);
 
   return (
-    <motion.div
+    <m.div
       initial={false}
       animate={
         isInView
@@ -43,6 +43,6 @@ export default function AnimatedImage({src, blurDataURL}: LazyImageProps) {
         blurDataURL={blurDataURL}
         fill
       />
-    </motion.div>
+    </m.div>
   );
 }
