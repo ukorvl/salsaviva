@@ -3,20 +3,21 @@ import {memo} from 'react';
 import clsx from 'clsx';
 import envConfig from '@/lib/env/envConfig';
 
-const {FACEBOOK_ADDRESS, INSTAGRAM_ADDRESS, TELEGRAM_ADDRESS} = envConfig;
+const {NEXT_PUBLIC_FACEBOOK_ADDRESS, NEXT_PUBLIC_INSTAGRAM_ADDRESS, NEXT_PUBLIC_TELEGRAM_ADDRESS} =
+  envConfig;
 
 const linksConfig = [
   {
     title: 'Facebook',
-    href: FACEBOOK_ADDRESS,
+    href: NEXT_PUBLIC_FACEBOOK_ADDRESS,
   },
   {
     title: 'Instagram',
-    href: INSTAGRAM_ADDRESS,
+    href: NEXT_PUBLIC_INSTAGRAM_ADDRESS,
   },
   {
     title: 'Telegram',
-    href: TELEGRAM_ADDRESS,
+    href: NEXT_PUBLIC_TELEGRAM_ADDRESS,
   },
 ] as const;
 

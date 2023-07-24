@@ -4,7 +4,7 @@ import {m} from 'framer-motion';
 import {menuItemsConfig, socialLinksConfig} from './topMenuCongif';
 import Menu from '../Menu/Menu';
 
-const ulVariants = {
+const itemsVariants = {
   open: {
     transition: {staggerChildren: 0.07, delayChildren: 0.2},
   },
@@ -12,6 +12,8 @@ const ulVariants = {
     transition: {staggerChildren: 0.05, staggerDirection: -1},
   },
 };
+
+const socialLinksVariants = itemsVariants;
 
 const linkCn = clsx('animated-link');
 
@@ -30,7 +32,7 @@ export default function TopMenu() {
       <Menu.Toggle />
       <Menu.List>
         <m.ul
-          variants={ulVariants}
+          variants={itemsVariants}
           className={itemsListCn}
         >
           {menuItemsConfig.map(({href, text}, idx) => (
@@ -45,7 +47,7 @@ export default function TopMenu() {
           ))}
         </m.ul>
         <m.ul
-          variants={ulVariants}
+          variants={socialLinksVariants}
           className={socialLiksListCn}
         >
           {socialLinksConfig.map(({href, text}, idx) => (

@@ -16,7 +16,7 @@ type MenuListProps = {
 const navVariants = {
   // eslint-disable-next-line jsdoc/require-jsdoc
   open: (height: number) => ({
-    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    clipPath: `circle(${height * 2 + 200}px at 95% 5%)`,
     transition: {
       type: 'spring',
       stiffness: 20,
@@ -24,7 +24,7 @@ const navVariants = {
     },
   }),
   closed: {
-    clipPath: 'circle(30px at 40px 40px)',
+    clipPath: 'circle(30px at 95% 5%)',
     transition: {
       delay: 0.5,
       type: 'spring',
