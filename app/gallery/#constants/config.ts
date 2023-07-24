@@ -18,6 +18,6 @@ const config: Array<{fileName: string}> = [
 ];
 
 export default config.map(({fileName}) => ({
-  src: `/gallery/${fileName}`,
-  blurDataURL: `/gallery/blured/${fileName}`,
+  src: `/images/${fileName}`,
+  blurDataURL: `/images/blured/${fileName}`,
 }));

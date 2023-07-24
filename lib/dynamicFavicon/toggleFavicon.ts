@@ -4,12 +4,12 @@ const activeTabIconsSet = [
   {
     rel: 'icon',
     sizes: 'any',
-    href: '/logo/favicon.ico',
+    href: '/icons/favicon.ico',
   },
   {
     rel: 'icon',
     type: 'image/svg+xml',
-    href: '/logo/icon.svg',
+    href: '/icons/icon.svg',
   },
 ];
 
@@ -17,12 +17,12 @@ const disabledTabIconsSet = [
   {
     rel: 'icon',
     sizes: 'any',
-    href: '/logo/favicon.dark.ico',
+    href: '/icons/favicon.dark.ico',
   },
   {
     rel: 'icon',
     type: 'image/svg+xml',
-    href: '/logo/icon.dark.svg',
+    href: '/icons/icon.dark.svg',
   },
 ];
 

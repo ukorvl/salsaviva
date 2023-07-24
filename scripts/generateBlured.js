@@ -4,15 +4,14 @@ const path = require('path');
 const jimp = require('jimp');
 const colors = require('colors/safe');
 
-const galleryDirName = 'public/gallery';
+const imagesDirName = 'public/images';
 const bluredDirName = 'blured';
-const pathGalleryDir = `${process.cwd()}/${galleryDirName}`;
-const pathBluredDir = `${pathGalleryDir}/${bluredDirName}`;
+const pathImagesDir = `${process.cwd()}/${imagesDirName}`;
+const pathBluredDir = `${pathImagesDir}/${bluredDirName}`;
 
 // Clear current blured images
-!fs.existsSync(pathGalleryDir) && fs.mkdirSync(pathGalleryDir);
 !fs.existsSync(pathBluredDir) && fs.mkdirSync(pathBluredDir);
-process.chdir(pathGalleryDir);
+process.chdir(pathImagesDir);
 
 const contents = getDirectoryContentFileNames(pathBluredDir);
 for (const c of contents) {
@@ -24,7 +23,7 @@ for (const c of contents) {
 console.log(colors.green(`Cleaned up ${bluredDirName} directory`));
 
 // Process gallery images and save into blured directory
-const images = getDirectoryContentFileNames(pathGalleryDir);
+const images = getDirectoryContentFileNames(pathImagesDir);
 // eslint-disable-next-line no-console
 console.log(colors.gray('\nStarting process images...\n'));
 for (const i of images) {
