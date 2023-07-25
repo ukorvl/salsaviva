@@ -10,7 +10,6 @@
     "lint:editorconfig": "npx editorconfig-checker",
     "cypress": "cypress open",
     "prepare": "husky install",
-    "prebuild": "npm run blur-img",
     "blur-img": "node ./scripts/generateBlured.js"
   },
   "dependencies": {

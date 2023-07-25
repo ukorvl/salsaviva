@@ -1,3 +1,5 @@
+import {isServer} from '@/utils/isServer';
+
 const envNames = [
   'NEXT_PUBLIC_CONTACT_PHONE',
   'NEXT_PUBLIC_WHATSAPP_ADDRESS',
@@ -22,11 +24,14 @@ type EnvName = (typeof envNames)[number];
  * @throws If env is not set.
  */
 const getEnvironmentVariable = (environmentVariable: EnvName): string => {
+  if (!isServer() && Object.keys(process.env).length === 0) {
+    return '';
+  }
+
   const unvalidatedEnvironmentVariable = process.env[environmentVariable];
 
   if (!unvalidatedEnvironmentVariable) {
-    // throw new Error(`Couldn't find environment variable: ${environmentVariable}`);
-    return '';
+    throw new Error(`Couldn't find environment variable: ${environmentVariable}`);
   } else {
     return unvalidatedEnvironmentVariable;
   }
