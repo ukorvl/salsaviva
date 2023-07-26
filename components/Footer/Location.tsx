@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import {memo} from 'react';
-import envConfig from '@/lib/env/envConfig';
 
-const {NEXT_PUBLIC_LOCATION_ADDRESS_TEXT, NEXT_PUBLIC_LOCATION_GOOGLE_MAPS_LINK} = envConfig;
+const {NEXT_PUBLIC_LOCATION_ADDRESS_TEXT, NEXT_PUBLIC_LOCATION_GOOGLE_MAPS_LINK} = process.env;
 
 const containerCn = clsx('flex', 'justify-center', 'flex-nowrap', 'gap-4');
 const addressCn = clsx('not-italic');
@@ -16,7 +15,7 @@ function Location() {
   return (
     <div className={containerCn}>
       <Link
-        href={NEXT_PUBLIC_LOCATION_GOOGLE_MAPS_LINK}
+        href={NEXT_PUBLIC_LOCATION_GOOGLE_MAPS_LINK ?? ''}
         target="_blank"
         className={linkCn}
       >

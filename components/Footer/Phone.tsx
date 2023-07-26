@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import {memo} from 'react';
-import envConfig from '@/lib/env/envConfig';
 
-const {NEXT_PUBLIC_CONTACT_PHONE} = envConfig;
+const {NEXT_PUBLIC_CONTACT_PHONE} = process.env;
 
 const containerCn = clsx('flex', 'justify-center');
 const telCn = clsx('animated-link', 'tracking-wider');

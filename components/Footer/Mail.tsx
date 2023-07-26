@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import {memo} from 'react';
-import envConfig from '@/lib/env/envConfig';
 
-const {NEXT_PUBLIC_CONTACT_EMAIL} = envConfig;
+const {NEXT_PUBLIC_CONTACT_EMAIL} = process.env;
 
 const containerCn = clsx('flex', 'justify-center');
 const anchorCn = clsx('animated-link');

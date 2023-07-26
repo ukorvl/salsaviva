@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import {memo} from 'react';
 import clsx from 'clsx';
-import envConfig from '@/lib/env/envConfig';
 
 const {NEXT_PUBLIC_FACEBOOK_ADDRESS, NEXT_PUBLIC_INSTAGRAM_ADDRESS, NEXT_PUBLIC_TELEGRAM_ADDRESS} =
-  envConfig;
+  process.env;
 
 const linksConfig = [
   {
@@ -33,7 +32,7 @@ function SocialLinksList() {
       {linksConfig.map(({title, href}) => (
         <Link
           key={title}
-          href={href}
+          href={href ?? ''}
           target="_blank"
           className={linkCn}
         >

@@ -1,5 +1,4 @@
 import {FontAwesomeIconProps} from '@fortawesome/react-fontawesome';
-import envConfig from '@/lib/env/envConfig';
 
 /**
  * Icon configuration.
@@ -13,7 +12,7 @@ const {
   NEXT_PUBLIC_INSTAGRAM_ADDRESS,
   NEXT_PUBLIC_TELEGRAM_ADDRESS,
   NEXT_PUBLIC_WHATSAPP_ADDRESS,
-} = envConfig;
+} = process.env;
 
 /**
  * Social icons config.
@@ -21,25 +20,25 @@ const {
 const iconsConfig: IconConfig[] = [
   {
     icon: ['fab', 'facebook'],
-    href: NEXT_PUBLIC_FACEBOOK_ADDRESS,
+    href: NEXT_PUBLIC_FACEBOOK_ADDRESS ?? '',
     size: '2x',
     target: '_blank',
   },
   {
     icon: ['fab', 'instagram'],
-    href: NEXT_PUBLIC_INSTAGRAM_ADDRESS,
+    href: NEXT_PUBLIC_INSTAGRAM_ADDRESS ?? '',
     size: '2x',
     target: '_blank',
   },
   {
     icon: ['fab', 'whatsapp'],
-    href: NEXT_PUBLIC_WHATSAPP_ADDRESS,
+    href: NEXT_PUBLIC_WHATSAPP_ADDRESS ?? '',
     size: '2x',
     target: '_blank',
   },
   {
     icon: ['fab', 'telegram'],
-    href: NEXT_PUBLIC_TELEGRAM_ADDRESS,
+    href: NEXT_PUBLIC_TELEGRAM_ADDRESS ?? '',
     size: '2x',
     target: '_blank',
   },

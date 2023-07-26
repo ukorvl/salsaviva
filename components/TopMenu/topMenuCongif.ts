@@ -1,5 +1,4 @@
 import {LinkProps} from 'next/link';
-import envConfig from '@/lib/env/envConfig';
 
 // eslint-disable-next-line jsdoc/require-jsdoc
 type ConfigItem = LinkProps & {
@@ -11,7 +10,7 @@ const {
   NEXT_PUBLIC_INSTAGRAM_ADDRESS,
   NEXT_PUBLIC_TELEGRAM_ADDRESS,
   NEXT_PUBLIC_WHATSAPP_ADDRESS,
-} = envConfig;
+} = process.env;
 
 /**
  * Top menu configuration.
@@ -37,19 +36,19 @@ const menuItemsConfig: ConfigItem[] = [
 
 const socialLinksConfig: ConfigItem[] = [
   {
-    href: NEXT_PUBLIC_FACEBOOK_ADDRESS,
+    href: NEXT_PUBLIC_FACEBOOK_ADDRESS ?? '',
     text: 'Facebook',
   },
   {
-    href: NEXT_PUBLIC_INSTAGRAM_ADDRESS,
+    href: NEXT_PUBLIC_INSTAGRAM_ADDRESS ?? '',
     text: 'Instagram',
   },
   {
-    href: NEXT_PUBLIC_WHATSAPP_ADDRESS,
+    href: NEXT_PUBLIC_WHATSAPP_ADDRESS ?? '',
     text: 'Whatsapp',
   },
   {
-    href: NEXT_PUBLIC_TELEGRAM_ADDRESS,
+    href: NEXT_PUBLIC_TELEGRAM_ADDRESS ?? '',
     text: 'Telegram',
   },
 ];
