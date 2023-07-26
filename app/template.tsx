@@ -1,18 +1,23 @@
 'use client';
 
-import {motion, AnimatePresence} from 'framer-motion';
+import {LazyMotion, AnimatePresence, m} from 'framer-motion';
 import {LocationChangeTracker} from '@/lib/gtag/LocationChangeTracker';
+import useDynamicFavicon from '@/lib/dynamicFavicon/useDynamicFavicon';
+import TopMenu from '@/components/TopMenu/TopMenu';
+import {loadFeatures} from '@/lib/framerMotion/loadFeatures';
 
 /**
  * @param {{children}} props Props.
  * @returns Global template.
  */
 export default function Template({children}: {children: React.ReactNode}) {
+  useDynamicFavicon();
+
   return (
-    <>
+    <LazyMotion features={loadFeatures}>
       <LocationChangeTracker />
       <AnimatePresence mode="wait">
-        <motion.div
+        <m.div
           initial={{x: 300, opacity: 0}}
           animate={{x: 0, opacity: 1}}
           exit={{x: 300, opacity: 0}}
@@ -22,9 +27,10 @@ export default function Template({children}: {children: React.ReactNode}) {
             damping: 20,
           }}
         >
+          <TopMenu />
           {children}
-        </motion.div>
+        </m.div>
       </AnimatePresence>
-    </>
+    </LazyMotion>
   );
 }

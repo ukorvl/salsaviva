@@ -1,9 +1,10 @@
 /** @type {Record<string, string>} */
 module.exports = {
   'white': '#fefefe',
-  'black': '#18132d',
+  'transparent-white': 'rgba(255,255,255,0.5)',
+  'black': '#111111',
   'primary': '#4f5bac',
-  'alternate': '#160f59',
+  'alternate': '#110728',
   'accent0': '#9e2077',
   'accent1': '#933293',
   'accent2': '#602e87',

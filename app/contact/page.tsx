@@ -1,4 +1,5 @@
 import {Metadata} from 'next';
+import Button from '@/components/Button/Button';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -12,5 +13,12 @@ export const metadata: Metadata = {
  * @returns React component.
  */
 export default function Contact() {
-  return <div>Contact</div>;
+  return (
+    <div>
+      <Button>Submit</Button>
+      <Button size="lg">Submit</Button>
+      <Button size="sm">Submit</Button>
+      <Button variant="alternate">Submit</Button>
+    </div>
+  );
 }

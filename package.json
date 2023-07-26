@@ -9,11 +9,13 @@
     "lint": "next lint",
     "lint:editorconfig": "npx editorconfig-checker",
     "cypress": "cypress open",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "blur-img": "node ./scripts/generateBlured.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/node": "20.1.1",
     "@types/react": "18.2.6",
@@ -21,16 +23,25 @@
     "@ukorvl/react-on-screen": "^1.0.3",
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
+    "formik": "^2.4.1",
     "framer-motion": "^10.12.16",
+    "lodash": "^4.17.21",
     "next": "13.4.1",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hotkeys-hook": "^4.4.0",
+    "react-page-visibility": "^7.0.0",
+    "tailwind-merge": "^1.13.1",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.5",
     "@types/gtag.js": "^0.0.12",
+    "@types/lodash": "^4.14.195",
+    "@types/react-page-visibility": "^6.4.1",
+    "colors": "^1.4.0",
     "cypress": "^12.12.0",
     "eslint": "^8.41.0",
     "eslint-config-next": "^13.4.3",
@@ -38,6 +49,7 @@
     "eslint-plugin-jsdoc": "^44.2.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "husky": "^8.0.0",
+    "jimp": "^0.22.8",
     "prettier": "^2.8.8"
   }
 }

@@ -1,5 +1,7 @@
 const colors = require('./tailwind/colors');
+const container = require('./tailwind/container');
 const fontFamily = require('./tailwind/fontFamily');
+const letterSpacing = require('./tailwind/letterSpacing');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -11,7 +13,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: fontFamily,
-      colors: colors
+      colors: colors,
+      letterSpacing: letterSpacing,
     },
+    container: container,
   },
 };
