@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import useScroll from '@/lib/shared/useScroll';
 import useWindowDimensions from '@/lib/shared/useWindowDimensions';
 import {MenuContext} from './MenuContext';
+import {MenuPosition} from './MenuPosition';
 
 /**
  * Props.
@@ -15,8 +16,8 @@ type MenuListProps = {
 
 const navVariants = {
   // eslint-disable-next-line jsdoc/require-jsdoc
-  open: (height: number) => ({
-    clipPath: `circle(${height * 2 + 200}px at 95% 5%)`,
+  open: ({height, position}: {height: number; position: MenuPosition}) => ({
+    clipPath: `circle(${height * 2 + 200}px at 95% ${position.top}px)`,
     transition: {
       type: 'spring',
       stiffness: 20,
@@ -53,7 +54,7 @@ const navCn = clsx(
  * @returns React component.
  */
 export default function MenuList({children}: MenuListProps) {
-  const {isOpen, setIsOpen} = useContext(MenuContext);
+  const {isOpen, setIsOpen, position} = useContext(MenuContext);
   const close = useCallback(() => setIsOpen(false), [setIsOpen]);
   useHotkeys('esc', close);
   useScroll(close);
@@ -71,7 +72,7 @@ export default function MenuList({children}: MenuListProps) {
     <m.nav
       initial={false}
       animate={isOpen ? 'open' : 'closed'}
-      custom={height}
+      custom={{height, position}}
       className={navCn}
       variants={navVariants}
       onBlur={onBlur}

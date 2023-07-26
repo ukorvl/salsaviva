@@ -28,7 +28,10 @@ const itemsListCn = clsx('mt-48');
  */
 export default function TopMenu() {
   return (
-    <Menu>
+    <Menu
+      top={50}
+      right={50}
+    >
       <Menu.Toggle />
       <Menu.List>
         <m.ul

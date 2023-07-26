@@ -1,4 +1,5 @@
 import {createContext} from 'react';
+import {MenuPosition} from './MenuPosition';
 
 /**
  * Context type.
@@ -6,6 +7,7 @@ import {createContext} from 'react';
 type MenuConextType = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
+  position: MenuPosition;
 };
 
 /**

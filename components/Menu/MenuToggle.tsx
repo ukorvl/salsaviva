@@ -20,7 +20,7 @@ const menuVariants: Variants = {
   hidden: {opacity: 0},
 };
 
-const containerCn = clsx('absolute', 'top-16', 'right-16', 'z-20');
+const containerCn = clsx('absolute', 'z-20');
 const btnCn = clsx('rounded-full w-24 h-24');
 
 // eslint-disable-next-line jsdoc/require-jsdoc
@@ -42,7 +42,7 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(function MenuT
   {onToggle, className},
   ref,
 ) {
-  const {setIsOpen, isOpen} = useContext(MenuContext);
+  const {setIsOpen, isOpen, position} = useContext(MenuContext);
   // eslint-disable-next-line jsdoc/require-jsdoc
   const onClick = () => {
     setIsOpen(!isOpen);
@@ -57,6 +57,7 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(function MenuT
       transition={{duration: 0.75, delay: 1}}
       variants={menuVariants}
       className={containerCn}
+      style={position}
       animate={isOpen ? 'open' : 'closed'}
     >
       <Button
