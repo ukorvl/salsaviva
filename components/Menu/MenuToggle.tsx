@@ -5,6 +5,7 @@ import {forwardRef, memo, useContext} from 'react';
 import clsx from 'clsx';
 import {twMerge} from 'tailwind-merge';
 import {MenuContext} from './MenuContext';
+import menuButtonSize from './menuButtonSize';
 import Button from '../Button/Button';
 
 /**
@@ -48,6 +49,7 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(function MenuT
     setIsOpen(!isOpen);
     onToggle && onToggle();
   };
+  const svgElSize = menuButtonSize / 2;
 
   return (
     <m.div
@@ -65,11 +67,12 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(function MenuT
         className={twMerge(btnCn, className)}
         ref={ref}
         variant="alternate"
+        style={{width: menuButtonSize, height: menuButtonSize}}
       >
         <svg
-          width="23"
-          height="23"
-          viewBox="0 0 23 23"
+          width={svgElSize}
+          height={svgElSize}
+          viewBox={`0 0 ${svgElSize} ${svgElSize}`}
         >
           <Path
             variants={{

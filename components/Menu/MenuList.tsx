@@ -6,6 +6,7 @@ import useScroll from '@/lib/shared/useScroll';
 import useWindowDimensions from '@/lib/shared/useWindowDimensions';
 import {MenuContext} from './MenuContext';
 import {MenuPosition} from './MenuPosition';
+import menuButtonSize from './menuButtonSize';
 
 /**
  * Props.
@@ -17,22 +18,25 @@ type MenuListProps = {
 const navVariants = {
   // eslint-disable-next-line jsdoc/require-jsdoc
   open: ({height, position}: {height: number; position: MenuPosition}) => ({
-    clipPath: `circle(${height * 2 + 200}px at 95% ${position.top}px)`,
+    clipPath: `circle(${height * 2 + 200}px at calc(100% - ${position.right}px) ${position.top}px)`,
     transition: {
       type: 'spring',
       stiffness: 20,
       restDelta: 2,
     },
   }),
-  closed: {
-    clipPath: 'circle(30px at 95% 5%)',
+  // eslint-disable-next-line jsdoc/require-jsdoc
+  closed: ({position}: {height: number; position: MenuPosition}) => ({
+    clipPath: `circle(0px at calc(100% - ${position.right + menuButtonSize}px) ${
+      position.top + menuButtonSize
+    }px)`,
     transition: {
       delay: 0.5,
       type: 'spring',
       stiffness: 400,
       damping: 40,
     },
-  },
+  }),
 };
 
 const navCn = clsx(
@@ -42,7 +46,7 @@ const navCn = clsx(
   'w-full',
   'h-full',
   'z-10',
-  'bg-alternate',
+  'bg-gradient-to-bl from-accent0 to-alternate',
   'flex',
   'flex-col',
   'items-center',
