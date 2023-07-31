@@ -4,7 +4,7 @@ import {m} from 'framer-motion';
 import {menuItemsConfig, socialLinksConfig} from './topMenuCongif';
 import Menu from '../Menu/Menu';
 
-const itemsVariants = {
+const variants = {
   open: {
     transition: {staggerChildren: 0.07, delayChildren: 0.2},
   },
@@ -13,28 +13,35 @@ const itemsVariants = {
   },
 };
 
-const socialLinksVariants = itemsVariants;
-
 const linkCn = clsx('animated-link');
-
 const socialLiksListCn = clsx('flex', 'gap-8', 'mt-auto', 'mb-16');
-
 const socialLinkMenuItem = clsx('text-xs');
-
-const itemsListCn = clsx('mt-48');
+const itemsListCn = clsx('mt-24');
+const homeMenuItem = clsx('mb-32', 'text-xl');
 
 /**
  * @returns React component.
  */
 export default function TopMenu() {
   return (
-    <Menu>
+    <Menu
+      top={88}
+      right={50}
+    >
       <Menu.Toggle />
       <Menu.List>
         <m.ul
-          variants={itemsVariants}
+          variants={variants}
           className={itemsListCn}
         >
+          <Menu.Item className={homeMenuItem}>
+            <Link
+              href="/"
+              className={linkCn}
+            >
+              SALSAVIVA
+            </Link>
+          </Menu.Item>
           {menuItemsConfig.map(({href, text}, idx) => (
             <Menu.Item key={idx}>
               <Link
@@ -47,7 +54,7 @@ export default function TopMenu() {
           ))}
         </m.ul>
         <m.ul
-          variants={socialLinksVariants}
+          variants={variants}
           className={socialLiksListCn}
         >
           {socialLinksConfig.map(({href, text}, idx) => (
