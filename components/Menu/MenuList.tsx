@@ -15,10 +15,37 @@ type MenuListProps = {
   children: ReactNode;
 };
 
+// eslint-disable-next-line jsdoc/require-jsdoc
+function getClipPath({height, position}: {height?: number; position: MenuPosition}) {
+  let coordinates = '';
+
+  const {top, bottom, left, right} = position;
+
+  if (left !== undefined) {
+    coordinates += `${left + menuButtonSize / 2}px`;
+  }
+
+  if (right !== undefined) {
+    coordinates += `calc(100% - ${right + menuButtonSize / 2}px)`;
+  }
+
+  if (top !== undefined) {
+    coordinates += ' ' + `${top + menuButtonSize / 2}px`;
+  }
+
+  if (bottom !== undefined) {
+    coordinates += ' ' + `calc(100% - ${bottom + menuButtonSize / 2}px)`;
+  }
+
+  const size = height ? `${height * 2 + 200}px` : '0px';
+
+  return `circle(${size} at ${coordinates}`;
+}
+
 const navVariants = {
   // eslint-disable-next-line jsdoc/require-jsdoc
   open: ({height, position}: {height: number; position: MenuPosition}) => ({
-    clipPath: `circle(${height * 2 + 200}px at calc(100% - ${position.right}px) ${position.top}px)`,
+    clipPath: getClipPath({height, position}),
     transition: {
       type: 'spring',
       stiffness: 20,
@@ -27,9 +54,7 @@ const navVariants = {
   }),
   // eslint-disable-next-line jsdoc/require-jsdoc
   closed: ({position}: {height: number; position: MenuPosition}) => ({
-    clipPath: `circle(0px at calc(100% - ${position.right + menuButtonSize}px) ${
-      position.top + menuButtonSize
-    }px)`,
+    clipPath: getClipPath({position}),
     transition: {
       delay: 0.5,
       type: 'spring',

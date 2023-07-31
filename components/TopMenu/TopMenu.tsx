@@ -16,8 +16,8 @@ const variants = {
 const linkCn = clsx('animated-link');
 const socialLiksListCn = clsx('flex', 'gap-8', 'mt-auto', 'mb-16');
 const socialLinkMenuItem = clsx('text-xs');
-const itemsListCn = clsx('mt-16');
-const homeMenuItem = clsx('mb-40', 'text-xl');
+const itemsListCn = clsx('mt-24');
+const homeMenuItem = clsx('mb-32', 'text-xl');
 
 /**
  * @returns React component.
@@ -25,7 +25,7 @@ const homeMenuItem = clsx('mb-40', 'text-xl');
 export default function TopMenu() {
   return (
     <Menu
-      top={50}
+      top={88}
       right={50}
     >
       <Menu.Toggle />
