@@ -10,6 +10,7 @@ import {MenuContext} from './MenuContext';
 type MenuItemProps = {
   children: ReactNode;
   className?: string;
+  bgImgPath?: string;
 };
 
 const variants = {
@@ -36,10 +37,10 @@ const itemCn = clsx('text-5xl', 'm-2', 'text-center');
  * @returns React componenet.
  */
 const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(function MenuItem(
-  {children, className},
+  {children, className, bgImgPath},
   ref,
 ) {
-  const {setIsOpen} = useContext(MenuContext);
+  const {setIsOpen, setMenuBg} = useContext(MenuContext);
 
   return (
     <m.li
@@ -49,6 +50,8 @@ const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(function MenuItem(
       ref={ref}
       onClick={() => setIsOpen(false)}
       className={twMerge(itemCn, className)}
+      onMouseEnter={bgImgPath ? () => setMenuBg(bgImgPath) : undefined}
+      onMouseLeave={bgImgPath ? () => setMenuBg(null) : undefined}
     >
       {children}
     </m.li>

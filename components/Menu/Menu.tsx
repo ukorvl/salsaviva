@@ -21,10 +21,13 @@ type MenuProps = {
  */
 export default function Menu({initialOpen = false, children, ...position}: MenuProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
+  const [menuBg, setMenuBg] = useState<string | null>(null);
   useDisableBodyScroll(isOpen);
 
   return (
-    <MenuContext.Provider value={{isOpen, setIsOpen, position}}>{children}</MenuContext.Provider>
+    <MenuContext.Provider value={{isOpen, setIsOpen, position, menuBg, setMenuBg}}>
+      {children}
+    </MenuContext.Provider>
   );
 }
 

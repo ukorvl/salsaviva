@@ -21,7 +21,7 @@ const menuVariants: Variants = {
   hidden: {opacity: 0},
 };
 
-const containerCn = clsx('absolute', 'z-20');
+const containerCn = clsx('absolute', 'z-30');
 const btnCn = clsx('rounded-full');
 
 /**

@@ -1,10 +1,3 @@
-import {LinkProps} from 'next/link';
-
-// eslint-disable-next-line jsdoc/require-jsdoc
-type ConfigItem = LinkProps & {
-  text: string;
-};
-
 const {
   NEXT_PUBLIC_FACEBOOK_ADDRESS,
   NEXT_PUBLIC_INSTAGRAM_ADDRESS,
@@ -15,26 +8,30 @@ const {
 /**
  * Top menu configuration.
  */
-const menuItemsConfig: ConfigItem[] = [
+const menuItemsConfig = [
   {
     href: '/about',
     text: 'About',
+    bgImgPath: '/images/top-menu/0.jpg',
   },
   {
     href: '/gallery',
     text: 'Gallery',
+    bgImgPath: '/images/top-menu/1.jpg',
   },
   {
     href: '/teachers',
     text: 'Teachers',
+    bgImgPath: '/images/top-menu/2.jpg',
   },
   {
     href: '/contact',
     text: 'Contact',
+    bgImgPath: '/images/top-menu/3.jpg',
   },
-];
+] as const;
 
-const socialLinksConfig: ConfigItem[] = [
+const socialLinksConfig = [
   {
     href: NEXT_PUBLIC_FACEBOOK_ADDRESS ?? '',
     text: 'Facebook',
@@ -51,6 +48,6 @@ const socialLinksConfig: ConfigItem[] = [
     href: NEXT_PUBLIC_TELEGRAM_ADDRESS ?? '',
     text: 'Telegram',
   },
-];
+] as const;
 
 export {menuItemsConfig, socialLinksConfig};

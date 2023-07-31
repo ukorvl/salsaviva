@@ -4,7 +4,7 @@ import {memo} from 'react';
 import {Variants, m} from 'framer-motion';
 import clsx from 'clsx';
 
-const titleCn = clsx('font-light', 'text-9xl', 'text-transparent', 'bg-clip-text', 'z-10');
+const titleCn = clsx('font-light', 'text-9xl', 'text-transparent', 'bg-clip-text');
 const subtitleCn = clsx('text-2xl', 'font-light', 'tracking-widest', 'text-center');
 const titleContainerCn = clsx(
   'font-sans',
