@@ -1,3 +1,5 @@
+'use client';
+
 import {useEffect} from 'react';
 import {usePageVisibility} from 'react-page-visibility';
 import toggleFavicon from './toggleFavicon';

@@ -1,9 +1,13 @@
+'use client';
+
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
 import {twMerge} from 'tailwind-merge';
 import {memo} from 'react';
+import {m} from 'framer-motion';
 import iconsConfig from './iconsConfig';
+import AppearInViewport from '../AppearInViewport/AppearInViewport';
 
 const iconsCn = clsx(
   'flex',
@@ -18,29 +22,49 @@ const iconsCn = clsx(
 );
 const iconCn = clsx('hover:scale-105 hover:-translate-y-0.5 transition-transform');
 
-/**
- * @todo Add gradient color on hover.
- */
+const variants = {
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: {stiffness: 1000, velocity: -100},
+    },
+  },
+  hidden: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: {stiffness: 1000},
+    },
+  },
+};
 
 /**
  * @returns React component.
  */
 function SocialIcons() {
   return (
-    <div className={iconsCn}>
+    <AppearInViewport
+      className={iconsCn}
+      transition={{delay: 0.6, staggerChildren: 0.2, delayChildren: 0.5}}
+    >
       {iconsConfig.map(({href, target, className, ...rest}) => (
-        <Link
+        <m.div
           key={href}
-          href={href}
-          target={target}
+          variants={variants}
         >
-          <FontAwesomeIcon
-            className={twMerge(iconCn, className)}
-            {...rest}
-          />
-        </Link>
+          <Link
+            href={href}
+            target={target}
+          >
+            <FontAwesomeIcon
+              className={twMerge(iconCn, className)}
+              {...rest}
+            />
+          </Link>
+        </m.div>
       ))}
-    </div>
+    </AppearInViewport>
   );
 }
 

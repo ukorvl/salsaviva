@@ -2,8 +2,6 @@ import clsx from 'clsx';
 import '@/lib/fontawesome/configure';
 import Footer from '@/components/Footer/Footer';
 import WithGtag from '@/lib/gtag/WithGtag';
-import ScrollToTopButton from '@/components/ScrollToTop/ScrollToTop';
-import SocialIcons from '@/components/SocialIcons/SocialIcons';
 import meta from './metadata';
 import {kumbhSans, robotoMono} from './fonts';
 import './globals.css';
@@ -33,13 +31,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en">
       <body className={bodyCn}>
         <WithGtag />
-        <SocialIcons />
         <main className={mainCn}>{children}</main>
         <Footer />
-        <ScrollToTopButton
-          bottom={150}
-          right={150}
-        />
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import {CSSProperties, useCallback, useState} from 'react';
 import {m} from 'framer-motion';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleArrowUp} from '@fortawesome/free-solid-svg-icons';
 import useScroll, {ScrollHandler} from '@/lib/shared/useScroll';
 
 /**
@@ -43,7 +44,7 @@ export default function ScrollToTopButton({offset = 1000, ...position}: ScrollTo
       aria-hidden={true}
       style={position}
     >
-      <FontAwesomeIcon icon={['fas', 'circle-arrow-up']} />
+      <FontAwesomeIcon icon={faCircleArrowUp} />
     </m.button>
   );
 }
