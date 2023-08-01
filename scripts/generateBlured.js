@@ -54,7 +54,6 @@ function processImage(fileName) {
       return result
         .quality(40)
         .blur(30)
-        .rotate(90)
         .write(pathToBlured);
     })
     .catch((err) => {
