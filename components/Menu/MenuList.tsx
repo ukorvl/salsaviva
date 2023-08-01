@@ -7,6 +7,7 @@ import useWindowDimensions from '@/lib/shared/useWindowDimensions';
 import {MenuContext} from './MenuContext';
 import {MenuPosition} from './MenuPosition';
 import menuButtonSize from './menuButtonSize';
+import MenuDynamicBg from './MenuDynamicBg';
 
 /**
  * Props.
@@ -14,33 +15,6 @@ import menuButtonSize from './menuButtonSize';
 type MenuListProps = {
   children: ReactNode;
 };
-
-// eslint-disable-next-line jsdoc/require-jsdoc
-function getClipPath({height, position}: {height?: number; position: MenuPosition}) {
-  let coordinates = '';
-
-  const {top, bottom, left, right} = position;
-
-  if (left !== undefined) {
-    coordinates += `${left + menuButtonSize / 2}px`;
-  }
-
-  if (right !== undefined) {
-    coordinates += `calc(100% - ${right + menuButtonSize / 2}px)`;
-  }
-
-  if (top !== undefined) {
-    coordinates += ' ' + `${top + menuButtonSize / 2}px`;
-  }
-
-  if (bottom !== undefined) {
-    coordinates += ' ' + `calc(100% - ${bottom + menuButtonSize / 2}px)`;
-  }
-
-  const size = height ? `${height * 2 + 200}px` : '0px';
-
-  return `circle(${size} at ${coordinates}`;
-}
 
 const navVariants = {
   // eslint-disable-next-line jsdoc/require-jsdoc
@@ -53,7 +27,7 @@ const navVariants = {
     },
   }),
   // eslint-disable-next-line jsdoc/require-jsdoc
-  closed: ({position}: {height: number; position: MenuPosition}) => ({
+  closed: ({position}: {position: MenuPosition}) => ({
     clipPath: getClipPath({position}),
     transition: {
       delay: 0.5,
@@ -107,6 +81,35 @@ export default function MenuList({children}: MenuListProps) {
       onBlur={onBlur}
     >
       {children}
+      <MenuDynamicBg />
     </m.nav>
   );
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function getClipPath({height, position}: {height?: number; position: MenuPosition}) {
+  let coordinates = '';
+
+  (['left', 'right', 'top', 'bottom'] satisfies (keyof MenuPosition)[]).forEach((x, i) => {
+    const val = position[x];
+
+    if (val === undefined) {
+      return;
+    }
+
+    if (i > 0) {
+      coordinates += ' ';
+    }
+
+    if (x === 'left' || x === 'top') {
+      coordinates += `${val + menuButtonSize / 2}px `;
+      return;
+    }
+
+    coordinates += `calc(100% - ${val + menuButtonSize / 2}px)`;
+  });
+
+  const size = height ? `${height * 2 + 200}px` : '0px';
+
+  return `circle(${size} at ${coordinates}`;
 }

@@ -8,6 +8,8 @@ type MenuConextType = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   position: MenuPosition;
+  menuBg: string | null;
+  setMenuBg: (bg: string | null) => void;
 };
 
 /**

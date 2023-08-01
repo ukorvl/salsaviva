@@ -42,8 +42,11 @@ export default function TopMenu() {
               SALSAVIVA
             </Link>
           </Menu.Item>
-          {menuItemsConfig.map(({href, text}, idx) => (
-            <Menu.Item key={idx}>
+          {menuItemsConfig.map(({href, text, bgImgPath}, idx) => (
+            <Menu.Item
+              key={idx}
+              bgImgPath={bgImgPath}
+            >
               <Link
                 href={href}
                 className={linkCn}
