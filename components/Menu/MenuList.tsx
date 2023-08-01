@@ -106,7 +106,7 @@ function getClipPath({height, position}: {height?: number; position: MenuPositio
       return;
     }
 
-    coordinates += ' ' + `calc(100% - ${val + menuButtonSize / 2}px)`;
+    coordinates += `calc(100% - ${val + menuButtonSize / 2}px)`;
   });
 
   const size = height ? `${height * 2 + 200}px` : '0px';
