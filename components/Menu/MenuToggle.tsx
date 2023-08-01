@@ -1,12 +1,10 @@
-'use client';
-
-import {Variants, m} from 'framer-motion';
 import {forwardRef, memo, useContext} from 'react';
 import clsx from 'clsx';
 import {MenuContext} from './MenuContext';
 import menuButtonSize from './menuButtonSize';
 import Button from '../Button/Button';
 import MenuToggleSvgContent from './MenuToggleSvgContent';
+import AppearInViewport from '../AppearInViewport/AppearInViewport';
 
 /**
  * Props.
@@ -14,11 +12,6 @@ import MenuToggleSvgContent from './MenuToggleSvgContent';
 type MenuToggleProps = {
   onToggle?: () => void;
   className?: string;
-};
-
-const menuVariants: Variants = {
-  visible: {opacity: 1},
-  hidden: {opacity: 0},
 };
 
 const containerCn = clsx('absolute', 'z-30');
@@ -40,15 +33,11 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(function MenuT
   };
 
   return (
-    <m.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{once: true}}
-      transition={{duration: 0.75, delay: 1}}
-      variants={menuVariants}
+    <AppearInViewport
       className={containerCn}
       style={position}
       animate={isOpen ? 'open' : 'closed'}
+      transition={{delay: 0.6}}
     >
       <Button
         onClick={onClick}
@@ -59,7 +48,7 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(function MenuT
       >
         <MenuToggleSvgContent />
       </Button>
-    </m.div>
+    </AppearInViewport>
   );
 });
 

@@ -1,3 +1,4 @@
+import {faFacebook, faInstagram, faTelegram, faWhatsapp} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIconProps} from '@fortawesome/react-fontawesome';
 
 /**
@@ -19,25 +20,25 @@ const {
  */
 const iconsConfig: IconConfig[] = [
   {
-    icon: ['fab', 'facebook'],
+    icon: faFacebook,
     href: NEXT_PUBLIC_FACEBOOK_ADDRESS ?? '',
     size: '2x',
     target: '_blank',
   },
   {
-    icon: ['fab', 'instagram'],
+    icon: faInstagram,
     href: NEXT_PUBLIC_INSTAGRAM_ADDRESS ?? '',
     size: '2x',
     target: '_blank',
   },
   {
-    icon: ['fab', 'whatsapp'],
+    icon: faWhatsapp,
     href: NEXT_PUBLIC_WHATSAPP_ADDRESS ?? '',
     size: '2x',
     target: '_blank',
   },
   {
-    icon: ['fab', 'telegram'],
+    icon: faTelegram,
     href: NEXT_PUBLIC_TELEGRAM_ADDRESS ?? '',
     size: '2x',
     target: '_blank',

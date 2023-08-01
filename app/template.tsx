@@ -4,7 +4,9 @@ import {LazyMotion, AnimatePresence, m} from 'framer-motion';
 import {LocationChangeTracker} from '@/lib/gtag/LocationChangeTracker';
 import useDynamicFavicon from '@/lib/dynamicFavicon/useDynamicFavicon';
 import TopMenu from '@/components/TopMenu/TopMenu';
+import SocialIcons from '@/components/SocialIcons/SocialIcons';
 import {loadFeatures} from '@/lib/framerMotion/loadFeatures';
+import ScrollToTopButton from '@/components/ScrollToTop/ScrollToTop';
 
 /**
  * @param {{children}} props Props.
@@ -16,6 +18,12 @@ export default function Template({children}: {children: React.ReactNode}) {
   return (
     <LazyMotion features={loadFeatures}>
       <LocationChangeTracker />
+      <TopMenu />
+      <ScrollToTopButton
+        bottom={50}
+        right={50}
+      />
+      <SocialIcons />
       <AnimatePresence mode="wait">
         <m.div
           initial={{x: 300, opacity: 0}}
@@ -27,7 +35,6 @@ export default function Template({children}: {children: React.ReactNode}) {
             damping: 20,
           }}
         >
-          <TopMenu />
           {children}
         </m.div>
       </AnimatePresence>
