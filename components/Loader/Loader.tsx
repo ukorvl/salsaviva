@@ -1,5 +1,5 @@
 /**
- * @file In order to always render loader on the server we don't use framer motion here.
+ * @file In order to render loader on the server we don't use framer motion here.
  */
 
 import clsx from 'clsx';

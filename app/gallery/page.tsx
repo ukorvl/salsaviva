@@ -1,4 +1,5 @@
 import {Metadata} from 'next';
+import Gallery from './#components/Gallery/Gallery';
 
 export const metadata: Metadata = {
   title: 'Gallery',
@@ -11,6 +12,11 @@ export const metadata: Metadata = {
 /**
  * @returns React component.
  */
-export default function Gallery() {
-  return <div>Gallery</div>;
+export default function GalleryPage() {
+  return (
+    <div>
+      Gallery
+      <Gallery />
+    </div>
+  );
 }
