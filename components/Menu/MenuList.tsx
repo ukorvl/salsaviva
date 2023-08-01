@@ -7,6 +7,7 @@ import useWindowDimensions from '@/lib/shared/useWindowDimensions';
 import {MenuContext} from './MenuContext';
 import {MenuPosition} from './MenuPosition';
 import menuButtonSize from './menuButtonSize';
+import MenuDynamicBg from './MenuDynamicBg';
 
 /**
  * Props.
@@ -51,24 +52,12 @@ const navCn = clsx(
   'justify-center',
 );
 
-// eslint-disable-next-line jsdoc/require-jsdoc
-const dynamicBgCn = (visible: boolean) =>
-  clsx(
-    'absolute',
-    'top-0',
-    'left-0',
-    'w-full',
-    'h-full',
-    'z-10',
-    visible ? 'bg-cover' : 'bg-accent',
-  );
-
 /**
  * @param {MenuListProps} props Props.
  * @returns React component.
  */
 export default function MenuList({children}: MenuListProps) {
-  const {isOpen, setIsOpen, position, menuBg} = useContext(MenuContext);
+  const {isOpen, setIsOpen, position} = useContext(MenuContext);
   const close = useCallback(() => setIsOpen(false), [setIsOpen]);
   useHotkeys('esc', close);
   useScroll(close);
@@ -91,8 +80,8 @@ export default function MenuList({children}: MenuListProps) {
       variants={navVariants}
       onBlur={onBlur}
     >
-      <div className={dynamicBgCn(menuBg !== null)} />
-      <div className="z-20">{children}</div>
+      {children}
+      <MenuDynamicBg />
     </m.nav>
   );
 }
@@ -101,23 +90,24 @@ export default function MenuList({children}: MenuListProps) {
 function getClipPath({height, position}: {height?: number; position: MenuPosition}) {
   let coordinates = '';
 
-  const {top, bottom, left, right} = position;
+  (['left', 'right', 'top', 'bottom'] satisfies (keyof MenuPosition)[]).forEach((x, i) => {
+    const val = position[x];
 
-  if (left !== undefined) {
-    coordinates += `${left + menuButtonSize / 2}px`;
-  }
+    if (val === undefined) {
+      return;
+    }
 
-  if (right !== undefined) {
-    coordinates += `calc(100% - ${right + menuButtonSize / 2}px)`;
-  }
+    if (i > 0) {
+      coordinates += ' ';
+    }
 
-  if (top !== undefined) {
-    coordinates += ' ' + `${top + menuButtonSize / 2}px`;
-  }
+    if (x === 'left' || x === 'top') {
+      coordinates += `${val + menuButtonSize / 2}px `;
+      return;
+    }
 
-  if (bottom !== undefined) {
-    coordinates += ' ' + `calc(100% - ${bottom + menuButtonSize / 2}px)`;
-  }
+    coordinates += ' ' + `calc(100% - ${val + menuButtonSize / 2}px)`;
+  });
 
   const size = height ? `${height * 2 + 200}px` : '0px';
 

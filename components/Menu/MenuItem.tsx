@@ -1,7 +1,9 @@
 import {m} from 'framer-motion';
-import {ReactNode, forwardRef, useContext} from 'react';
+import {ReactNode, forwardRef, useContext, useLayoutEffect} from 'react';
 import clsx from 'clsx';
 import {twMerge} from 'tailwind-merge';
+import {useHover} from '@/lib/shared/useHover';
+import {useAssignRefs} from '@/lib/shared/useAssignRefs';
 import {MenuContext} from './MenuContext';
 
 /**
@@ -30,7 +32,7 @@ const variants = {
   },
 };
 
-const itemCn = clsx('text-5xl', 'm-2', 'text-center');
+const itemCn = clsx('text-5xl', 'm-4', 'text-center', 'z-30', 'relative');
 
 /**
  * @param {MenuItemProps} props Props.
@@ -38,20 +40,25 @@ const itemCn = clsx('text-5xl', 'm-2', 'text-center');
  */
 const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(function MenuItem(
   {children, className, bgImgPath},
-  ref,
+  forwardedRef,
 ) {
   const {setIsOpen, setMenuBg} = useContext(MenuContext);
+  const [r, isHover] = useHover();
+  const ref = useAssignRefs(r, forwardedRef);
+
+  useLayoutEffect(() => {
+    if (bgImgPath) {
+      setMenuBg(isHover ? bgImgPath : null);
+    }
+  }, [isHover, bgImgPath, setMenuBg]);
 
   return (
     <m.li
       variants={variants}
-      whileHover={{scale: 1.05}}
-      whileTap={{scale: 0.95}}
+      whileTap={{scale: 0.9}}
       ref={ref}
       onClick={() => setIsOpen(false)}
       className={twMerge(itemCn, className)}
-      onMouseEnter={bgImgPath ? () => setMenuBg(bgImgPath) : undefined}
-      onMouseLeave={bgImgPath ? () => setMenuBg(null) : undefined}
     >
       {children}
     </m.li>

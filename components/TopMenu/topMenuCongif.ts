@@ -12,22 +12,22 @@ const menuItemsConfig = [
   {
     href: '/about',
     text: 'About',
-    bgImgPath: '/images/top-menu/0.jpg',
+    bgImgPath: 'top-menu.0.jpg',
   },
   {
     href: '/gallery',
     text: 'Gallery',
-    bgImgPath: '/images/top-menu/1.jpg',
+    bgImgPath: 'top-menu.1.jpg',
   },
   {
     href: '/teachers',
     text: 'Teachers',
-    bgImgPath: '/images/top-menu/2.jpg',
+    bgImgPath: 'top-menu.2.jpg',
   },
   {
     href: '/contact',
     text: 'Contact',
-    bgImgPath: '/images/top-menu/3.jpg',
+    bgImgPath: 'top-menu.3.jpg',
   },
 ] as const;
 
