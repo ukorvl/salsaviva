@@ -2,6 +2,7 @@ import {useContext} from 'react';
 import clsx from 'clsx';
 import {m, AnimatePresence} from 'framer-motion';
 import Image from 'next/image';
+import useNetworkSpeed from '@/lib/shared/useNetworkSpeed';
 import {MenuContext} from './MenuContext';
 
 // eslint-disable-next-line jsdoc/require-jsdoc
@@ -12,6 +13,8 @@ const dynamicBgCn = clsx('absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'z-2
  */
 export default function MenuDynamicBg() {
   const {menuBg} = useContext(MenuContext);
+  const [, isFast] = useNetworkSpeed();
+  const src = isFast ? `/images/${menuBg}` : `/images/low-quality/${menuBg}`;
 
   return (
     <AnimatePresence mode="wait">
@@ -29,7 +32,7 @@ export default function MenuDynamicBg() {
           }}
         >
           <Image
-            src={`/images/${menuBg}`}
+            src={src}
             alt=""
             placeholder="blur"
             blurDataURL={`/images/blured/${menuBg}`}
