@@ -5,6 +5,8 @@ import AppearInViewport from '../AppearInViewport/AppearInViewport';
 const titleCn = clsx('font-light', 'text-9xl', 'text-transparent', 'bg-clip-text');
 const subtitleCn = clsx('text-2xl', 'font-light', 'tracking-widest', 'text-center');
 const titleContainerCn = clsx(
+  'z-10',
+  'relative',
   'font-sans',
   'select-none',
   'bg-gradient-to-r',
