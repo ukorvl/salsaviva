@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import {m} from 'framer-motion';
+import {usePageVisibility} from 'react-page-visibility';
+import {useEffect} from 'react';
 import useVideoBeforeEnd from './useVideoBeforeEnd';
 
 /**
@@ -19,6 +21,15 @@ const videoCn = clsx('w-full', 'h-full', 'object-cover', 'filter', 'brightness-6
  */
 export default function VideoBackground({src, type, onBeforeEnded}: VideoBackgroundProps) {
   const [ref] = useVideoBeforeEnd(onBeforeEnded, 1.5);
+  const isVisible = usePageVisibility();
+
+  useEffect(() => {
+    if (isVisible) {
+      ref.current?.play();
+    } else {
+      ref.current?.pause();
+    }
+  }, [isVisible, ref]);
 
   return (
     <m.video
