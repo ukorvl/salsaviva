@@ -15,7 +15,7 @@ const iconsCn = clsx(
   'justify-center',
   'gap-4',
   'select-none',
-  'absolute',
+  'fixed',
   'left-4',
   '-translate-y-2/4',
   'top-2/4',

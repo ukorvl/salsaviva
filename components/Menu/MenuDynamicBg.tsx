@@ -17,13 +17,13 @@ export default function MenuDynamicBg() {
   const src = isFast ? `/images/${menuBg}` : `/images/low-quality/${menuBg}`;
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="popLayout">
       {menuBg !== null && (
         <m.div
           className={dynamicBgCn}
-          initial={{x: 300, opacity: 0}}
-          animate={{x: 0, opacity: 1}}
-          exit={{x: -300, opacity: 0}}
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          exit={{opacity: 0}}
           key={menuBg}
           transition={{
             stiffness: 260,
