@@ -15,6 +15,7 @@ const titleContainerCn = clsx(
   'bg-clip-text',
 );
 const exploreCn = clsx('text-center', 'text-2xl');
+const exploreLinkCn = clsx('tracking-widest', 'underline', 'underline-offset-2', 'leading-4');
 
 /**
  * @returns React component.
@@ -35,7 +36,7 @@ export default function Home() {
         >
           <Link
             href="/about"
-            className="animated-link tracking-widest"
+            className={exploreLinkCn}
           >
             EXPLORE
           </Link>

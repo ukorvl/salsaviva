@@ -13,7 +13,7 @@ type VideoBackgroundProps = {
   onBeforeEnded: () => void;
 };
 
-const videoCn = clsx('w-full', 'h-full', 'object-cover', 'filter', 'brightness-60');
+const videoCn = clsx('w-full', 'h-full', 'object-cover');
 
 /**
  * @param {VideoBackgroundProps} props Props.
