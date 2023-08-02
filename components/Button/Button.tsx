@@ -43,9 +43,7 @@ const baseButtonCn = clsx(
   'relative',
   'overflow-hidden',
   'select-none',
-  'focus:ring-4',
-  'focus:outline-none',
-  'focus:ring-white',
+  'focus-ring',
 );
 
 const buttonDefaultCn = clsx(
