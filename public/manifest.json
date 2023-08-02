@@ -10,18 +10,18 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "/logo/logo.png",
+      "src": "/icons/logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/logo/logo_maskable.png",
+      "src": "/icons/logo_maskable.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "maskable"
     },
     {
-      "src": "/logo/logo_512.png",
+      "src": "/icons/logo_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

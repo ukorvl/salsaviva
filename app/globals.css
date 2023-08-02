@@ -31,4 +31,8 @@
   .animated-link:focus:after {
     width: 100%;
   }
+
+  .focus-ring {
+    @apply focus:ring-2 focus:outline-none focus:ring-white;
+  }
 }
