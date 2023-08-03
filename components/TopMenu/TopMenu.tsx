@@ -1,10 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import clsx from 'clsx';
 import {m} from 'framer-motion';
 import {menuItemsConfig, socialLinksConfig} from './topMenuCongif';
 import Menu from '../Menu/Menu';
+import UniservsalLink from '../UniservsalLink/UniservsalLink';
 
 const variants = {
   open: {
@@ -37,24 +37,24 @@ export default function TopMenu() {
           className={itemsListCn}
         >
           <Menu.Item className={homeMenuItem}>
-            <Link
+            <UniservsalLink
               href="/"
               className={linkCn}
             >
               SALSAVIVA
-            </Link>
+            </UniservsalLink>
           </Menu.Item>
           {menuItemsConfig.map(({href, text, bgImgPath}, idx) => (
             <Menu.Item
               key={idx}
               bgImgPath={bgImgPath}
             >
-              <Link
+              <UniservsalLink
                 href={href}
                 className={linkCn}
               >
                 {text}
-              </Link>
+              </UniservsalLink>
             </Menu.Item>
           ))}
         </m.ul>
@@ -67,13 +67,13 @@ export default function TopMenu() {
               key={idx}
               className={socialLinkMenuItem}
             >
-              <Link
+              <UniservsalLink
                 href={href}
                 className={linkCn}
                 target="_blank"
               >
                 {text.toUpperCase()}
-              </Link>
+              </UniservsalLink>
             </Menu.Item>
           ))}
         </m.ul>

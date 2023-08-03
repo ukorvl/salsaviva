@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import Link from 'next/link';
 import AppearInViewport from '@/components/AppearInViewport/AppearInViewport';
 import MainPageVideoPlayer from '@/components/MainPageVideoPlayer/MainPageVideoPlayer';
+import UniservsalLink from '@/components/UniservsalLink/UniservsalLink';
 
 const containerCn = clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'grow');
 const titleCn = clsx('font-light', 'text-8xl');
@@ -33,12 +33,12 @@ export default function Home() {
           className={exploreCn}
           variants={exploreLinkVariants}
         >
-          <Link
+          <UniservsalLink
             href="/about"
             className={exploreLinkCn}
           >
             EXPLORE
-          </Link>
+          </UniservsalLink>
         </AppearInViewport>
       </div>
       <MainPageVideoPlayer />

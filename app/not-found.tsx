@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import UniservsalLink from '@/components/UniservsalLink/UniservsalLink';
 
 /**
  * @returns React component.
@@ -9,7 +9,7 @@ export default function NotFound() {
       <h2>Not Found</h2>
       <p>Could not find requested resource</p>
       <p>
-        View <Link href="/blog">all posts</Link>
+        View <UniservsalLink href="/blog">all posts</UniservsalLink>
       </p>
     </div>
   );
