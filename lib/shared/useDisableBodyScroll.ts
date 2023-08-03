@@ -10,11 +10,12 @@ export default function useDisableBodyScroll(open: boolean) {
       document.body.style.overflow = 'hidden';
 
       if (getBosyHasOevrflow()) {
-        document.documentElement.style.scrollbarGutter = 'stable';
+        const scrollbarWidth = window.innerWidth - document.body.clientWidth;
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
       }
     } else {
       document.body.style.overflow = 'unset';
-      document.documentElement.style.scrollbarGutter = 'auto';
+      document.body.style.paddingRight = 'unset';
     }
   }, [open]);
 }
