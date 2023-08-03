@@ -19,6 +19,7 @@ const iconsCn = clsx(
   'left-4',
   '-translate-y-2/4',
   'top-2/4',
+  'z-10',
 );
 const iconCn = clsx('hover:scale-105 hover:-translate-y-0.5 transition-transform');
 

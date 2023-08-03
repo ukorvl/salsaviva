@@ -44,7 +44,7 @@ const navCn = clsx(
   'left-0',
   'w-full',
   'h-full',
-  'z-10',
+  'z-20',
   'bg-gradient-to-bl from-accent0 to-alternate',
   'flex',
   'flex-col',

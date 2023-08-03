@@ -6,7 +6,7 @@ import useNetworkSpeed from '@/lib/shared/useNetworkSpeed';
 import {MenuContext} from './MenuContext';
 
 // eslint-disable-next-line jsdoc/require-jsdoc
-const dynamicBgCn = clsx('absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'z-20');
+const dynamicBgCn = clsx('absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'z-30');
 
 /**
  * @returns React component.

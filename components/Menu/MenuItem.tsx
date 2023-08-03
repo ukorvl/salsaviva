@@ -32,7 +32,7 @@ const variants = {
   },
 };
 
-const itemCn = clsx('text-5xl', 'm-4', 'text-center', 'z-30', 'relative');
+const itemCn = clsx('text-5xl', 'm-4', 'text-center', 'z-40', 'relative');
 
 /**
  * @param {MenuItemProps} props Props.
