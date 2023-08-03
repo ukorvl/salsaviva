@@ -26,6 +26,7 @@ export default function Template({children}: {children: React.ReactNode}) {
       <SocialIcons />
       <AnimatePresence mode="wait">
         <m.div
+          className="h-full grow flex"
           initial={{x: 300, opacity: 0}}
           animate={{x: 0, opacity: 1}}
           exit={{x: 300, opacity: 0}}

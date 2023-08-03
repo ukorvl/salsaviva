@@ -4,6 +4,7 @@ import {CSSProperties, useCallback, useState} from 'react';
 import {m} from 'framer-motion';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleArrowUp} from '@fortawesome/free-solid-svg-icons';
+import clsx from 'clsx';
 import useScroll, {ScrollHandler} from '@/lib/shared/useScroll';
 import isPrefersReducedMotion from '@/utils/isPrefersReducedMotion';
 
@@ -19,6 +20,8 @@ const variants = {
   visible: {opacity: 1, y: 0},
   hidden: {opacity: 0, y: '2rem'},
 };
+
+const btnCn = clsx('fixed');
 
 /**
  * @param {ScrollToTopButtonProps} props Props.
@@ -38,7 +41,7 @@ export default function ScrollToTopButton({offset = 1000, ...position}: ScrollTo
 
   return (
     <m.button
-      className="fixed"
+      className={btnCn}
       initial="hidden"
       animate={visible ? 'visible' : 'hidden'}
       variants={variants}

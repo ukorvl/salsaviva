@@ -25,7 +25,7 @@ type LoaderProps = {
  */
 export default function Loader({size = 'md', grow = false}: LoaderProps) {
   const containerClassName = clsx(
-    'flex justify-content-center align-items-center p-4',
+    'absolute flex justify-content-center align-items-center p-4',
     grow && 'min-h-screen w-full',
   );
 

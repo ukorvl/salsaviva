@@ -14,7 +14,7 @@ type MenuToggleProps = {
   className?: string;
 };
 
-const containerCn = clsx('absolute', 'z-30');
+const containerCn = clsx('absolute', 'z-40');
 const btnCn = clsx('rounded-full');
 
 /**

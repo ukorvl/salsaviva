@@ -3,19 +3,17 @@ import Link from 'next/link';
 import AppearInViewport from '@/components/AppearInViewport/AppearInViewport';
 import MainPageVideoPlayer from '@/components/MainPageVideoPlayer/MainPageVideoPlayer';
 
-const containerCn = clsx('relative', 'z-10');
-const titleCn = clsx('font-light', 'text-9xl', 'text-transparent', 'bg-clip-text');
-const subtitleCn = clsx('text-2xl', 'font-light', 'tracking-widest', 'text-center');
-const titleContainerCn = clsx(
-  'font-sans',
-  'select-none',
-  'bg-gradient-to-r',
-  'from-accent3',
-  'to-accent0',
-  'bg-clip-text',
-);
-const exploreCn = clsx('text-center', 'text-2xl');
-const exploreLinkCn = clsx('tracking-widest', 'underline', 'underline-offset-2', 'leading-4');
+const containerCn = clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'grow');
+const titleCn = clsx('font-light', 'text-8xl');
+const subtitleCn = clsx('text-1.5xl', 'font-light', 'tracking-widest', 'text-center');
+const titleContainerCn = clsx('font-sans', 'select-none');
+const exploreCn = clsx('text-center', 'text-2xl', 'mt-auto');
+const exploreLinkCn = clsx('tracking-wider', 'animated-link');
+
+const exploreLinkVariants = {
+  visible: {opacity: 1, y: 0, scale: 1},
+  hidden: {opacity: 0, y: '2rem', scale: 0.9},
+};
 
 /**
  * @returns React component.
@@ -33,6 +31,7 @@ export default function Home() {
         <AppearInViewport
           transition={{delay: 1.2}}
           className={exploreCn}
+          variants={exploreLinkVariants}
         >
           <Link
             href="/about"
