@@ -2,12 +2,12 @@
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
-import Link from 'next/link';
 import {twMerge} from 'tailwind-merge';
 import {memo} from 'react';
 import {m} from 'framer-motion';
 import iconsConfig from './iconsConfig';
 import AppearInViewport from '../AppearInViewport/AppearInViewport';
+import UniservsalLink from '../UniservsalLink/UniservsalLink';
 
 const iconsCn = clsx(
   'flex',
@@ -54,7 +54,7 @@ function SocialIcons() {
           key={href}
           variants={variants}
         >
-          <Link
+          <UniservsalLink
             href={href}
             target={target}
           >
@@ -62,7 +62,7 @@ function SocialIcons() {
               className={twMerge(iconCn, className)}
               {...rest}
             />
-          </Link>
+          </UniservsalLink>
         </m.div>
       ))}
     </AppearInViewport>

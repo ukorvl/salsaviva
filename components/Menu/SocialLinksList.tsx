@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import {memo} from 'react';
 import clsx from 'clsx';
+import UniservsalLink from '../UniservsalLink/UniservsalLink';
 
 const {NEXT_PUBLIC_FACEBOOK_ADDRESS, NEXT_PUBLIC_INSTAGRAM_ADDRESS, NEXT_PUBLIC_TELEGRAM_ADDRESS} =
   process.env;
@@ -30,14 +30,14 @@ function SocialLinksList() {
   return (
     <div className={containerCn}>
       {linksConfig.map(({title, href}) => (
-        <Link
+        <UniservsalLink
           key={title}
           href={href ?? ''}
           target="_blank"
           className={linkCn}
         >
           {title.toUpperCase()}
-        </Link>
+        </UniservsalLink>
       ))}
     </div>
   );
