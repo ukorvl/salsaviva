@@ -1,6 +1,6 @@
 'use client';
 
-import {LazyMotion, AnimatePresence, m} from 'framer-motion';
+import {LazyMotion} from 'framer-motion';
 import {LocationChangeTracker} from '@/lib/gtag/LocationChangeTracker';
 import useDynamicFavicon from '@/lib/dynamicFavicon/useDynamicFavicon';
 import TopMenu from '@/components/TopMenu/TopMenu';
@@ -24,21 +24,7 @@ export default function Template({children}: {children: React.ReactNode}) {
         right={50}
       />
       <SocialIcons />
-      <AnimatePresence mode="wait">
-        <m.div
-          className="h-full grow flex"
-          initial={{x: 300, opacity: 0}}
-          animate={{x: 0, opacity: 1}}
-          exit={{x: 300, opacity: 0}}
-          transition={{
-            type: 'spring',
-            stiffness: 260,
-            damping: 20,
-          }}
-        >
-          {children}
-        </m.div>
-      </AnimatePresence>
+      {children}
     </LazyMotion>
   );
 }
