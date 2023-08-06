@@ -33,15 +33,9 @@ const metadata: Metadata = {
     description: 'Salsa, Bachata and Kizomba in Yerevan',
     images: [
       {
-        url: 'https://nextjs.org/og.png',
+        url: '/og.jpg',
         width: 800,
         height: 600,
-      },
-      {
-        url: 'https://nextjs.org/og-alt.png',
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt',
       },
     ],
     locale: 'en_US',
@@ -51,7 +45,7 @@ const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Salsaviva',
     description: 'Salsa, Bachata and Kizomba in Yerevan',
-    images: ['https://nextjs.org/og.png'],
+    images: ['/og.jpg'],
   },
   viewport: {
     width: 'device-width',
