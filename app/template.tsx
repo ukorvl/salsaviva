@@ -7,6 +7,7 @@ import TopMenu from '@/components/TopMenu/TopMenu';
 import SocialIcons from '@/components/SocialIcons/SocialIcons';
 import {loadFeatures} from '@/lib/framerMotion/loadFeatures';
 import ScrollToTopButton from '@/components/ScrollToTop/ScrollToTop';
+import CustomCursor from '@/lib/customCursor/CustomCursor';
 
 /**
  * @param {{children}} props Props.
@@ -25,6 +26,7 @@ export default function Template({children}: {children: React.ReactNode}) {
       />
       <SocialIcons />
       {children}
+      <CustomCursor />
     </LazyMotion>
   );
 }

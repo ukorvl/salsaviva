@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import {forwardRef} from 'react';
 import {useHotkeys} from 'react-hotkeys-hook';
+import {customCursorClickableClass} from '@/lib/customCursor/customCursorClickableClass';
 import AppearInViewport from '../AppearInViewport/AppearInViewport';
 
 /**
@@ -16,7 +17,7 @@ type GalleryItemProps = {
 
 const imgCn = clsx('rounded-md', 'overflow-hidden');
 const overflowCn = clsx(
-  'cursor-pointer',
+  customCursorClickableClass,
   'relative',
   'after:absolute',
   'after:content-[""]',
