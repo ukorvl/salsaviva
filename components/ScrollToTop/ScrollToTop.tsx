@@ -21,7 +21,7 @@ const variants = {
   hidden: {opacity: 0, y: '2rem'},
 };
 
-const btnCn = clsx('fixed');
+const btnCn = clsx('fixed', 'z-10');
 
 /**
  * @param {ScrollToTopButtonProps} props Props.

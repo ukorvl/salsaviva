@@ -10,7 +10,7 @@ type TeachersBynamicBgProps = {
 };
 
 const bgCn = clsx(
-  'absolute',
+  'fixed',
   'top-0',
   'left-0',
   'w-full',
@@ -26,7 +26,7 @@ const bgCn = clsx(
  */
 export default function TeachersBynamicBg({bgSrc}: TeachersBynamicBgProps) {
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="popLayout">
       {bgSrc !== null && (
         <m.div
           className={bgCn}
@@ -41,7 +41,7 @@ export default function TeachersBynamicBg({bgSrc}: TeachersBynamicBgProps) {
           }}
         >
           <Image
-            src={bgSrc}
+            src={`/images/${bgSrc}`}
             alt=""
             placeholder="blur"
             blurDataURL={`/images/blured/${bgSrc}`}

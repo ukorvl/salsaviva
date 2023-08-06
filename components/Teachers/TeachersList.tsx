@@ -2,8 +2,7 @@ import clsx from 'clsx';
 import UniversalLink from '../UniversalLink/UniversalLink';
 import teachersListConfig from './teachersListConfig';
 
-const contentCn = clsx('w-full', 'h-full', 'flex', 'flex-col', 'items-center', 'justify-center');
-const listCn = clsx('pt-24');
+const listCn = clsx('pt-24', 'relative', 'z-10');
 const liCn = clsx('mb-4');
 const linkCn = clsx('text-3xl', 'animated-link', 'font-light');
 

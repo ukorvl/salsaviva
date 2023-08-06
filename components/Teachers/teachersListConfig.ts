@@ -1,10 +1,10 @@
 const teachersListConfig = [
   {
-    name: 'Annie Ghantarjian',
+    name: 'Monica Conde',
     style: 'Salsa/mambo, Kizomba, Bachata',
     superPowers: 'Lady style & Body Movement',
     groupLessons: 'Lady style & Kizomba Partnerwork',
-    imgSrc: '/images/top-menu.0.jpg',
+    imgSrc: 'top-menu.0.jpg',
     id: 'annie-ghantarjian',
   },
   {
@@ -12,7 +12,7 @@ const teachersListConfig = [
     style: 'Salsa/mambo, Kizomba, Bachata',
     superPowers: 'Lady style & Body Movement',
     groupLessons: 'Lady style & Kizomba Partnerwork',
-    imgSrc: '/images/top-menu.1.jpg',
+    imgSrc: 'top-menu.1.jpg',
     id: 'annie-ghantarjian',
   },
   {
@@ -20,7 +20,7 @@ const teachersListConfig = [
     style: 'Salsa/mambo, Kizomba, Bachata',
     superPowers: 'Lady style & Body Movement',
     groupLessons: 'Lady style & Kizomba Partnerwork',
-    imgSrc: '/images/top-menu.2.jpg',
+    imgSrc: 'top-menu.2.jpg',
     id: 'annie-ghantarjian',
   },
   {
@@ -28,7 +28,7 @@ const teachersListConfig = [
     style: 'Salsa/mambo, Kizomba, Bachata',
     superPowers: 'Lady style & Body Movement',
     groupLessons: 'Lady style & Kizomba Partnerwork',
-    imgSrc: '/images/top-menu.3.jpg',
+    imgSrc: 'top-menu.3.jpg',
     id: 'annie-ghantarjian',
   },
 ] as const;
