@@ -19,7 +19,7 @@ const blockCn = clsx('h-screen', 'relative', 'z-10', 'flex', 'grow', 'flex-1');
  */
 export default function ViewportBlock({setBgSrc, bgSrc, children}: ViewportBlockProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const {isOnScreen} = useOnScreen({ref, threshold: 0.6});
+  const {isOnScreen} = useOnScreen({ref, threshold: 0.25});
 
   useLayoutEffect(() => {
     if (isOnScreen) {

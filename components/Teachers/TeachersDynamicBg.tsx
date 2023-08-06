@@ -26,7 +26,7 @@ const bgCn = clsx(
  */
 export default function TeachersBynamicBg({bgSrc}: TeachersBynamicBgProps) {
   return (
-    <AnimatePresence mode="popLayout">
+    <AnimatePresence mode="wait">
       {bgSrc !== null && (
         <m.div
           className={bgCn}

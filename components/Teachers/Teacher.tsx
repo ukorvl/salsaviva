@@ -1,14 +1,51 @@
+import {Variants, m, useScroll, useTransform} from 'framer-motion';
+import {useRef} from 'react';
 import teachersListConfig from './teachersListConfig';
+import clsx from 'clsx';
 
 /**
  * Props.
  */
 type TeacherBlockProps = (typeof teachersListConfig)[number];
 
+const cardVariants: Variants = {
+  offscreen: {
+    rotate: -10,
+    transition: {
+      type: 'spring',
+      duration: 0.8,
+    },
+  },
+  onscreen: {
+    rotate: 0,
+    transition: {
+      type: 'spring',
+      duration: 0.8,
+    },
+  },
+};
+
+const nameCn = clsx('text-7xl');
+const textCn = clsx('text-3xl', 'mt-4');
+
 /**
  * @param {TeacherBlockProps} props Props.
  * @returns React component.
  */
-export default function Teacher({name}: TeacherBlockProps) {
-  return <div>{name}</div>;
+export default function Teacher({name, style, superPowers, groupLessons}: TeacherBlockProps) {
+  const ref = useRef(null);
+  const {scrollYProgress} = useScroll({target: ref, offset: ['start end', 'end end']});
+  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.9, 1], [0, 1, 1, 0]);
+
+  return (
+    <m.div
+      style={{opacity}}
+      ref={ref}
+    >
+      <div className={nameCn}>{name}</div>
+      <div className={textCn}>{style}</div>
+      <div className={textCn}>{`Super powers: ${superPowers}`}</div>
+      <div className={textCn}>{`Group lessons: ${groupLessons}`}</div>
+    </m.div>
+  );
 }

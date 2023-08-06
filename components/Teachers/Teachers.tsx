@@ -2,7 +2,6 @@
 
 import {useState} from 'react';
 import TeachersBynamicBg from './TeachersDynamicBg';
-import TeachersList from './TeachersList';
 import teachersListConfig from './teachersListConfig';
 import Teacher from './Teacher';
 import ViewportBlock from './ViewportBlock';
@@ -15,12 +14,6 @@ export default function Teachers() {
 
   return (
     <div>
-      <ViewportBlock
-        setBgSrc={setBgSrc}
-        bgSrc={null}
-      >
-        <TeachersList />
-      </ViewportBlock>
       {teachersListConfig.map(t => (
         <ViewportBlock
           key={t.id}

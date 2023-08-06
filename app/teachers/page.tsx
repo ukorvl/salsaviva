@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const containerCn = clsx('flex', 'flex-col', 'items-start', 'justify-start');
-const titleCn = clsx('text-4xl', 'font-bold', 'mb-4', 'w-2/3');
+const titleCn = clsx('text-4xl', 'font-bold', 'mb-4', 'w-2/3', 'h-52', 'relative', 'z-10');
 
 /**
  * @returns React component.

@@ -1,11 +1,11 @@
 'use client';
 
-import {CSSProperties, useCallback, useState} from 'react';
-import {m} from 'framer-motion';
+import {CSSProperties, useState} from 'react';
+import {m, useScroll, useMotionValueEvent} from 'framer-motion';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleArrowUp} from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
-import useScroll, {ScrollHandler} from '@/lib/shared/useScroll';
+//import useScroll, {ScrollHandler} from '@/lib/shared/useScroll';
 import {isPrefersReducedMotion} from '@/utils/isPrefersReducedMotion';
 
 /**
@@ -29,15 +29,11 @@ const btnCn = clsx('fixed', 'z-10');
  */
 export default function ScrollToTopButton({offset = 1000, ...position}: ScrollToTopButtonProps) {
   const [visible, setVisible] = useState(false);
+  const {scrollY} = useScroll();
 
-  const scrollHandler: ScrollHandler = useCallback(
-    ({scrollTop}) => {
-      setVisible(scrollTop ? scrollTop > offset : false);
-    },
-    [offset],
-  );
-
-  useScroll(scrollHandler);
+  useMotionValueEvent(scrollY, 'change', latest => {
+    setVisible(latest ? latest > offset : false);
+  });
 
   return (
     <m.button
