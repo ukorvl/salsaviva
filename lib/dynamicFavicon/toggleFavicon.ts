@@ -15,12 +15,12 @@ const disabledTabIconsSet = [
   {
     rel: 'icon',
     sizes: 'any',
-    href: '/icons/favicon.dark.ico',
+    href: '/icons/favicon.disabled.ico',
   },
   {
     rel: 'icon',
     type: 'image/svg+xml',
-    href: '/icons/icon.dark.svg',
+    href: '/icons/icon.disabled.svg',
   },
 ];
 
