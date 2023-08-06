@@ -1,29 +1,12 @@
-import {Variants, m, useScroll, useTransform} from 'framer-motion';
+import {m, useScroll, useTransform} from 'framer-motion';
 import {useRef} from 'react';
-import teachersListConfig from './teachersListConfig';
 import clsx from 'clsx';
+import teachersListConfig from './teachersListConfig';
 
 /**
  * Props.
  */
 type TeacherBlockProps = (typeof teachersListConfig)[number];
-
-const cardVariants: Variants = {
-  offscreen: {
-    rotate: -10,
-    transition: {
-      type: 'spring',
-      duration: 0.8,
-    },
-  },
-  onscreen: {
-    rotate: 0,
-    transition: {
-      type: 'spring',
-      duration: 0.8,
-    },
-  },
-};
 
 const nameCn = clsx('text-7xl');
 const textCn = clsx('text-3xl', 'mt-4');
