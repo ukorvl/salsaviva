@@ -15,19 +15,14 @@ type LoaderSize = 'sm' | 'lg' | 'md';
 type LoaderProps = {
   /** @default md */
   size?: LoaderSize;
-  /** @default false */
-  grow?: boolean;
 };
 
 /**
  * @param {LoaderProps} props Props.
  * @returns React component.
  */
-export default function Loader({size = 'md', grow = false}: LoaderProps) {
-  const containerClassName = clsx(
-    'absolute flex justify-content-center align-items-center p-4',
-    grow && 'min-h-screen w-full',
-  );
+export default function Loader({size = 'md'}: LoaderProps) {
+  const containerClassName = clsx('flex justify-content-center align-items-center p-4');
 
   const bouncingElementClassName = clsx('motion-safe:animate-bounce h-5 w-5 m-2 bg-white', size);
 
