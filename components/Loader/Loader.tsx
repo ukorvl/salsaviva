@@ -1,8 +1,9 @@
-/**
- * @file In order to render loader on the server we don't use framer motion here.
- */
+'use client';
 
+import {OnScreen} from '@ukorvl/react-on-screen';
 import clsx from 'clsx';
+import {ComponentProps} from 'react';
+import PuffLoader from 'react-spinners/PuffLoader';
 
 /**
  * Loader size.
@@ -15,48 +16,53 @@ type LoaderSize = 'sm' | 'lg' | 'md';
 type LoaderProps = {
   /** @default md */
   size?: LoaderSize;
-  /** @default false */
-  grow?: boolean;
+  /** @default white */
+  color?: ComponentProps<typeof PuffLoader>['color'];
 };
+
+const containerBaseCn = clsx(
+  'flex justify-content-center align-items-center p-4',
+  'transition-opacity',
+  'duration-300',
+);
+// eslint-disable-next-line jsdoc/require-jsdoc
+const containerCn = (isOnScreen: boolean) =>
+  clsx(containerBaseCn, isOnScreen ? 'opacity-100' : 'opacity-0');
 
 /**
  * @param {LoaderProps} props Props.
  * @returns React component.
  */
-export default function Loader({size = 'md', grow = false}: LoaderProps) {
-  const containerClassName = clsx(
-    'absolute flex justify-content-center align-items-center p-4',
-    grow && 'min-h-screen w-full',
-  );
-
-  const bouncingElementClassName = clsx('motion-safe:animate-bounce h-5 w-5 m-2 bg-white', size);
-
-  //const bouncingElementViewBox = '0 0 24 24';
-
+export default function Loader({size = 'md', color = 'white'}: LoaderProps) {
   return (
-    <div
-      className={containerClassName}
-      role="status"
-    >
-      {[...new Array(3).keys()].map(x => (
+    <OnScreen<HTMLDivElement>>
+      {({ref, isOnScreen}) => (
         <div
-          key={x}
-          className={bouncingElementClassName}
-        />
-      ))}
-    </div>
+          className={containerCn(isOnScreen)}
+          ref={ref}
+        >
+          <PuffLoader
+            size={mapSizeToValue(size)}
+            color={color}
+            aria-label="Loading"
+            role="status"
+          />
+        </div>
+      )}
+    </OnScreen>
   );
 }
 
-// function mapSizeToRem(s: LoaderSize) {
-//   switch (s) {
-//     case 'md':
-//       return 1;
-//     case 'lg':
-//       return 2;
-//     case 'sm':
-//       return 0.75;
-//     default:
-//       return 1;
-//   }
-// }
+// eslint-disable-next-line jsdoc/require-jsdoc
+function mapSizeToValue(s: LoaderSize) {
+  switch (s) {
+    case 'md':
+      return 150;
+    case 'lg':
+      return 200;
+    case 'sm':
+      return 100;
+    default:
+      return 150;
+  }
+}
