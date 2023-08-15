@@ -9,7 +9,7 @@ const containerCn = clsx('grow', 'flex', 'justify-center', 'items-center', 'h-fu
 export default function Loading() {
   return (
     <div className={containerCn}>
-      <Loader grow />
+      <Loader />
     </div>
   );
 }
