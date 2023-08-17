@@ -20,26 +20,26 @@ const {
  */
 const iconsConfig: IconConfig[] = [
   {
-    icon: faFacebook,
-    href: NEXT_PUBLIC_FACEBOOK_ADDRESS ?? '',
-    size: '2x',
-    target: '_blank',
-  },
-  {
     icon: faInstagram,
     href: NEXT_PUBLIC_INSTAGRAM_ADDRESS ?? '',
     size: '2x',
     target: '_blank',
   },
   {
-    icon: faWhatsapp,
-    href: NEXT_PUBLIC_WHATSAPP_ADDRESS ?? '',
+    icon: faTelegram,
+    href: NEXT_PUBLIC_TELEGRAM_ADDRESS ?? '',
     size: '2x',
     target: '_blank',
   },
   {
-    icon: faTelegram,
-    href: NEXT_PUBLIC_TELEGRAM_ADDRESS ?? '',
+    icon: faFacebook,
+    href: NEXT_PUBLIC_FACEBOOK_ADDRESS ?? '',
+    size: '2x',
+    target: '_blank',
+  },
+  {
+    icon: faWhatsapp,
+    href: NEXT_PUBLIC_WHATSAPP_ADDRESS ?? '',
     size: '2x',
     target: '_blank',
   },

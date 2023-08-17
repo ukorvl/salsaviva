@@ -33,20 +33,20 @@ const menuItemsConfig = [
 
 const socialLinksConfig = [
   {
-    href: NEXT_PUBLIC_FACEBOOK_ADDRESS ?? '',
-    text: 'Facebook',
-  },
-  {
     href: NEXT_PUBLIC_INSTAGRAM_ADDRESS ?? '',
     text: 'Instagram',
   },
   {
-    href: NEXT_PUBLIC_WHATSAPP_ADDRESS ?? '',
-    text: 'Whatsapp',
-  },
-  {
     href: NEXT_PUBLIC_TELEGRAM_ADDRESS ?? '',
     text: 'Telegram',
+  },
+  {
+    href: NEXT_PUBLIC_FACEBOOK_ADDRESS ?? '',
+    text: 'Facebook',
+  },
+  {
+    href: NEXT_PUBLIC_WHATSAPP_ADDRESS ?? '',
+    text: 'Whatsapp',
   },
 ] as const;
 
