@@ -5,7 +5,6 @@ import {m, useScroll, useMotionValueEvent} from 'framer-motion';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleArrowUp} from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
-//import useScroll, {ScrollHandler} from '@/lib/shared/useScroll';
 import {isPrefersReducedMotion} from '@/utils/isPrefersReducedMotion';
 
 /**

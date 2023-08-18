@@ -32,3 +32,5 @@ export default function Teacher({name, style, superPowers, groupLessons}: Teache
     </m.div>
   );
 }
+
+// 4 cards for teachers fullscreen, when hover - show info, see schedule button
