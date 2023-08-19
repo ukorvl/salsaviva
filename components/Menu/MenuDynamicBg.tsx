@@ -14,7 +14,6 @@ const dynamicBgCn = clsx('absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'z-3
 export default function MenuDynamicBg() {
   const {menuBg} = useContext(MenuContext);
   const [, isFast] = useNetworkSpeed();
-  const src = isFast ? `/images/${menuBg}` : `/images/low-quality/${menuBg}`;
 
   return (
     <AnimatePresence mode="popLayout">
@@ -32,10 +31,11 @@ export default function MenuDynamicBg() {
           }}
         >
           <Image
-            src={src}
+            src={`/images/${menuBg}`}
             alt=""
             placeholder="blur"
             blurDataURL={`/images/blured/${menuBg}`}
+            quality={isFast ? 75 : 25}
             fill
           />
         </m.div>
