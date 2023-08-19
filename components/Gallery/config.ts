@@ -24,5 +24,4 @@ export default config.map(({fileName, dimensions}) => ({
   dimensions,
   src: `/images/${fileName}`,
   blurDataURL: `/images/blured/${fileName}`,
-  lowQualitySrc: `/images/low-quality/${fileName}`,
 }));
