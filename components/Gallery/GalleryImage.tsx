@@ -1,13 +1,12 @@
 import {MouseEvent} from 'react';
 import clsx from 'clsx';
-import Image from 'next/image';
 import {forwardRef} from 'react';
 import {useHotkeys} from 'react-hotkeys-hook';
 import {customCursorClickableClass} from '@/lib/customCursor/customCursorClickableClass';
 import useDisableRightClick from '@/lib/shared/useDisableRightClick';
 import {useAssignRefs} from '@/lib/shared/useAssignRefs';
-import useNetworkSpeed from '@/lib/shared/useNetworkSpeed';
 import AppearInViewport from '../AppearInViewport/AppearInViewport';
+import ImageWrapper from '../ImageWrapper/ImageWrapper';
 
 /**
  * Props.
@@ -54,7 +53,6 @@ const GalleryImage = forwardRef<HTMLImageElement, GalleryItemProps>(function Gal
   });
   const disableRef = useDisableRightClick();
   const finalRef = useAssignRefs(hotkeysRef, disableRef);
-  const [, isFast] = useNetworkSpeed();
 
   return (
     <AppearInViewport>
@@ -67,15 +65,11 @@ const GalleryImage = forwardRef<HTMLImageElement, GalleryItemProps>(function Gal
         role="link"
         ref={finalRef}
       >
-        <Image
+        <ImageWrapper
           className={imgCn}
           ref={ref}
           src={src}
-          placeholder="blur"
           blurDataURL={blurDataURL}
-          quality={isFast ? 75 : 25}
-          alt=""
-          fill
         />
       </div>
     </AppearInViewport>

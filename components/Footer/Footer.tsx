@@ -3,7 +3,7 @@ import Mail from './Mail';
 import Phone from './Phone';
 import Location from './Location';
 
-const footerCn = clsx('container', 'columns-3', 'xs:columns-1', 'mt-auto', 'pb-12');
+const footerCn = clsx('container', 'flex', 'justify-between', 'px-24', 'pt-12', 'pb-24');
 
 /**
  * @returns React component.

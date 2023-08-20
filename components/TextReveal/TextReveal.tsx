@@ -7,7 +7,7 @@ import AppearInViewport from '../AppearInViewport/AppearInViewport';
 /**
  * Props.
  */
-type AnimatedTextProps = {
+type TextRevealProps = {
   text: string;
   className?: string;
 };
@@ -45,10 +45,10 @@ const childVariants = {
 const spanCn = clsx('inline-block', 'mr-[0.25em]');
 
 /**
- * @param {AnimatedTextProps} props Props.
+ * @param {TextRevealProps} props Props.
  * @returns React component.
  */
-function AnimatedText({text, className}: AnimatedTextProps) {
+function TextReveal({text, className}: TextRevealProps) {
   const words = text.split(' ');
 
   return (
@@ -69,4 +69,4 @@ function AnimatedText({text, className}: AnimatedTextProps) {
   );
 }
 
-export default memo(AnimatedText);
+export default memo(TextReveal);

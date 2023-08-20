@@ -21,7 +21,7 @@ const bodyCn = clsx(
   'bg-fixed',
 );
 
-const mainCn = clsx('flex', 'flex-col', 'items-center', 'justify-start', 'p-24', 'grow');
+const mainCn = clsx('flex', 'flex-col', 'items-center', 'justify-start', 'grow');
 
 /**
  * @param {{children}} props Props.

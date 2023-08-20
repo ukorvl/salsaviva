@@ -1,29 +1,23 @@
 'use client';
 
-import {useState} from 'react';
-import TeachersBynamicBg from './TeachersDynamicBg';
+import clsx from 'clsx';
 import teachersListConfig from './teachersListConfig';
 import Teacher from './Teacher';
-import ViewportBlock from './ViewportBlock';
+
+const containerCn = clsx('grid', 'grid-cols-4', 'w-full', 'h-full', 'grow');
 
 /**
  * @returns React component.
  */
 export default function Teachers() {
-  const [bgSrc, setBgSrc] = useState<string | null>(null);
-
   return (
-    <div>
-      {teachersListConfig.map(t => (
-        <ViewportBlock
-          key={t.id}
-          setBgSrc={setBgSrc}
-          bgSrc={t.imgSrc}
-        >
-          <Teacher {...t} />
-        </ViewportBlock>
+    <div className={containerCn}>
+      {teachersListConfig.map(teacher => (
+        <Teacher
+          key={teacher.name}
+          {...teacher}
+        />
       ))}
-      <TeachersBynamicBg bgSrc={bgSrc} />
     </div>
   );
 }

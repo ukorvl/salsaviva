@@ -38,7 +38,7 @@ const navVariants = {
 };
 
 const navCn = clsx(
-  'absolute',
+  'fixed',
   'top-0',
   'left-0',
   'w-full',

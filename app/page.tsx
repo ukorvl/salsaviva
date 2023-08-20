@@ -4,10 +4,10 @@ import MainPageVideoPlayer from '@/components/MainPageVideoPlayer/MainPageVideoP
 import UniversalLink from '@/components/UniversalLink/UniversalLink';
 
 const containerCn = clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'grow');
-const titleCn = clsx('font-light', 'text-8xl');
+const titleCn = clsx('font-light', 'text-8xl', 'mt-24');
 const subtitleCn = clsx('text-1.5xl', 'font-light', 'tracking-widest', 'text-center');
 const titleContainerCn = clsx('font-sans', 'select-none');
-const exploreCn = clsx('text-center', 'text-2xl', 'mt-auto');
+const exploreCn = clsx('text-center', 'text-2xl', 'mt-auto', 'mb-16');
 const exploreLinkCn = clsx('tracking-wider', 'animated-link');
 
 const exploreLinkVariants = {

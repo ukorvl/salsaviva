@@ -1,36 +1,38 @@
-import {m, useScroll, useTransform} from 'framer-motion';
-import {useRef} from 'react';
+import {m} from 'framer-motion';
 import clsx from 'clsx';
 import teachersListConfig from './teachersListConfig';
+import ImageWrapper from '../ImageWrapper/ImageWrapper';
 
 /**
  * Props.
  */
 type TeacherBlockProps = (typeof teachersListConfig)[number];
 
-const nameCn = clsx('text-7xl');
+const imageCn = clsx('w-full');
 const textCn = clsx('text-3xl', 'mt-4');
 
 /**
  * @param {TeacherBlockProps} props Props.
  * @returns React component.
  */
-export default function Teacher({name, style, superPowers, groupLessons}: TeacherBlockProps) {
-  const ref = useRef(null);
-  const {scrollYProgress} = useScroll({target: ref, offset: ['start end', 'end end']});
-  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.9, 1], [0, 1, 1, 0]);
-
+export default function Teacher({
+  name,
+  style,
+  superPowers,
+  groupLessons,
+  imgSrc,
+}: TeacherBlockProps) {
   return (
-    <m.div
-      style={{opacity}}
-      ref={ref}
-    >
-      <div className={nameCn}>{name}</div>
-      <div className={textCn}>{style}</div>
-      <div className={textCn}>{`Super powers: ${superPowers}`}</div>
-      <div className={textCn}>{`Group lessons: ${groupLessons}`}</div>
+    <m.div>
+      <ImageWrapper
+        src={`/images/${imgSrc}`}
+        blurDataURL={`/images/blured/${imgSrc}`}
+        alt={name}
+        className={imageCn}
+        fill={false}
+        width={300}
+        height={1000}
+      />
     </m.div>
   );
 }
-
-// 4 cards for teachers fullscreen, when hover - show info, see schedule button

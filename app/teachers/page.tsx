@@ -1,6 +1,6 @@
 import {Metadata} from 'next';
 import clsx from 'clsx';
-import AnimatedText from '@/components/AnimatedText/AnimatedText';
+import AnimatedText from '@/components/TextReveal/TextReveal';
 import {default as TeachersComponent} from '@/components/Teachers/Teachers';
 
 const pageDescription = 'Meet your inspirational guides in the world of social dance';
@@ -13,8 +13,15 @@ export const metadata: Metadata = {
   },
 };
 
-const containerCn = clsx('flex', 'flex-col', 'items-start', 'justify-start');
-const titleCn = clsx('text-4xl', 'font-bold', 'mb-4', 'w-2/3', 'h-52', 'relative', 'z-10');
+const containerCn = clsx(
+  'flex',
+  'flex-col',
+  'items-start',
+  'justify-start',
+  'min-h-screen',
+  'w-full',
+);
+const titleCn = clsx('text-4xl', 'mb-4', 'w-2/3', 'top-24', 'left-24', 'absolute', 'z-10');
 
 /**
  * @returns React component.
