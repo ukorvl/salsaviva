@@ -10,6 +10,8 @@ type ImageWrapperProps = Omit<ImageProps, 'alt'> & {
 };
 
 /**
+ * Image wrapper, that uses next/image.
+ * Takes care of network speed and quality. Fills all avialiable space by default.
  * @param props Props.
  * @returns React component.
  */

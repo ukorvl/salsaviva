@@ -8,8 +8,25 @@ import ImageWrapper from '../ImageWrapper/ImageWrapper';
  */
 type TeacherBlockProps = (typeof teachersListConfig)[number];
 
-const imageCn = clsx('w-full');
-const textCn = clsx('text-3xl', 'mt-4');
+const variants = {
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: {stiffness: 1000, velocity: -100},
+    },
+  },
+  hidden: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: {stiffness: 1000},
+    },
+  },
+};
+
+const cardCn = clsx('aspect-square', 'relative', 'filter grayscale');
+const iamgeCn = clsx('object-fit');
 
 /**
  * @param {TeacherBlockProps} props Props.
@@ -23,15 +40,14 @@ export default function Teacher({
   imgSrc,
 }: TeacherBlockProps) {
   return (
-    <m.div>
+    <m.div
+      className={cardCn}
+      variants={variants}
+    >
       <ImageWrapper
         src={`/images/${imgSrc}`}
         blurDataURL={`/images/blured/${imgSrc}`}
         alt={name}
-        className={imageCn}
-        fill={false}
-        width={300}
-        height={1000}
       />
     </m.div>
   );

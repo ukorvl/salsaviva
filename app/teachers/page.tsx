@@ -21,7 +21,7 @@ const containerCn = clsx(
   'min-h-screen',
   'w-full',
 );
-const titleCn = clsx('text-4xl', 'mb-4', 'w-2/3', 'top-24', 'left-24', 'absolute', 'z-10');
+const titleCn = clsx('text-4xl', 'mb-4', 'w-2/3', 'top-24', 'left-24', 'z-10');
 
 /**
  * @returns React component.
@@ -29,6 +29,10 @@ const titleCn = clsx('text-4xl', 'mb-4', 'w-2/3', 'top-24', 'left-24', 'absolute
 export default function Teachers() {
   return (
     <div className={containerCn}>
+      <AnimatedText
+        text="Our team"
+        className={titleCn}
+      />
       <AnimatedText
         text={pageDescription}
         className={titleCn}
