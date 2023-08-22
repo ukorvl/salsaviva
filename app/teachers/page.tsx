@@ -23,7 +23,7 @@ const containerCn = clsx(
   'w-full',
 );
 const titleCn = clsx('text-7xl', 'mt-24', 'ml-4');
-const subTitleCn = clsx('text-4xl', 'my-8', 'w-2/3', 'ml-4');
+const subTitleCn = clsx('text-4xl', 'my-4', 'w-2/3', 'ml-4');
 const CATLinkCn = clsx('mt-16');
 
 /**
