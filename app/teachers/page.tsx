@@ -1,7 +1,8 @@
 import {Metadata} from 'next';
 import clsx from 'clsx';
-import AnimatedText from '@/components/TextReveal/TextReveal';
+import TextReveal from '@/components/TextReveal/TextReveal';
 import {default as TeachersComponent} from '@/components/Teachers/Teachers';
+import CATLink from '@/components/CATLink/CATLink';
 
 const pageDescription = 'Meet your inspirational guides in the world of social dance';
 
@@ -21,7 +22,9 @@ const containerCn = clsx(
   'min-h-screen',
   'w-full',
 );
-const titleCn = clsx('text-4xl', 'mb-4', 'w-2/3', 'top-24', 'left-24', 'z-10');
+const titleCn = clsx('text-7xl', 'mt-24', 'ml-4');
+const subTitleCn = clsx('text-4xl', 'my-8', 'w-2/3', 'ml-4');
+const CATLinkCn = clsx('mt-16');
 
 /**
  * @returns React component.
@@ -29,15 +32,20 @@ const titleCn = clsx('text-4xl', 'mb-4', 'w-2/3', 'top-24', 'left-24', 'z-10');
 export default function Teachers() {
   return (
     <div className={containerCn}>
-      <AnimatedText
+      <TextReveal
         text="Our team"
         className={titleCn}
       />
-      <AnimatedText
+      <TextReveal
         text={pageDescription}
-        className={titleCn}
+        className={subTitleCn}
       />
       <TeachersComponent />
+      <CATLink
+        text="BOOK A LESSON"
+        className={CATLinkCn}
+        path="/contact"
+      />
     </div>
   );
 }

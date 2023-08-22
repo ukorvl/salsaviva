@@ -25,8 +25,15 @@ const variants = {
   },
 };
 
-const cardCn = clsx('aspect-square', 'relative', 'filter grayscale');
-const iamgeCn = clsx('object-fit');
+const cardCn = clsx('aspect-square', 'relative', 'filter grayscale-50', 'overflow-hidden');
+const imgCn = clsx(
+  'object-cover',
+  'w-full',
+  'h-full',
+  'hover:transform hover:scale-110 hover:duration-2000',
+  'duration-500',
+  'ease-in',
+);
 
 /**
  * @param {TeacherBlockProps} props Props.
@@ -48,6 +55,7 @@ export default function Teacher({
         src={`/images/${imgSrc}`}
         blurDataURL={`/images/blured/${imgSrc}`}
         alt={name}
+        className={imgCn}
       />
     </m.div>
   );

@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import {m} from 'framer-motion';
 import teachersListConfig from './teachersListConfig';
 import Teacher from './Teacher';
 import AppearInViewport from '../AppearInViewport/AppearInViewport';
