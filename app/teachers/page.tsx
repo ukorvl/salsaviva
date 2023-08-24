@@ -45,6 +45,7 @@ export default function Teachers() {
         text="BOOK A LESSON"
         className={CATLinkCn}
         path="/contact"
+        customTransition={{delay: 0.5}}
       />
     </div>
   );

@@ -1,0 +1,8 @@
+.pswp__img {
+  cursor: none !important;
+}
+
+.pswp {
+  z-index: 1000 !important;
+  --pswp-bg: theme("colors.alternate");
+}

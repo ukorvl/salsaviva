@@ -9,10 +9,11 @@ import GalleryItem from './GalleryItem';
 const containerCn = clsx('flex', 'flex-wrap', 'gap-4', 'justify-center');
 const galleryId = 'images';
 const photoSwipeOptions: GalleryProps['options'] = {
-  zoom: true,
+  zoom: false,
   bgOpacity: 0.9,
   closeOnVerticalDrag: true,
   showHideAnimationType: 'fade',
+  doubleTapAction: false,
 };
 
 /**

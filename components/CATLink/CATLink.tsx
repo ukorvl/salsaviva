@@ -15,8 +15,10 @@ type CATLinkProps = {
   path: LinkProps['href'];
   className?: string;
   customVariants?: HTMLMotionProps<'div'>['variants'];
+  customTransition?: HTMLMotionProps<'div'>['transition'];
 };
 
+const defaultTransition = {delay: 1.2};
 const defaultVariants = {
   visible: {opacity: 1, y: 0, scale: 1},
   hidden: {opacity: 0, y: '2rem', scale: 0.9},
@@ -30,10 +32,16 @@ const linkCn = clsx('tracking-wider', 'animated-link');
  * @param {CATLinkProps} props Props.
  * @returns React component.
  */
-export default function CATLink({text, className, customVariants, path}: CATLinkProps) {
+export default function CATLink({
+  text,
+  className,
+  customVariants,
+  path,
+  customTransition,
+}: CATLinkProps) {
   return (
     <AppearInViewport
-      transition={{delay: 1.2}}
+      transition={{...defaultTransition, ...customTransition}}
       className={twMerge(containerCn, className)}
       variants={{...defaultVariants, ...customVariants}}
     >

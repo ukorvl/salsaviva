@@ -9,6 +9,10 @@ const options: Options = {
   innerSize: 12,
   outerStyle: {
     border: '2px solid white',
+    zIndex: 1001,
+  },
+  innerStyle: {
+    zIndex: 1001,
   },
   outerSize: 20,
   outerScale: 2,

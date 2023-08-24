@@ -26,14 +26,7 @@ const variants = {
 };
 
 const cardCn = clsx('aspect-square', 'relative', 'filter grayscale-50', 'overflow-hidden');
-const imgCn = clsx(
-  'object-cover',
-  'w-full',
-  'h-full',
-  'hover:transform hover:scale-110 hover:duration-2000',
-  'duration-500',
-  'ease-in',
-);
+const imgCn = clsx('object-cover', 'w-full', 'h-full');
 
 /**
  * @param {TeacherBlockProps} props Props.
