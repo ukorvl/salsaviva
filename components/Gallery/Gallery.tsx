@@ -14,6 +14,8 @@ const photoSwipeOptions: GalleryProps['options'] = {
   closeOnVerticalDrag: true,
   showHideAnimationType: 'fade',
   doubleTapAction: false,
+  preloaderDelay: 1000,
+  preload: [1, 4],
 };
 
 /**
