@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import {m} from 'framer-motion';
 import {menuItemsConfig, socialLinksConfig} from './topMenuCongif';
 import Menu from '../Menu/Menu';
-import UniservsalLink from '../UniservsalLink/UniservsalLink';
+import UniversalLink from '../UniversalLink/UniversalLink';
 
 const variants = {
   open: {
@@ -37,24 +37,24 @@ export default function TopMenu() {
           className={itemsListCn}
         >
           <Menu.Item className={homeMenuItem}>
-            <UniservsalLink
+            <UniversalLink
               href="/"
               className={linkCn}
             >
               SALSAVIVA
-            </UniservsalLink>
+            </UniversalLink>
           </Menu.Item>
           {menuItemsConfig.map(({href, text, bgImgPath}, idx) => (
             <Menu.Item
               key={idx}
               bgImgPath={bgImgPath}
             >
-              <UniservsalLink
+              <UniversalLink
                 href={href}
                 className={linkCn}
               >
                 {text}
-              </UniservsalLink>
+              </UniversalLink>
             </Menu.Item>
           ))}
         </m.ul>
@@ -67,13 +67,13 @@ export default function TopMenu() {
               key={idx}
               className={socialLinkMenuItem}
             >
-              <UniservsalLink
+              <UniversalLink
                 href={href}
                 className={linkCn}
                 target="_blank"
               >
                 {text.toUpperCase()}
-              </UniservsalLink>
+              </UniversalLink>
             </Menu.Item>
           ))}
         </m.ul>

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import {memo} from 'react';
-import UniservsalLink from '../UniservsalLink/UniservsalLink';
+import UniversalLink from '../UniversalLink/UniversalLink';
 
 const {NEXT_PUBLIC_CONTACT_EMAIL} = process.env;
 
@@ -13,12 +13,12 @@ const anchorCn = clsx('animated-link');
 function Mail() {
   return (
     <div className={containerCn}>
-      <UniservsalLink
+      <UniversalLink
         className={anchorCn}
         href={`mailto:${NEXT_PUBLIC_CONTACT_EMAIL}`}
       >
         {NEXT_PUBLIC_CONTACT_EMAIL}
-      </UniservsalLink>
+      </UniversalLink>
     </div>
   );
 }

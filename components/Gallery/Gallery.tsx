@@ -12,6 +12,10 @@ const photoSwipeOptions: GalleryProps['options'] = {
   zoom: false,
   bgOpacity: 0.9,
   closeOnVerticalDrag: true,
+  showHideAnimationType: 'fade',
+  doubleTapAction: false,
+  preloaderDelay: 1000,
+  preload: [1, 4],
 };
 
 /**

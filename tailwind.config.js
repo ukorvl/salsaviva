@@ -1,7 +1,9 @@
 const colors = require('./tailwind/colors');
 const container = require('./tailwind/container');
 const fontFamily = require('./tailwind/fontFamily');
+const grayscale = require('./tailwind/grayscale');
 const letterSpacing = require('./tailwind/letterSpacing');
+const transitionDuration = require('./tailwind/transitionDuration');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -15,6 +17,8 @@ module.exports = {
       fontFamily: fontFamily,
       colors: colors,
       letterSpacing: letterSpacing,
+      transitionDuration: transitionDuration,
+      grayscale: grayscale
     },
     container: container,
   },

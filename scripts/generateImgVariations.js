@@ -6,14 +6,11 @@ const colors = require('colors/safe');
 
 const imagesDirName = 'public/images';
 const bluredDirName = 'blured';
-const lowQualityDirName = 'low-quality';
 const pathImagesDir = `${process.cwd()}/${imagesDirName}`;
 const pathBluredDir = `${pathImagesDir}/${bluredDirName}`;
-const pathLowQualityDir = `${pathImagesDir}/${lowQualityDirName}`;
 
 // Clear current variations
 cleanupDir(pathBluredDir);
-cleanupDir(pathLowQualityDir);
 
 // Create new variations
 const images = getDirectoryContentFileNames(pathImagesDir);
@@ -45,13 +42,11 @@ function getDirectoryContentFileNames(dir) {
 // eslint-disable-next-line jsdoc/require-jsdoc
 function processImage(fileName) {
   const pathToBlured = `${bluredDirName}/${fileName}`;
-  const pathToLowQuality = `${lowQualityDirName}/${fileName}`;
 
   jimp.read(fileName)
     .then((result) => {
       return result
         .quality(30)
-        .write(pathToLowQuality)
         .blur(30)
         .write(pathToBlured);
     })
