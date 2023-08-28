@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import {useHover} from '@/lib/shared/useHover';
 import useDisableRightClick from '@/lib/shared/useDisableRightClick';
 import {TeachersListConfigItem} from './teachersListConfig';
-import ImageWrapper from '../ImageWrapper/ImageWrapper';
+import ImageWrapper from '../../shared/ImageWrapper/ImageWrapper';
 import TeacherInfo from './TeacherInfo';
 
 /**

@@ -7,7 +7,7 @@
 import clsx from 'clsx';
 import teachersListConfig from './teachersListConfig';
 import Teacher from './Teacher';
-import AppearInViewport from '../AppearInViewport/AppearInViewport';
+import AppearInViewport from '../../shared/AppearInViewport/AppearInViewport';
 
 const containerCn = clsx('grid', 'grid-cols-3', 'grid-rows-2', 'w-full', 'h-full', 'grow');
 

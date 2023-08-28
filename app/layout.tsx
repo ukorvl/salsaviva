@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import '@/lib/fontawesome/configure';
-import Footer from '@/components/Footer/Footer';
+import Footer from '@/components/shared/Footer/Footer';
 import WithGtag from '@/lib/gtag/WithGtag';
 import meta from './metadata';
 import {kumbhSans, robotoMono} from './fonts';
