@@ -4,7 +4,7 @@ import Footer from '@/components/Footer/Footer';
 import WithGtag from '@/lib/gtag/WithGtag';
 import meta from './metadata';
 import {kumbhSans, robotoMono} from './fonts';
-import './globals.css';
+import './styles.css';
 
 export const metadata = meta;
 
@@ -21,7 +21,7 @@ const bodyCn = clsx(
   'bg-fixed',
 );
 
-const mainCn = clsx('flex', 'flex-col', 'items-center', 'justify-center', 'p-24', 'grow');
+const mainCn = clsx('flex', 'flex-col', 'items-center', 'justify-start', 'grow');
 
 /**
  * @param {{children}} props Props.

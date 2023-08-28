@@ -1,8 +1,7 @@
-import {FocusEvent, ReactNode, useCallback, useContext} from 'react';
+import {FocusEvent, ReactNode, useCallback, useContext, useEffect} from 'react';
 import {m} from 'framer-motion';
 import {useHotkeys} from 'react-hotkeys-hook';
 import clsx from 'clsx';
-import useScroll from '@/lib/shared/useScroll';
 import useWindowDimensions from '@/lib/shared/useWindowDimensions';
 import {MenuContext} from './MenuContext';
 import {MenuPosition} from './MenuPosition';
@@ -39,7 +38,7 @@ const navVariants = {
 };
 
 const navCn = clsx(
-  'absolute',
+  'fixed',
   'top-0',
   'left-0',
   'w-full',
@@ -60,7 +59,14 @@ export default function MenuList({children}: MenuListProps) {
   const {isOpen, setIsOpen, position} = useContext(MenuContext);
   const close = useCallback(() => setIsOpen(false), [setIsOpen]);
   useHotkeys('esc', close);
-  useScroll(close);
+
+  useEffect(() => {
+    addEventListener('scroll', close);
+
+    return () => {
+      removeEventListener('scroll', close);
+    };
+  }, [close]);
 
   const {height} = useWindowDimensions();
 

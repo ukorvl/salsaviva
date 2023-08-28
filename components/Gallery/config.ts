@@ -2,7 +2,7 @@
  * Gallery images configuration.
  */
 const config = [
-  {fileName: 'gallery.0.jpg', dimensions: {width: 920, height: 600}},
+  {fileName: 'gallery.0.jpg', dimensions: {width: 920, height: 1200}},
   {fileName: 'gallery.1.jpg', dimensions: {width: 920, height: 600}},
   {fileName: 'gallery.2.jpg', dimensions: {width: 920, height: 600}},
   {fileName: 'gallery.3.jpg', dimensions: {width: 920, height: 600}},

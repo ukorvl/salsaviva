@@ -4,7 +4,7 @@ import {AnchorHTMLAttributes, forwardRef} from 'react';
 /**
  * Props.
  */
-type UniservsalLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps> &
+type UniversalLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps> &
   LinkProps;
 
 const externalLinkOpenings = ['https://', 'http://', 'mailto:', 'tel:'];
@@ -20,7 +20,7 @@ function isLinkExternal(href: string) {
 /**
  * @returns React component.
  */
-const UniservsalLink = forwardRef<HTMLAnchorElement, UniservsalLinkProps>(function UniservsalLink(
+const UniversalLink = forwardRef<HTMLAnchorElement, UniversalLinkProps>(function UniversalLink(
   {children, href, ...props},
   ref,
 ) {
@@ -48,4 +48,4 @@ const UniservsalLink = forwardRef<HTMLAnchorElement, UniservsalLinkProps>(functi
   );
 });
 
-export default UniservsalLink;
+export default UniversalLink;

@@ -7,7 +7,7 @@ import {memo} from 'react';
 import {m} from 'framer-motion';
 import iconsConfig from './iconsConfig';
 import AppearInViewport from '../AppearInViewport/AppearInViewport';
-import UniservsalLink from '../UniservsalLink/UniservsalLink';
+import UniversalLink from '../UniversalLink/UniversalLink';
 
 const iconsCn = clsx(
   'flex',
@@ -54,7 +54,7 @@ function SocialIcons() {
           key={href}
           variants={variants}
         >
-          <UniservsalLink
+          <UniversalLink
             href={href}
             target={target}
           >
@@ -62,7 +62,7 @@ function SocialIcons() {
               className={twMerge(iconCn, className)}
               {...rest}
             />
-          </UniservsalLink>
+          </UniversalLink>
         </m.div>
       ))}
     </AppearInViewport>

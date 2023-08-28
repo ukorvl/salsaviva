@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import {memo} from 'react';
-import UniservsalLink from '../UniservsalLink/UniservsalLink';
+import UniversalLink from '../UniversalLink/UniversalLink';
 
 const {NEXT_PUBLIC_LOCATION_ADDRESS_TEXT, NEXT_PUBLIC_LOCATION_GOOGLE_MAPS_LINK} = process.env;
 
@@ -14,13 +14,13 @@ const linkCn = clsx('animated-link');
 function Location() {
   return (
     <div className={containerCn}>
-      <UniservsalLink
+      <UniversalLink
         href={NEXT_PUBLIC_LOCATION_GOOGLE_MAPS_LINK ?? ''}
         target="_blank"
         className={linkCn}
       >
         <address className={addressCn}>{NEXT_PUBLIC_LOCATION_ADDRESS_TEXT}</address>
-      </UniservsalLink>
+      </UniversalLink>
     </div>
   );
 }
