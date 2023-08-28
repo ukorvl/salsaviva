@@ -1,4 +1,4 @@
-import UniversalLink from '@/components/UniversalLink/UniversalLink';
+import UniversalLink from '@/components/shared/UniversalLink/UniversalLink';
 
 /**
  * @returns React component.

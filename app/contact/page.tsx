@@ -1,5 +1,5 @@
 import {Metadata} from 'next';
-import Button from '@/components/Button/Button';
+import Button from '@/components/shared/Button/Button';
 
 export const metadata: Metadata = {
   title: 'Contact',
