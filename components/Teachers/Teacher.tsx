@@ -5,10 +5,10 @@
 import {m} from 'framer-motion';
 import clsx from 'clsx';
 import {useHover} from '@/lib/shared/useHover';
+import useDisableRightClick from '@/lib/shared/useDisableRightClick';
 import {TeachersListConfigItem} from './teachersListConfig';
 import ImageWrapper from '../ImageWrapper/ImageWrapper';
 import TeacherInfo from './TeacherInfo';
-import useDisableRightClick from '@/lib/shared/useDisableRightClick';
 
 /**
  * Props.

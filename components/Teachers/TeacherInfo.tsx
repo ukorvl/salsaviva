@@ -4,6 +4,7 @@
 
 import {memo} from 'react';
 import clsx from 'clsx';
+import {m} from 'framer-motion';
 import {TeachersListConfigItem} from './teachersListConfig';
 
 /**
@@ -23,7 +24,6 @@ const containerCn = clsx(
   'items-center',
   'w-full',
   'h-full',
-  'pointer-events-none',
   'absolute',
   'bottom-0',
   'left-0',
@@ -32,17 +32,27 @@ const containerCn = clsx(
 );
 const nameCn = clsx('text-4xl', 'font-bold', 'text-center', 'pointer-events-auto');
 
+const containerVariants = {
+  visible: {opacity: 1, y: 0},
+  hidden: {opacity: 0, y: '2rem', transition: {delay: 0.25}},
+};
+
 /**
  * @param {TeacherInfoProps} props Props.
  * @returns React component.
  */
 function TeacherInfo({isVisible, name, danceStyles, subtitle}: TeacherInfoProps) {
   return (
-    <div className={containerCn}>
+    <m.div
+      className={containerCn}
+      animate={isVisible ? 'visible' : 'hidden'}
+      variants={containerVariants}
+      transition={{duration: 0.5}}
+    >
       <div className={nameCn}>{name}</div>
       <div>{subtitle}</div>
       <div>{danceStyles.join(', ')}</div>
-    </div>
+    </m.div>
   );
 }
 
