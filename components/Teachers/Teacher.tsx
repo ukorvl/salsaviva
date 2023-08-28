@@ -1,12 +1,19 @@
+/**
+ * @file Represents UI block with teacher's photo.
+ */
+
 import {m} from 'framer-motion';
 import clsx from 'clsx';
-import teachersListConfig from './teachersListConfig';
+import {useHover} from '@/lib/shared/useHover';
+import {TeachersListConfigItem} from './teachersListConfig';
 import ImageWrapper from '../ImageWrapper/ImageWrapper';
+import TeacherInfo from './TeacherInfo';
+import useDisableRightClick from '@/lib/shared/useDisableRightClick';
 
 /**
  * Props.
  */
-type TeacherBlockProps = (typeof teachersListConfig)[number];
+type TeacherBlockProps = TeachersListConfigItem;
 
 const variants = {
   visible: {
@@ -25,30 +32,35 @@ const variants = {
   },
 };
 
-const cardCn = clsx('aspect-square', 'relative', 'filter grayscale-50', 'overflow-hidden');
+const cardCn = clsx('aspect-square', 'relative', 'overflow-hidden', 'relative');
 const imgCn = clsx('object-cover', 'w-full', 'h-full');
 
 /**
  * @param {TeacherBlockProps} props Props.
  * @returns React component.
  */
-export default function Teacher({
-  name,
-  style,
-  superPowers,
-  groupLessons,
-  imgSrc,
-}: TeacherBlockProps) {
+export default function Teacher({name, danceStyles, imgSrc, subtitle}: TeacherBlockProps) {
+  const [ref, isHover] = useHover<HTMLDivElement>();
+  const imgRef = useDisableRightClick<HTMLImageElement>();
+
   return (
     <m.div
       className={cardCn}
       variants={variants}
+      ref={ref}
     >
+      <TeacherInfo
+        name={name}
+        danceStyles={danceStyles}
+        isVisible={isHover}
+        subtitle={subtitle}
+      />
       <ImageWrapper
         src={`/images/${imgSrc}`}
         blurDataURL={`/images/blured/${imgSrc}`}
         alt={name}
         className={imgCn}
+        ref={imgRef}
       />
     </m.div>
   );

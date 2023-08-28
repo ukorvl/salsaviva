@@ -1,3 +1,7 @@
+/**
+ * @file Organizes {@link Teacher} components in a grid.
+ */
+
 'use client';
 
 import clsx from 'clsx';
@@ -18,7 +22,7 @@ export default function Teachers() {
     >
       {teachersListConfig.map(teacher => (
         <Teacher
-          key={teacher.name}
+          key={teacher.id}
           {...teacher}
         />
       ))}

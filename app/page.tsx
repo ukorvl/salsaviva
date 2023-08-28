@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import AppearInViewport from '@/components/AppearInViewport/AppearInViewport';
 import MainPageVideoPlayer from '@/components/MainPageVideoPlayer/MainPageVideoPlayer';
 import CATLink from '@/components/CATLink/CATLink';
+import SocialIcons from '@/components/SocialIcons/SocialIcons';
 
 const containerCn = clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'grow');
 const titleCn = clsx('font-light', 'text-8xl', 'mt-24');
@@ -28,6 +29,7 @@ export default function Home() {
           path="/about"
         />
       </div>
+      <SocialIcons />
       <MainPageVideoPlayer />
     </>
   );
