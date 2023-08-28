@@ -5,8 +5,8 @@ import {useHotkeys} from 'react-hotkeys-hook';
 import {customCursorClickableClass} from '@/lib/customCursor/customCursorClickableClass';
 import useDisableRightClick from '@/lib/shared/useDisableRightClick';
 import {useAssignRefs} from '@/lib/shared/useAssignRefs';
-import AppearInViewport from '../AppearInViewport/AppearInViewport';
-import ImageWrapper from '../ImageWrapper/ImageWrapper';
+import AppearInViewport from '../../shared/AppearInViewport/AppearInViewport';
+import ImageWrapper from '../../shared/ImageWrapper/ImageWrapper';
 
 /**
  * Props.

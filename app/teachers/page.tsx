@@ -1,8 +1,8 @@
 import {Metadata} from 'next';
 import clsx from 'clsx';
-import TextReveal from '@/components/TextReveal/TextReveal';
-import {default as TeachersComponent} from '@/components/Teachers/Teachers';
-import CATLink from '@/components/CATLink/CATLink';
+import TextReveal from '@/components/shared/TextReveal/TextReveal';
+import {default as TeachersComponent} from '@/components/pages/Teachers/Teachers';
+import CATLink from '@/components/shared/CATLink/CATLink';
 
 const pageDescription = 'Meet your inspirational guides in the world of social dance';
 
