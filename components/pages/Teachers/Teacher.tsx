@@ -1,7 +1,3 @@
-/**
- * @file Represents UI block with teacher's photo.
- */
-
 import {m} from 'framer-motion';
 import clsx from 'clsx';
 import {useHover} from '@/lib/shared/useHover';

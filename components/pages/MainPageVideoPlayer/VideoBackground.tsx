@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import {m} from 'framer-motion';
 import {usePageVisibility} from 'react-page-visibility';
 import {useEffect} from 'react';
+import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 import useVideoBeforeEnd from './useVideoBeforeEnd';
 
 /**
@@ -39,7 +40,7 @@ export default function VideoBackground({src, type, onBeforeEnded}: VideoBackgro
       initial={{opacity: 0, scale: 1.5}}
       animate={{opacity: 1, scale: 1}}
       exit={{opacity: 0, scale: 1.3}}
-      transition={{duration: 0.75, type: 'easeOut'}}
+      transition={{duration: TransitionDuration.LONG, type: 'easeOut'}}
       ref={ref}
     >
       <source

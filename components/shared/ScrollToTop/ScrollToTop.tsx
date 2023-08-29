@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleArrowUp} from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import {isPrefersReducedMotion} from '@/utils/isPrefersReducedMotion';
+import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 
 /**
  * Props.
@@ -40,7 +41,7 @@ export default function ScrollToTopButton({offset = 1000, ...position}: ScrollTo
       initial="hidden"
       animate={visible ? 'visible' : 'hidden'}
       variants={variants}
-      transition={{duration: 0.5, ease: 'easeOut'}}
+      transition={{duration: TransitionDuration.MEDIUM, ease: 'easeOut'}}
       onClick={() => scrollToTop(!isPrefersReducedMotion)}
       aria-hidden={true}
       style={position}
