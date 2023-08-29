@@ -1,7 +1,3 @@
-/**
- * @file Organizes {@link Teacher} components in a grid.
- */
-
 'use client';
 
 import clsx from 'clsx';
@@ -18,7 +14,7 @@ export default function Teachers() {
   return (
     <AppearInViewport
       className={containerCn}
-      transition={{staggerChildren: 0.2, delayChildren: 0.5}}
+      transition={{staggerChildren: 0.2, delayChildren: 0.75}}
     >
       {teachersListConfig.map(teacher => (
         <Teacher

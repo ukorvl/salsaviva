@@ -1,10 +1,7 @@
-/**
- * @file Represents UI with information about teacher.
- */
-
 import {memo} from 'react';
 import clsx from 'clsx';
 import {m} from 'framer-motion';
+import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 import {TeachersListConfigItem} from './teachersListConfig';
 
 /**
@@ -47,7 +44,7 @@ function TeacherInfo({isVisible, name, danceStyles, subtitle}: TeacherInfoProps)
       className={containerCn}
       animate={isVisible ? 'visible' : 'hidden'}
       variants={containerVariants}
-      transition={{duration: 0.5}}
+      transition={{duration: TransitionDuration.MEDIUM, ease: 'easeOut'}}
     >
       <div className={nameCn}>{name}</div>
       <div>{subtitle}</div>
