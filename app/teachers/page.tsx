@@ -4,6 +4,7 @@ import {default as TeachersComponent} from '@/components/pages/Teachers/Teachers
 import CATLink from '@/components/shared/CATLink/CATLink';
 import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewport';
 import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
+import getTextSlideIntoViewVarinats from '@/lib/framerMotion/variants/getTextSlideIntoViewVarinats';
 
 const pageDescription = 'Meet your inspirational guides in the world of social dance';
 
@@ -27,16 +28,7 @@ const titleCn = clsx('text-8xl', 'mt-24', 'ml-4');
 const subTitleCn = clsx('text-4xl', 'my-4', 'w-2/3', 'ml-4');
 const CATLinkCn = clsx('mt-16');
 
-const titleVariants = {
-  hidden: {
-    opacity: 0,
-    x: -100,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-  },
-};
+const titleVariants = getTextSlideIntoViewVarinats('left');
 
 /**
  * @returns React component.
