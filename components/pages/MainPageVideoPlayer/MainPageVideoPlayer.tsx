@@ -5,6 +5,7 @@ import {AnimatePresence} from 'framer-motion';
 import {useState} from 'react';
 import bgVideoConfig from './bgVideosConfig';
 import VideoBackground from './VideoBackground';
+import usePreloadVideo from './usePreloadVideo';
 
 const containerCn = clsx('fixed', 'top-0', 'left-0', 'w-full', 'h-full');
 
@@ -13,10 +14,12 @@ const containerCn = clsx('fixed', 'top-0', 'left-0', 'w-full', 'h-full');
  */
 export default function MainPageVideoPlayer() {
   const [vidIndex, setVidIndex] = useState(0);
+  const videosListLength = bgVideoConfig.length;
+  const nextVidIndex = vidIndex < videosListLength - 1 ? vidIndex + 1 : 0;
   // eslint-disable-next-line jsdoc/require-jsdoc
-  const incrementVidIndex = () =>
-    vidIndex < bgVideoConfig.length - 1 ? setVidIndex(vidIndex + 1) : setVidIndex(0);
+  const incrementVidIndex = () => setVidIndex(nextVidIndex);
   const {src, type} = bgVideoConfig[vidIndex];
+  usePreloadVideo(bgVideoConfig[nextVidIndex].src);
 
   return (
     <div className={containerCn}>
