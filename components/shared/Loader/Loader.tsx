@@ -4,6 +4,7 @@ import {OnScreen} from '@ukorvl/react-on-screen';
 import clsx from 'clsx';
 import {ComponentProps} from 'react';
 import PuffLoader from 'react-spinners/PuffLoader';
+import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 
 /**
  * Loader size.
@@ -23,7 +24,7 @@ type LoaderProps = {
 const containerBaseCn = clsx(
   'flex justify-content-center align-items-center p-4',
   'transition-opacity',
-  'duration-300',
+  `duration-${TransitionDuration.SHORT}`,
 );
 // eslint-disable-next-line jsdoc/require-jsdoc
 const containerCn = (isOnScreen: boolean) =>

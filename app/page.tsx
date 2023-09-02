@@ -9,6 +9,7 @@ const titleCn = clsx('font-light', 'text-8xl', 'mt-24');
 const subtitleCn = clsx('text-1.5xl', 'font-light', 'tracking-widest', 'text-center');
 const titleContainerCn = clsx('font-sans', 'select-none');
 const exploreCn = clsx('mt-auto');
+const iconsCn = clsx('fixed', 'left-4', '-translate-y-2/4', 'top-2/4');
 
 /**
  * @returns React component.
@@ -29,7 +30,11 @@ export default function Home() {
           path="/about"
         />
       </div>
-      <SocialIcons />
+      <SocialIcons
+        iconSize="2xl"
+        direction="column"
+        className={iconsCn}
+      />
       <MainPageVideoPlayer />
     </>
   );

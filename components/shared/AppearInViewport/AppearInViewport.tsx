@@ -2,6 +2,7 @@
 
 import {HTMLMotionProps, Variants, m} from 'framer-motion';
 import {ReactNode, forwardRef} from 'react';
+import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 
 // eslint-disable-next-line jsdoc/require-jsdoc
 type SafeHTMLMotionProps = Omit<
@@ -21,7 +22,7 @@ const defaultVariants: Variants = {
   hidden: {opacity: 0},
 };
 
-const defaultTransition = {duration: 0.5, delay: 0.3};
+const defaultTransition = {duration: TransitionDuration.MEDIUM, delay: 0.3};
 
 /**
  * @param {AppearOnScreenProps} props Props.
