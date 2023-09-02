@@ -18,7 +18,12 @@ type GalleryItemProps = {
 };
 
 const imgCn = clsx('object-cover');
-const overflowCn = clsx(customCursorClickableClass, 'relative', 'aspect-square');
+const overflowCn = clsx(
+  customCursorClickableClass,
+  'relative',
+  'aspect-square',
+  'focus:outline-none',
+);
 
 /**
  * @returns React component.

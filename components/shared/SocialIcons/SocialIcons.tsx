@@ -10,12 +10,17 @@ import AppearInViewport from '../AppearInViewport/AppearInViewport';
 import UniversalLink from '../UniversalLink/UniversalLink';
 
 /**
+ * Direction.
+ */
+type Direction = 'row' | 'column';
+
+/**
  * Props.
  */
 type SocialIconsProps = {
   iconSize: FontAwesomeIconProps['size'];
   /** @default row */
-  direction?: 'row' | 'column';
+  direction?: Direction;
   className?: string;
 };
 
@@ -32,20 +37,22 @@ const iconsCn = (direction: SocialIconsProps['direction']) =>
 const iconCn = clsx('hover:scale-105 hover:-translate-y-0.5 transition-transform');
 
 const variants = {
-  visible: {
-    y: 0,
+  // eslint-disable-next-line jsdoc/require-jsdoc
+  visible: (direction: Direction) => ({
+    [direction === 'row' ? 'x' : 'y']: 0,
     opacity: 1,
     transition: {
       y: {stiffness: 1000, velocity: -100},
     },
-  },
-  hidden: {
-    y: 50,
+  }),
+  // eslint-disable-next-line jsdoc/require-jsdoc
+  hidden: (direction: Direction) => ({
+    [direction === 'row' ? 'x' : 'y']: direction === 'row' ? -50 : 50,
     opacity: 0,
     transition: {
       y: {stiffness: 1000},
     },
-  },
+  }),
 };
 
 /**
@@ -62,6 +69,7 @@ function SocialIcons({iconSize, direction = 'row', className}: SocialIconsProps)
         <m.div
           key={href}
           variants={variants}
+          custom={direction}
         >
           <UniversalLink
             href={href}

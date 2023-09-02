@@ -2,8 +2,9 @@ import {Metadata} from 'next';
 import clsx from 'clsx';
 import Gallery from '@/components/pages/Gallery/Gallery';
 import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewport';
-import './styles.css';
 import SocialIcons from '@/components/shared/SocialIcons/SocialIcons';
+import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
+import './styles.css';
 
 export const metadata: Metadata = {
   title: 'Gallery',
@@ -24,8 +25,18 @@ const containerCn = clsx(
   'lg:grid-cols-3',
   '2xl:grid-cols-4',
 );
-const galleryFirstItem = clsx('p-8', 'flex', 'flex-col', 'items-center', 'justify-center');
-const titleCn = clsx('text-4xl', 'mb-2');
+const galleryTextItem = clsx(
+  'p-8',
+  'flex',
+  'flex-col',
+  'items-center',
+  'justify-center',
+  'gap-8',
+  'text-center',
+);
+const titleCn = clsx('text-4xl');
+const textCn = clsx('text-xl');
+const subTitleCn = clsx('text-2xl');
 
 /**
  * @returns React component.
@@ -33,26 +44,34 @@ const titleCn = clsx('text-4xl', 'mb-2');
 export default function GalleryPage() {
   return (
     <div className={containerCn}>
-      <AppearInViewport
-        className={galleryFirstItem}
-        transition={{delay: 0.5, duration: 2, staggerChildren: 0.5, delayChildren: 0.5}}
-      >
-        <div className={titleCn}>SALSAVIVA GALLERY</div>
-        <div>
+      <div className={galleryTextItem}>
+        <AppearInViewport
+          className={titleCn}
+          transition={{delay: 0.5, duration: TransitionDuration.LONG}}
+        >
+          SALSAVIVA GALLERY
+        </AppearInViewport>
+        <AppearInViewport
+          transition={{delay: 1.5, duration: TransitionDuration.LONG}}
+          className={textCn}
+        >
           Welcome to our vibrant dancing studio image gallery, where the rhythm comes alive through
           captivating moments frozen in time.
-        </div>
-      </AppearInViewport>
+        </AppearInViewport>
+        <AppearInViewport
+          transition={{delay: 3, duration: TransitionDuration.VERY_LONG}}
+          className={subTitleCn}
+        >
+          Enjoy!
+        </AppearInViewport>
+      </div>
       <Gallery />
-      <AppearInViewport
-        className={galleryFirstItem}
-        transition={{delay: 0.5, duration: 2, staggerChildren: 0.5, delayChildren: 0.5}}
-      >
-        <div>
-          Whant more?
-          <SocialIcons iconSize="2x" />
-        </div>
-      </AppearInViewport>
+      <div className={galleryTextItem}>
+        <AppearInViewport className={subTitleCn}>
+          Whant more? Follow us on social media!
+        </AppearInViewport>
+        <SocialIcons iconSize="2x" />
+      </div>
     </div>
   );
 }
