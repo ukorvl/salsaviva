@@ -7,20 +7,20 @@ import {useEffect} from 'react';
 export default function useDisableBodyScroll(open: boolean) {
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = 'hidden';
-
-      if (getBosyHasOevrflow()) {
+      if (getBodyHasOverflow()) {
         const scrollbarWidth = window.innerWidth - document.body.clientWidth;
         document.body.style.paddingRight = `${scrollbarWidth}px`;
       }
+
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = 'auto';
       document.body.style.paddingRight = 'unset';
     }
   }, [open]);
 }
 
 // eslint-disable-next-line jsdoc/require-jsdoc
-function getBosyHasOevrflow() {
-  return document.body.scrollHeight > document.body.clientHeight;
+function getBodyHasOverflow() {
+  return window.innerHeight < document.body.clientHeight;
 }
