@@ -28,7 +28,7 @@ const variants = {
   },
 };
 
-const cardCn = clsx('aspect-square', 'relative', 'overflow-hidden', 'relative');
+const cardCn = clsx('aspect-square', 'overflow-hidden', 'relative');
 const imgCn = clsx('object-cover', 'w-full', 'h-full');
 
 /**

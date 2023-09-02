@@ -17,28 +17,12 @@ type GalleryItemProps = {
   open: (e: MouseEvent) => void;
 };
 
-const imgCn = clsx('rounded-md', 'overflow-hidden');
+const imgCn = clsx('object-cover');
 const overflowCn = clsx(
   customCursorClickableClass,
   'relative',
-  'after:absolute',
-  'after:content-[""]',
-  'after:w-full',
-  'after:h-full',
-  'after:top-0',
-  'after:left-0',
-  'after:bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-white to-transparent',
-  'after:transition-opacity',
-  'after:duration-300',
-  'after:ease-out',
-  'after:opacity-0',
-  'hover:after:opacity-20',
-  'transition-transform',
-  'duration-500',
-  'ease-out',
-  'hover:translate-y-1',
-  'rounded-md',
-  'focus-ring',
+  'aspect-square',
+  'focus:outline-none',
 );
 
 /**
@@ -59,7 +43,6 @@ const GalleryImage = forwardRef<HTMLImageElement, GalleryItemProps>(function Gal
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
         className={overflowCn}
-        style={{height: 300, width: 400}}
         onClick={open}
         tabIndex={0}
         role="link"
@@ -70,6 +53,7 @@ const GalleryImage = forwardRef<HTMLImageElement, GalleryItemProps>(function Gal
           ref={ref}
           src={src}
           blurDataURL={blurDataURL}
+          fill
         />
       </div>
     </AppearInViewport>
