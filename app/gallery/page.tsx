@@ -48,6 +48,7 @@ export default function GalleryPage() {
         <AppearInViewport
           className={titleCn}
           transition={{delay: 0.5, duration: TransitionDuration.LONG}}
+          as="h1"
         >
           SALSAVIVA GALLERY
         </AppearInViewport>
@@ -67,7 +68,10 @@ export default function GalleryPage() {
       </div>
       <Gallery />
       <div className={galleryTextItem}>
-        <AppearInViewport className={subTitleCn}>
+        <AppearInViewport
+          className={subTitleCn}
+          as="h3"
+        >
           Whant more? Follow us on social media!
         </AppearInViewport>
         <SocialIcons iconSize="2x" />

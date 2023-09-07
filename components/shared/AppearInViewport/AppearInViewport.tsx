@@ -1,21 +1,24 @@
 'use client';
 
 import {HTMLMotionProps, Variants, m} from 'framer-motion';
-import {ReactNode, forwardRef} from 'react';
+import {forwardRef} from 'react';
 import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 
 // eslint-disable-next-line jsdoc/require-jsdoc
-type SafeHTMLMotionProps = Omit<
-  HTMLMotionProps<'div'>,
+type As = 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+type SafeHTMLMotionProps<T extends As = As> = Omit<
+  HTMLMotionProps<T>,
   'initial' | 'whileInView' | 'viewport' | 'ref'
 >;
 
 /**
  * Props.
  */
-type AppearOnScreenProps = {
-  children: ReactNode;
-} & SafeHTMLMotionProps;
+type AppearOnScreenProps<T extends As = As> = {
+  as?: T;
+} & SafeHTMLMotionProps<T>;
 
 const defaultVariants: Variants = {
   visible: {opacity: 1},
@@ -29,11 +32,13 @@ const defaultTransition = {duration: TransitionDuration.MEDIUM, delay: 0.3};
  * @returns React component.
  */
 const AppearInViewport = forwardRef<HTMLDivElement, AppearOnScreenProps>(function AppearInViewport(
-  {children, variants, transition, ...rest},
+  {children, variants, transition, as = 'div', ...rest},
   ref,
 ) {
+  const Component = m[as];
+
   return (
-    <m.div
+    <Component
       initial="hidden"
       whileInView="visible"
       viewport={{once: true}}
@@ -43,7 +48,7 @@ const AppearInViewport = forwardRef<HTMLDivElement, AppearOnScreenProps>(functio
       {...rest}
     >
       {children}
-    </m.div>
+    </Component>
   );
 });
 
