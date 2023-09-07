@@ -15,7 +15,7 @@ const initialValues = {
  * @returns React element.
  */
 export default function Form() {
-  const {name, email} = formConfig;
+  const {name, email, message} = formConfig;
   const formik = useFormik<ContactFormData>({
     initialValues,
     onSubmit: values => {},
@@ -25,6 +25,8 @@ export default function Form() {
   return (
     <form onSubmit={formik.handleSubmit}>
       <TextField {...name} />
+      <TextField {...message} />
+      <div>Select your preferred method of contact.</div>
       <TextField {...email} />
     </form>
   );
