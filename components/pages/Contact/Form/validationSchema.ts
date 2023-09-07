@@ -1,4 +1,5 @@
 import {z} from 'zod';
+import {toFormikValidationSchema} from 'zod-formik-adapter';
 
 const requiredFields = z.object({
   name: z.string().min(1, 'Name is required').max(50, 'Too Long!'),
@@ -24,4 +25,4 @@ const validationSchema = requiredFields.and(optionalFields);
  */
 export type ContactFormData = z.infer<typeof validationSchema>;
 
-export default validationSchema;
+export default toFormikValidationSchema(validationSchema);
