@@ -1,3 +1,5 @@
+import Form from '@/components/pages/Contact/Form/Form';
+import clsx from 'clsx';
 import {Metadata} from 'next';
 
 export const metadata: Metadata = {
@@ -8,9 +10,15 @@ export const metadata: Metadata = {
   },
 };
 
+const containerCn = clsx('flex', 'min-h-screen', 'w-full');
+
 /**
  * @returns React component.
  */
 export default function Contact() {
-  return <div></div>;
+  return (
+    <div className={containerCn}>
+      <Form />
+    </div>
+  );
 }

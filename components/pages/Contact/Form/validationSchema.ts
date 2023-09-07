@@ -9,11 +9,12 @@ const optionalFields = z
   .object({
     email: z.string().email('Invalid email address').max(50, 'Too Long!'),
     telegram: z.string().startsWith('@', 'Invalid telegram nickname').max(50, 'Too Long!'),
+    tel: z.number().max(50, 'Too Long!'),
   })
   .partial()
-  .refine(({email, telegram}) => email || telegram, {
-    message: 'Either email or telegram is required',
-    path: ['email', 'telegram'],
+  .refine(({email, telegram, tel}) => email || telegram || tel, {
+    message: 'Either email, phone number or telegram is required',
+    path: ['email', 'telegram', 'tel'],
   });
 
 const validationSchema = requiredFields.and(optionalFields);
