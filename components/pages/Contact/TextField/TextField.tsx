@@ -20,8 +20,10 @@ type TextFieldNativeProps = Omit<
  */
 type TextFieldOwnProps = {
   label: string;
+  name: string;
   type?: 'text' | 'tel' | 'email' | 'number';
   placeholder: string;
+  hasError?: boolean;
 };
 
 /**
@@ -30,18 +32,26 @@ type TextFieldOwnProps = {
 export type TextFieldProps = TextFieldOwnProps &
   Omit<TextFieldNativeProps, keyof TextFieldOwnProps>;
 
-const labelCn = clsx(
-  'block',
-  'relative',
-  'border-b',
-  'border-gray-400',
-  'focus-within:border-blue-500',
-);
+// eslint-disable-next-line jsdoc/require-jsdoc
+const labelCn = (hasError: TextFieldProps['hasError']) =>
+  clsx(
+    'block',
+    'relative',
+    'border-b',
+    'border-gray-500',
+    'focus-within:border-white',
+    'overflow-hidden',
+    'transition-border',
+    'duration-300',
+    'ease-in-out',
+    'pt-3',
+    'rounded-sm',
+    hasError && 'border-red-500! text-red-500!',
+  );
 
 const inputCn = clsx(
   'bg-transparent',
   'peer',
-  'w-full',
   'border-none',
   'outline-none',
   'focus:ring-0',
@@ -51,9 +61,8 @@ const inputCn = clsx(
 
 const spanCn = clsx(
   'absolute',
-  'bottom-0',
-  'left-0',
-  'w-full',
+  'start-0',
+  'top-2',
   '-translate-y-1/2',
   'text-xs',
   'text-gray-700',
@@ -70,7 +79,7 @@ const spanCn = clsx(
  * @returns React element.
  */
 const TextFieldComponent: ForwardRefRenderFunction<HTMLInputElement, TextFieldProps> = (
-  {label, id: outerId, type = 'text', ...rest},
+  {label, id: outerId, type = 'text', hasError, ...rest},
   ref,
 ) => {
   const innerId = useId();
@@ -79,7 +88,7 @@ const TextFieldComponent: ForwardRefRenderFunction<HTMLInputElement, TextFieldPr
   return (
     <label
       htmlFor={id}
-      className={labelCn}
+      className={labelCn(hasError)}
     >
       <input
         id={id}
@@ -88,7 +97,7 @@ const TextFieldComponent: ForwardRefRenderFunction<HTMLInputElement, TextFieldPr
         className={inputCn}
         {...rest}
       />
-      <span>{label}</span>
+      <span className={spanCn}>{label}</span>
     </label>
   );
 };

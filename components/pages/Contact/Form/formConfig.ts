@@ -11,26 +11,31 @@ const formConfig: FormConfig = {
     label: 'Name',
     type: 'text',
     placeholder: 'Name',
+    name: 'name',
   },
   email: {
     label: 'Email',
     type: 'email',
     placeholder: 'Email',
+    name: 'email',
   },
   tel: {
     label: 'Phone',
     type: 'tel',
     placeholder: 'Phone',
+    name: 'tel',
   },
   telegram: {
     label: 'Telegram',
     type: 'text',
     placeholder: 'Telegram',
+    name: 'telegram',
   },
   message: {
     label: 'Message',
     type: 'text',
     placeholder: 'Message',
+    name: 'message',
   },
 };
 
