@@ -10,7 +10,7 @@ const optionalFields = z
   .object({
     email: z.string().email('Invalid email address').max(50, 'Too Long!'),
     telegram: z.string().startsWith('@', 'Invalid telegram nickname').max(50, 'Too Long!'),
-    tel: z.number().max(50, 'Too Long!'),
+    tel: z.string().max(50, 'Too Long!'),
   })
   .partial()
   .refine(({email, telegram, tel}) => email || telegram || tel, {

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
 };
 
-const titleVariants = getTextSlideIntoViewVarinats('left');
+const titleVariants = getTextSlideIntoViewVarinats('right');
 
 const containerCn = clsx('flex', 'flex-col', 'min-h-screen', 'w-full');
 const titleCn = clsx('text-8xl', 'mt-24', 'ml-4');
