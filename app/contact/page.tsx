@@ -1,9 +1,9 @@
 import {Metadata} from 'next';
 import clsx from 'clsx';
-import Form from '@/components/pages/Contact/Form/Form';
 import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewport';
 import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 import getTextSlideIntoViewVarinats from '@/lib/framerMotion/variants/getTextSlideIntoViewVarinats';
+import FormWrapper from '@/components/pages/Contact/FormWrapper/FormWrapper';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -31,7 +31,7 @@ export default function Contact() {
       >
         CONTACT US
       </AppearInViewport>
-      <Form />
+      <FormWrapper />
     </div>
   );
 }

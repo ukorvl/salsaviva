@@ -7,6 +7,13 @@ import useFormspree from '@/lib/formspree/useFormspree';
 import validationSchema, {ContactFormData} from './validationSchema';
 import FormField from './FormField';
 
+/**
+ * Props.
+ */
+type FormProps = {
+  onSubmit?: () => void;
+};
+
 const initialValues = {
   name: '',
   message: '',
@@ -15,13 +22,16 @@ const initialValues = {
 const {NEXT_PUBLIC_FORMSPREE_ID} = process.env;
 
 /**
+ * @param {FormProps} props Props.
  * @returns React element.
  */
-export default function Form() {
+export default function Form({onSubmit: onSuccessSubmit}: FormProps) {
   const [{status}, submit] = useFormspree<ContactFormData>(NEXT_PUBLIC_FORMSPREE_ID!);
   // eslint-disable-next-line jsdoc/require-jsdoc
   const onSubmit = async (values: ContactFormData) => {
     await submit(values);
+    resetForm();
+    onSuccessSubmit?.();
   };
 
   const formikData = useFormik<ContactFormData>({
@@ -29,7 +39,7 @@ export default function Form() {
     onSubmit,
     validationSchema,
   });
-  const {handleSubmit, isSubmitting, isValid, dirty} = formikData;
+  const {handleSubmit, isSubmitting, isValid, dirty, resetForm} = formikData;
 
   return (
     <AppearInViewport transition={{delay: 1, duration: 1.5}}>
