@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^13.4.5",
-    "@types/gtag.js": "^0.0.12",
+    "@types/gtag.js": "^0.0.14",
     "@types/lodash": "^4.14.195",
     "@types/react-page-visibility": "^6.4.1",
     "colors": "^1.4.0",
