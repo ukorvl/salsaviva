@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import clsx from 'clsx';
 import Form from '../Form/Form';
+import SubmittedForm from './SubmittedForm';
 
 const wrapperCn = clsx();
 
@@ -12,11 +13,7 @@ export default function FormWrapper() {
 
   return (
     <div className={wrapperCn}>
-      {isSubmitted ? (
-        <div>Thank you for your submission.</div>
-      ) : (
-        <Form onSubmit={() => setIsSubmitted(true)} />
-      )}
+      {isSubmitted ? <SubmittedForm /> : <Form onSubmit={() => setIsSubmitted(true)} />}
     </div>
   );
 }

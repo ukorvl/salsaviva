@@ -72,7 +72,7 @@ export default function GalleryPage() {
           className={subTitleCn}
           as="h3"
         >
-          f Whant more? Follow us on social media!
+          Whant more? Follow us on social media!
         </AppearInViewport>
         <SocialIcons iconSize="2x" />
       </div>
