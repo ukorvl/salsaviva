@@ -57,6 +57,7 @@ const inputCn = clsx(
   'focus:ring-0',
   'focus:border-transparent',
   'placeholder-transparent',
+  ':placeholder-shown:overflow-elipsis',
 );
 
 const spanCn = clsx(
