@@ -18,6 +18,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@hotjar/browser": "^1.0.9",
+    "@t3-oss/env-nextjs": "^0.7.0",
     "@tailwindcss/forms": "^0.5.6",
     "@types/node": "20.1.1",
     "@types/react": "18.2.6",

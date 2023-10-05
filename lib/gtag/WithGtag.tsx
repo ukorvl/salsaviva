@@ -1,5 +1,6 @@
 import {ReactElement} from 'react';
 import Script from 'next/script';
+import {env} from '@/app/env.mjs';
 import * as gtag from './gtag';
 
 /**
@@ -8,7 +9,7 @@ import * as gtag from './gtag';
  * @returns Layout.
  */
 const WithGtag = (): ReactElement => {
-  if (gtag.disableInDevMode && process.env.NODE_ENV !== 'production') {
+  if (gtag.disableInDevMode && env.NODE_ENV !== 'production') {
     return <></>;
   }
 

@@ -4,6 +4,7 @@ import {FormikContext, useFormik} from 'formik';
 import Button from '@/components/shared/Button/Button';
 import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewport';
 import useFormspree from '@/lib/formspree/useFormspree';
+import {env} from '@/app/env.mjs';
 import validationSchema, {ContactFormData} from './validationSchema';
 import FormField from './FormField';
 
@@ -19,7 +20,7 @@ const initialValues = {
   message: '',
 } satisfies ContactFormData;
 
-const {NEXT_PUBLIC_FORMSPREE_ID} = process.env;
+const {NEXT_PUBLIC_FORMSPREE_ID} = env;
 
 /**
  * @param {FormProps} props Props.

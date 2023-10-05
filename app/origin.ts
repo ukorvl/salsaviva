@@ -1,2 +1,4 @@
+import {env} from './env.mjs';
+
 export const origin =
-  process.env.NODE_ENV === 'production' ? 'https://salsaviva.am' : 'http://localhost:3000';
+  env.NODE_ENV === 'production' ? 'https://salsaviva.am' : 'http://localhost:3000';
