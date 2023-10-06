@@ -29,8 +29,8 @@ const config = [
   {fileName: 'gallery.15.jpg', width: 1280, height: 854, alt: ''},
 ] as const;
 
-export default config.map<GalleryConfigItem>(({fileName, ...rest}) => ({
+export default config.map(({fileName, ...rest}) => ({
   ...rest,
   src: `/images/${fileName}`,
   blurDataURL: `/images/blured/${fileName}`,
-}));
+})) satisfies GalleryConfigItem[];

@@ -1,5 +1,9 @@
 import {Metadata} from 'next';
-import Button from '@/components/shared/Button/Button';
+import clsx from 'clsx';
+import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewport';
+import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
+import getTextSlideIntoViewVarinats from '@/lib/framerMotion/variants/getTextSlideIntoViewVarinats';
+import FormWrapper from '@/components/pages/Contact/FormWrapper/FormWrapper';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -9,16 +13,25 @@ export const metadata: Metadata = {
   },
 };
 
+const titleVariants = getTextSlideIntoViewVarinats('right');
+
+const containerCn = clsx('flex', 'flex-col', 'min-h-screen', 'w-full');
+const titleCn = clsx('text-8xl', 'mt-24', 'ml-4');
+
 /**
  * @returns React component.
  */
 export default function Contact() {
   return (
-    <div>
-      <Button>Submit</Button>
-      <Button size="lg">Submit</Button>
-      <Button size="sm">Submit</Button>
-      <Button variant="alternate">Submit</Button>
+    <div className={containerCn}>
+      <AppearInViewport
+        className={titleCn}
+        variants={titleVariants}
+        transition={{duration: TransitionDuration.VERY_LONG, type: 'spring', bounce: 0.5}}
+      >
+        CONTACT US
+      </AppearInViewport>
+      <FormWrapper />
     </div>
   );
 }
