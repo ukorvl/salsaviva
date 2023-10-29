@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-      url: `${origin}/blog`,
+      url: `${origin}/gallery`,
       lastModified: new Date(),
     },
     {

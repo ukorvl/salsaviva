@@ -1,7 +1,7 @@
 /**
  * @description Transition duration in seconds.
  */
-const enum TransitionDuration {
+enum TransitionDuration {
   SHORT = 0.25,
   MEDIUM = 0.5,
   LONG = 1,
