@@ -1,6 +1,19 @@
 {
-  "extends": ["plugin:jsx-a11y/recommended", "plugin:jsdoc/recommended", "next"],
+  "extends": [
+    "plugin:jsx-a11y/recommended",
+    "plugin:jsdoc/recommended",
+    "next",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier"],
   "rules": {
+    "prettier/prettier": [
+      "warn",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ],
     "semi": [1, "always"],
     "quotes": [1, "single"],
     "array-bracket-spacing": 1,

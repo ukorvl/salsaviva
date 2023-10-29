@@ -3,10 +3,12 @@ import '@/lib/fontawesome/configure';
 import Footer from '@/components/shared/Footer/Footer';
 import WithGtag from '@/lib/gtag/WithGtag';
 import meta from './metadata';
+import viewportData from './viewport';
 import {kumbhSans, robotoMono} from './fonts';
 import './styles.css';
 
 export const metadata = meta;
+export const viewport = viewportData;
 
 const bodyCn = clsx(
   robotoMono.variable,

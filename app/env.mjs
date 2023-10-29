@@ -2,10 +2,14 @@ import {createEnv} from '@t3-oss/env-nextjs';
 import {z} from 'zod';
 
 const notEmptyString = z.string().min(1);
-const number = z.string().refine(v => !Number.isNaN(Number(v))).transform(Number);
-const boolean = z.string()
+const number = z
+  .string()
+  .refine(v => !Number.isNaN(Number(v)))
+  .transform(Number);
+const boolean = z
+  .string()
   .refine(v => v === 'true' || v === 'false' || v === '')
-  .transform((value) => value === 'true');
+  .transform(value => value === 'true');
 
 const server = {};
 
@@ -52,4 +56,3 @@ export const env = createEnv({
     NEXT_PUBLIC_HOTJAR_ID: process.env.NEXT_PUBLIC_HOTJAR_ID,
   },
 });
-
