@@ -38,6 +38,8 @@ jobs:
 
       - name: Lint
         run: |
+          ls
+          cat .env.local
           npm run lint
           npm run lint:editorconfig
 
