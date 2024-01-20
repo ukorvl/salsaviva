@@ -1,5 +1,6 @@
 import {SVGMotionProps, m} from 'framer-motion';
 import clsx from 'clsx';
+import {useId} from 'react';
 import menuButtonSize from './menuButtonSize';
 
 const pathCn = clsx('fill-white', 'stroke-white');
@@ -21,13 +22,17 @@ export default function MenuToggleSvgContent() {
   const svgViewBoxSize = menuButtonSize / 2;
   const svgElSize = svgViewBoxSize / 1.5;
   const svgElOffset = (svgViewBoxSize - svgElSize) / 2;
+  const titleId = useId();
 
   return (
     <svg
       width={svgViewBoxSize}
       height={svgViewBoxSize}
       viewBox={`0 0 ${svgViewBoxSize} ${svgViewBoxSize}`}
+      role="img"
+      aria-label={titleId}
     >
+      <title id={titleId}>Toggle menu with site navigation</title>
       <Path
         variants={{
           closed: {

@@ -1,4 +1,6 @@
-import {FocusEvent, ReactNode, useCallback, useContext, useEffect} from 'react';
+'use client';
+
+import {ReactNode, useCallback, useContext, useEffect} from 'react';
 import {m} from 'framer-motion';
 import {useHotkeys} from 'react-hotkeys-hook';
 import clsx from 'clsx';
@@ -37,6 +39,7 @@ const navVariants = {
   }),
 };
 
+// eslint-disable-next-line jsdoc/require-jsdoc
 const navCn = clsx(
   'fixed',
   'top-0',
@@ -58,6 +61,9 @@ const navCn = clsx(
 export default function MenuList({children}: MenuListProps) {
   const {isOpen, setIsOpen, position} = useContext(MenuContext);
   const close = useCallback(() => setIsOpen(false), [setIsOpen]);
+  const {height, width} = useWindowDimensions();
+  const bodyHasOverflow = height ? height < document.body.clientHeight : undefined;
+  const scrollbarWidth = width ? width - document.body.clientWidth : undefined;
   useHotkeys('esc', close);
 
   useEffect(() => {
@@ -68,15 +74,6 @@ export default function MenuList({children}: MenuListProps) {
     };
   }, [close]);
 
-  const {height} = useWindowDimensions();
-
-  // eslint-disable-next-line jsdoc/require-jsdoc
-  const onBlur = (e: FocusEvent<HTMLUListElement, Element>) => {
-    if (!e.currentTarget.contains(e.relatedTarget)) {
-      close();
-    }
-  };
-
   return (
     <m.nav
       initial={false}
@@ -84,7 +81,7 @@ export default function MenuList({children}: MenuListProps) {
       custom={{height, position}}
       className={navCn}
       variants={navVariants}
-      onBlur={onBlur}
+      style={{paddingRight: bodyHasOverflow ? `${scrollbarWidth}px` : 0}}
     >
       {children}
       <MenuDynamicBg />

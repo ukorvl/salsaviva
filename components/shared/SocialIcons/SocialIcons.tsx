@@ -34,7 +34,7 @@ const iconsCn = (direction: SocialIconsProps['direction']) =>
     'select-none',
     'z-10',
   );
-const iconCn = clsx('hover:scale-105 hover:-translate-y-0.5 transition-transform');
+const iconCn = clsx('transition-transform hover:-translate-y-0.5 hover:scale-105');
 
 const variants = {
   // eslint-disable-next-line jsdoc/require-jsdoc

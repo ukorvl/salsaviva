@@ -1,3 +1,5 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 import {isPrefersReducedMotion} from '@/utils/isPrefersReducedMotion';
 import options from './customCursorOptions';

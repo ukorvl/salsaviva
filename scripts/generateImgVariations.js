@@ -28,7 +28,7 @@ function getDirectoryContentFileNames(dir) {
 
   fs.readdirSync(dir)
     .filter(x => !x.startsWith('.')) // ignore hidden files
-    .forEach((file) => {
+    .forEach(file => {
       const fullPath = path.join(dir, file);
 
       if (!fs.lstatSync(fullPath).isDirectory()) {
@@ -43,14 +43,12 @@ function getDirectoryContentFileNames(dir) {
 function processImage(fileName) {
   const pathToBlured = `${bluredDirName}/${fileName}`;
 
-  jimp.read(fileName)
-    .then((result) => {
-      return result
-        .quality(30)
-        .blur(30)
-        .write(pathToBlured);
+  jimp
+    .read(fileName)
+    .then(result => {
+      return result.quality(30).blur(30).write(pathToBlured);
     })
-    .catch((err) => {
+    .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err);
     })
@@ -67,7 +65,7 @@ function cleanupDir(dir) {
 
   const contents = getDirectoryContentFileNames(dir);
   for (const c of contents) {
-    fs.unlink(path.join(dir, c), (err) => {
+    fs.unlink(path.join(dir, c), err => {
       if (err) throw err;
     });
   }

@@ -23,8 +23,6 @@ const metadata: Metadata = {
     'dance school',
     'social dance',
   ],
-  colorScheme: 'dark',
-  themeColor: '#18132d',
   authors: [{name: 'Ukorvl', url: 'https://github.com/ukorvl'}],
   manifest: '/manifest.json',
   metadataBase: new URL(origin),
@@ -46,11 +44,6 @@ const metadata: Metadata = {
     title: 'Salsaviva',
     description: 'Salsa, Bachata and Kizomba in Yerevan',
     images: ['/og.jpg'],
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
   },
   icons: [
     {

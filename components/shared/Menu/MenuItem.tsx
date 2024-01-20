@@ -55,7 +55,6 @@ const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(function MenuItem(
   return (
     <m.li
       variants={variants}
-      whileTap={{scale: 0.9}}
       ref={ref}
       onClick={() => setIsOpen(false)}
       className={twMerge(itemCn, className)}

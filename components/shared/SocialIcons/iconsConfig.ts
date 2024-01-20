@@ -1,5 +1,6 @@
 import {faFacebook, faInstagram, faTelegram, faWhatsapp} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIconProps} from '@fortawesome/react-fontawesome';
+import {env} from '@/app/env.mjs';
 
 /**
  * Icon configuration.
@@ -13,7 +14,7 @@ const {
   NEXT_PUBLIC_INSTAGRAM_ADDRESS,
   NEXT_PUBLIC_TELEGRAM_ADDRESS,
   NEXT_PUBLIC_WHATSAPP_ADDRESS,
-} = process.env;
+} = env;
 
 /**
  * Social icons config.

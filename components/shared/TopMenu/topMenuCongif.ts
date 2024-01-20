@@ -1,9 +1,11 @@
+import {env} from '@/app/env.mjs';
+
 const {
   NEXT_PUBLIC_FACEBOOK_ADDRESS,
   NEXT_PUBLIC_INSTAGRAM_ADDRESS,
   NEXT_PUBLIC_TELEGRAM_ADDRESS,
   NEXT_PUBLIC_WHATSAPP_ADDRESS,
-} = process.env;
+} = env;
 
 /**
  * Top menu configuration.

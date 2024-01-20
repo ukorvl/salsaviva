@@ -22,7 +22,7 @@ type LoaderProps = {
 };
 
 const containerBaseCn = clsx(
-  'flex justify-content-center align-items-center p-4',
+  'justify-content-center align-items-center flex p-4',
   'transition-opacity',
   `duration-${TransitionDuration.SHORT}`,
 );

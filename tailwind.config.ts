@@ -8,4 +8,9 @@ export default {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme,
+  plugins: [
+    require('@tailwindcss/forms')({
+      strategy: 'base',
+    }),
+  ],
 } satisfies Config;
