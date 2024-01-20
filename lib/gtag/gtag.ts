@@ -26,7 +26,7 @@ export const pageview = (url: string) => {
  */
 export const event = (
   event: Gtag.EventNames,
-  params: Pick<Gtag.EventParams, 'event_category' | 'event_label' | 'value'>,
+  params: Pick<Gtag.EventParams, 'event_category' | 'event_label' | 'value'> & Gtag.CustomParams,
 ) => {
   if (disableInDevMode) {
     return;

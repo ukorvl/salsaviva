@@ -26,6 +26,8 @@
     "@ukorvl/react-on-screen": "^1.0.6",
     "autoprefixer": "10.4.16",
     "clsx": "^1.2.1",
+    "cypress-accessibility-checker": "^3.1.64",
+    "focus-trap-react": "^10.2.3",
     "formik": "^2.4.1",
     "framer-motion": "^10.12.16",
     "lodash": "^4.17.21",

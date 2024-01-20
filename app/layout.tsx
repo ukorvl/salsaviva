@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import '@/lib/fontawesome/configure';
 import Footer from '@/components/shared/Footer/Footer';
 import WithGtag from '@/lib/gtag/WithGtag';
+import CustomCursor from '@/lib/customCursor/CustomCursor';
+import WebVitals from '@/components/shared/WebVitals/WebVitals';
 import meta from './metadata';
 import viewportData from './viewport';
 import {kumbhSans, robotoMono} from './fonts';
@@ -34,6 +36,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en">
       <body className={bodyCn}>
         <WithGtag />
+        <CustomCursor />
+        <WebVitals />
         <main className={mainCn}>{children}</main>
         <Footer />
       </body>

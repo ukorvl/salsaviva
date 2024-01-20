@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import {AnimatePresence} from 'framer-motion';
 import {useState} from 'react';
+import useDisableRightClick from '@/lib/shared/useDisableRightClick';
 import bgVideoConfig from './bgVideosConfig';
 import VideoBackground from './VideoBackground';
 import usePreloadVideo from './usePreloadVideo';
@@ -20,9 +21,13 @@ export default function MainPageVideoPlayer() {
   const incrementVidIndex = () => setVidIndex(nextVidIndex);
   const {src, type} = bgVideoConfig[vidIndex];
   usePreloadVideo(bgVideoConfig[nextVidIndex].src);
+  const ref = useDisableRightClick<HTMLDivElement>();
 
   return (
-    <div className={containerCn}>
+    <div
+      className={containerCn}
+      ref={ref}
+    >
       <AnimatePresence mode="wait">
         {
           <VideoBackground

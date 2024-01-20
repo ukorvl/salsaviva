@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-size: clamp(1rem, 2vw + 0.75rem, 1.5rem);
+}
+
 @layer utilities {
   .animated-link {
     position: relative;
@@ -16,8 +20,8 @@
     width: 0;
     left: 0;
     position: absolute;
-    -webkit-transition: width 0.3s ease-in;
-    transition: width 0.3s ease-in;
+    transition: width 0.4s;
+    transition-timing-function: cubic-bezier(0.91, 0.43, 0.84, 0.89);
   }
 
   .animated-link:hover:after {
