@@ -6,7 +6,7 @@ on:
       - master
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -34,20 +34,19 @@ jobs:
         with:
           node-version: 18.x
       - name: Download build results
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build
           path: ./out
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          publish_branch: gh-pages
-          force_orphan: true
-          enable_jekyll: false
-          clean: true
-          commit_message: ${{ github.event.head_commit.message }}
-          commit_user_name: ${{ github.event.head_commit.author.name }}
-          commit_user_email: ${{ github.event.head_commit.author.email }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: out
+          CLEAN: true
+          TARGET_FOLDER: .
+          GIT_CONFIG_NAME: ${{ github.actor }}
+          GIT_CONFIG_EMAIL: ${{ github.actor }}@users.noreply.github.com
+          COMMIT_MESSAGE: Deploy from commit ${{ github.sha }}
 
