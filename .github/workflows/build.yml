@@ -3,11 +3,6 @@ name: Build
 on:
   pull_request:
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to build'
-        required: true
-        default: 'master'
   workflow_call:
     inputs:
       public_path:
@@ -15,6 +10,11 @@ on:
         description: 'Inject public path'
         required: false
         default: ''
+      branch:
+        type: string
+        description: 'Branch to build'
+        required: true
+        default: 'master'
 
 jobs:
   build:
@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.branch }}
 
       - name: Setup Nodejs
         uses: actions/setup-node@v3
