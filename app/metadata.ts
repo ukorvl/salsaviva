@@ -38,12 +38,15 @@ const metadata: Metadata = {
     ],
     locale: 'en_US',
     type: 'website',
+    siteName: 'Salsaviva',
+    url: origin,
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Salsaviva',
     description: 'Salsa, Bachata and Kizomba in Yerevan',
     images: ['/og.jpg'],
+    site: '@salsaviva',
   },
   icons: [
     {

@@ -1,0 +1,52 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    uses: ./build.yml
+    with:
+      branch: ${{ github.event.head_commit.message }}
+      inject_public_path: https://${{ github.repository_owner }}.github.io/${{ github.repository_name }}
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - name: Download build results
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: ./out
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages
+          force_orphan: true
+          enable_jekyll: false
+          clean: true
+          commit_message: ${{ github.event.head_commit.message }}
+          commit_user_name: ${{ github.event.head_commit.author.name }}
+          commit_user_email: ${{ github.event.head_commit.author.email }}
+

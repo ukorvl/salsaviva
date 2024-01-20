@@ -5,6 +5,7 @@ import CATLink from '@/components/shared/CATLink/CATLink';
 import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewport';
 import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 import getTextSlideIntoViewVarinats from '@/lib/framerMotion/variants/getTextSlideIntoViewVarinats';
+import metadataBase from '../metadata';
 
 const pageDescription = 'Meet your inspirational guides in the world of social dance';
 
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Salsaviva - Teachers',
     description: pageDescription,
+    ...metadataBase.openGraph,
   },
 };
 
