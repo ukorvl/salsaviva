@@ -4,12 +4,14 @@ import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewp
 import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 import getTextSlideIntoViewVarinats from '@/lib/framerMotion/variants/getTextSlideIntoViewVarinats';
 import FormWrapper from '@/components/pages/Contact/FormWrapper/FormWrapper';
+import metadataBase from '../metadata';
 
 export const metadata: Metadata = {
   title: 'Contact',
   openGraph: {
     title: 'Salsaviva - Contact',
     description: 'Connect and dance: Contacts for Your next breathtaking dancing adventure',
+    ...metadataBase.openGraph,
   },
 };
 

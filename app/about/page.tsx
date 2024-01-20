@@ -7,6 +7,7 @@ import Philosophy from '@/components/pages/About/Philosophy';
 import CATLink from '@/components/shared/CATLink/CATLink';
 import BlockWithImage from '@/components/pages/About/BlockWithImage';
 import WhyJoinBlock from '@/components/pages/About/WhyJoinBlock/WhyJoinBlock';
+import metadataBase from '../metadata';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     title: 'Salsaviva - About',
     description: `Get ready to discover the Magic at Salsaviva. Read about our
     welcoming and inspiring community of dancers`,
+    ...metadataBase.openGraph,
   },
 };
 

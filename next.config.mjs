@@ -4,7 +4,10 @@ import './app/env.mjs';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
 };
 
 const withAnalyzer = withBundleAnalyzer({

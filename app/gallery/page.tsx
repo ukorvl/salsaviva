@@ -4,6 +4,7 @@ import Gallery from '@/components/pages/Gallery/Gallery';
 import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewport';
 import SocialIcons from '@/components/shared/SocialIcons/SocialIcons';
 import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
+import metadataBase from '../metadata';
 import './styles.css';
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Salsaviva - Gallery',
     description: 'Explore the vibrant world of social dance',
+    ...metadataBase.openGraph,
   },
 };
 

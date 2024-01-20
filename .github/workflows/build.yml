@@ -3,9 +3,18 @@ name: Build
 on:
   pull_request:
   workflow_dispatch:
-  push:
-    branches:
-      - master
+    inputs:
+      branch:
+        description: 'Branch to build'
+        required: true
+        default: 'master'
+  workflow_call:
+    inputs:
+      public_path:
+        type: string
+        description: 'Inject public path'
+        required: false
+        default: ''
 
 jobs:
   build:
@@ -32,6 +41,7 @@ jobs:
             envkey_NEXT_PUBLIC_FORMSPREE_ID: "${{ secrets.NEXT_PUBLIC_FORMSPREE_ID }}"
             envkey_NEXT_PUBLIC_HOTJAR_ID: ${{ secrets.NEXT_PUBLIC_HOTJAR_ID }}
             envkey_NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION: ${{ secrets.NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION }}
+            envkey_PUBLIC_PATH: ${{ github.event.inputs.public_path }}
             directory: '.'
             file_name: .env.local
             fail_on_empty: false
@@ -44,8 +54,17 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check seo
+        run: npm run check-seo
+
       - name: e2e
         uses: cypress-io/github-action@v5
         with:
           start: npm run start
           record: false
+
+      - name: Upload build results
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: out
