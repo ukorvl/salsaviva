@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    uses: ./.github/workflows/build.yml@master
+    uses: ./.github/workflows/build.yml@main
     with:
       branch: ${{ github.event.head_commit.message }}
       inject_public_path: https://${{ github.repository_owner }}.github.io/${{ github.repository_name }}
