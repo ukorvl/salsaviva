@@ -1,3 +1,5 @@
+'use client';
+
 import {ReactNode, useState} from 'react';
 import FocusTrap from 'focus-trap-react';
 import useDisableBodyScroll from '@/lib/shared/useDisableBodyScroll';

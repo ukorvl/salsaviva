@@ -13,6 +13,7 @@ import FormField from './FormField';
  */
 type FormProps = {
   onSubmit?: () => void;
+  onErrorSubmit?: () => void;
 };
 
 const initialValues = {
@@ -26,15 +27,19 @@ const {NEXT_PUBLIC_FORMSPREE_ID} = env;
  * @param {FormProps} props Props.
  * @returns React element.
  */
-export default function Form({onSubmit: onSuccessSubmit}: FormProps) {
+export default function Form({onSubmit: onSuccessSubmit, onErrorSubmit}: FormProps) {
   const mottoCn = 'text-center text-gray-300 mt-16';
   const btnCn = 'mt-8';
   const [{status}, submit] = useFormspree<ContactFormData>(NEXT_PUBLIC_FORMSPREE_ID!);
   // eslint-disable-next-line jsdoc/require-jsdoc
   const onSubmit = async (values: ContactFormData) => {
-    await submit(values);
-    resetForm();
-    onSuccessSubmit?.();
+    try {
+      await submit(values);
+      resetForm();
+      onSuccessSubmit?.();
+    } catch {
+      onErrorSubmit?.();
+    }
   };
 
   const formikData = useFormik<ContactFormData>({
@@ -45,8 +50,8 @@ export default function Form({onSubmit: onSuccessSubmit}: FormProps) {
   const {handleSubmit, isSubmitting, isValid, dirty, resetForm} = formikData;
 
   return (
-    <AppearInViewport transition={{delay: 1, duration: 1.5}}>
-      <FormikContext.Provider value={formikData}>
+    <FormikContext.Provider value={formikData}>
+      <AppearInViewport transition={{delay: 1, staggerChildren: 0.2, delayChildren: 0.5}}>
         <form onSubmit={handleSubmit}>
           <FormField name="name" />
           <FormField name="message" />
@@ -63,7 +68,7 @@ export default function Form({onSubmit: onSuccessSubmit}: FormProps) {
           </Button>
           {status === 'error' && <div>Something went wrong. Please try again.</div>}
         </form>
-      </FormikContext.Provider>
-    </AppearInViewport>
+      </AppearInViewport>
+    </FormikContext.Provider>
   );
 }

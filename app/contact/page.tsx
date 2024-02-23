@@ -29,7 +29,7 @@ export default function Contact() {
       <AppearInViewport
         className={titleCn}
         variants={titleVariants}
-        transition={{duration: TransitionDuration.VERY_LONG, type: 'spring', bounce: 0.5}}
+        transition={{duration: TransitionDuration.LONG, type: 'spring', bounce: 0}}
       >
         CONTACT US
       </AppearInViewport>

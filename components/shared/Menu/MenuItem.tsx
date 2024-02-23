@@ -1,9 +1,10 @@
 import {m} from 'framer-motion';
-import {ReactNode, forwardRef, useContext, useLayoutEffect} from 'react';
+import {ReactNode, forwardRef, useLayoutEffect} from 'react';
 import clsx from 'clsx';
 import {twMerge} from 'tailwind-merge';
 import {useHover} from '@/lib/shared/useHover';
 import {useAssignRefs} from '@/lib/shared/useAssignRefs';
+import {useContextSafeSafe} from '@/utils/useContextSafe';
 import {MenuContext} from './MenuContext';
 
 /**
@@ -42,7 +43,7 @@ const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(function MenuItem(
   {children, className, bgImgPath},
   forwardedRef,
 ) {
-  const {setIsOpen, setMenuBg} = useContext(MenuContext);
+  const {setIsOpen, setMenuBg} = useContextSafeSafe(MenuContext);
   const [r, isHover] = useHover();
   const ref = useAssignRefs(r, forwardedRef);
 
