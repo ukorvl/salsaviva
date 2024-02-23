@@ -27,6 +27,8 @@ const {NEXT_PUBLIC_FORMSPREE_ID} = env;
  * @returns React element.
  */
 export default function Form({onSubmit: onSuccessSubmit}: FormProps) {
+  const mottoCn = 'text-center text-gray-300 mt-16';
+  const btnCn = 'mt-8';
   const [{status}, submit] = useFormspree<ContactFormData>(NEXT_PUBLIC_FORMSPREE_ID!);
   // eslint-disable-next-line jsdoc/require-jsdoc
   const onSubmit = async (values: ContactFormData) => {
@@ -48,13 +50,14 @@ export default function Form({onSubmit: onSuccessSubmit}: FormProps) {
         <form onSubmit={handleSubmit}>
           <FormField name="name" />
           <FormField name="message" />
-          <div>Select your preferred method of contact.</div>
+          <div className={mottoCn}>Select your preferred method of contact:</div>
           <FormField name="email" />
           <FormField name="tel" />
           <FormField name="telegram" />
           <Button
             type="submit"
             disabled={isSubmitting || !isValid || !dirty}
+            className={btnCn}
           >
             Submit
           </Button>

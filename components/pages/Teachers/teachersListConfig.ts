@@ -18,13 +18,6 @@ const teachersListConfig: TeachersListConfigItem[] = [
     id: 'monica-conde',
   },
   {
-    name: 'Yuriy Pikhun',
-    subtitle: 'Top teacher',
-    danceStyles: ['Bachata', 'Kizomba', 'Casino'],
-    imgSrc: 'teachers.1.jpg',
-    id: 'yuriy-pikhun',
-  },
-  {
     name: 'Anna Militonyan',
     subtitle: 'Top teacher',
     danceStyles: ['Bachata', 'Kizomba'],
@@ -37,6 +30,13 @@ const teachersListConfig: TeachersListConfigItem[] = [
     danceStyles: ['Lady style', 'Kizomba', 'Bachata', 'Salsa/mambo'],
     imgSrc: 'teachers.3.jpg',
     id: 'annie-ghantarjian',
+  },
+  {
+    name: 'Yuriy Pikhun',
+    subtitle: 'Top teacher',
+    danceStyles: ['Bachata', 'Kizomba', 'Casino'],
+    imgSrc: 'teachers.1.jpg',
+    id: 'yuriy-pikhun',
   },
   {
     name: 'Dima & Sveta',

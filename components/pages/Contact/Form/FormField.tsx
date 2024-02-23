@@ -1,4 +1,5 @@
 import {useField} from 'formik';
+import clsx from 'clsx';
 import formConfig from './formConfig';
 import type {ContactFormData} from './validationSchema';
 import TextField from '../TextField/TextField';
@@ -19,9 +20,10 @@ export default function FormField({name}: FormFieldProps) {
   const configData = formConfig[name];
   const [field, meta] = useField(name);
   const hasError = meta.touched && !!meta.error;
+  const fieldCn = clsx('relative', 'h-12');
 
   return (
-    <>
+    <div className={fieldCn}>
       <TextField
         {...configData}
         {...field}
@@ -30,6 +32,6 @@ export default function FormField({name}: FormFieldProps) {
         hasError={hasError}
         message={meta.error}
       />
-    </>
+    </div>
   );
 }
