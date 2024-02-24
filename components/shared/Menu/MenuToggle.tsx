@@ -1,5 +1,6 @@
-import {forwardRef, memo, useContext} from 'react';
+import {forwardRef, memo} from 'react';
 import clsx from 'clsx';
+import {useContextSafeSafe} from '@/utils/useContextSafe';
 import {MenuContext} from './MenuContext';
 import menuButtonSize from './menuButtonSize';
 import Button from '../Button/Button';
@@ -25,7 +26,7 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(function MenuT
   {onToggle},
   ref,
 ) {
-  const {setIsOpen, isOpen, position} = useContext(MenuContext);
+  const {setIsOpen, isOpen, position} = useContextSafeSafe(MenuContext);
   // eslint-disable-next-line jsdoc/require-jsdoc
   const onClick = () => {
     setIsOpen(!isOpen);

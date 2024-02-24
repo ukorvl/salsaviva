@@ -1,5 +1,6 @@
 import type {Config} from 'tailwindcss';
 import theme from './tailwind/theme';
+import {removeSelectionBg} from './tailwind/removeSelectionBg';
 
 export default {
   content: [
@@ -12,5 +13,6 @@ export default {
     require('@tailwindcss/forms')({
       strategy: 'base',
     }),
+    removeSelectionBg,
   ],
 } satisfies Config;

@@ -9,13 +9,13 @@ type ErrorMessageProps = {
   hasError?: boolean;
 };
 
-const messageCn = clsx('');
-
 /**
  * @param {ErrorMessageProps} props Props.
  * @returns React component.
  */
 function ErrorMessage({message, hasError}: ErrorMessageProps) {
+  const messageCn = clsx('text-red-500', 'text-sm', 'mt-1', 'absolute', 'bottom-0', 'left-0');
+
   return <div className={messageCn}>{hasError ? message : null}</div>;
 }
 

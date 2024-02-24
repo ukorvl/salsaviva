@@ -26,7 +26,7 @@ const variants: Variants = {
  */
 export default function WhyJoinBlock() {
   const containerCn =
-    'w-full flex flex-col items-center justify-center border-t-8 border-white border-dashed';
+    'w-full flex flex-col items-center justify-center border-t-8 border-white border-dashed px-4';
   const titleCn = 'w-full text-8xl mt-24 text-accent2 text-right justify-end mr-32 mb-32';
   const gridCn = 'grid grid-cols-3 w-full gap-4';
 

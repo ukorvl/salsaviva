@@ -1,6 +1,5 @@
-'use client';
-
 import {useEffect} from 'react';
+import {isServer} from '@/utils/isServer';
 
 /**
  * Disable body scroll if overflow element is open.
@@ -8,7 +7,9 @@ import {useEffect} from 'react';
  * @param open Is open.
  */
 export default function useDisableBodyScroll(open: boolean) {
-  const scrollBarWidth = window.innerWidth - document.body.clientWidth;
+  const isSSR = isServer();
+
+  const scrollBarWidth = !isSSR ? window.innerWidth - document.body.clientWidth : 0;
 
   useEffect(() => {
     if (open) {

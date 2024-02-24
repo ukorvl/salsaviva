@@ -26,6 +26,9 @@ const containerCn = clsx(
   'left-0',
   'z-10',
   'mb-16',
+  'overflow-hidden',
+  'px-4',
+  'text-center',
 );
 const nameCn = clsx('text-4xl', 'font-bold', 'text-center', 'pointer-events-auto');
 

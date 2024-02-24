@@ -37,7 +37,6 @@ const galleryTextItem = clsx(
   'text-center',
 );
 const titleCn = clsx('text-4xl');
-const textCn = clsx('text-xl');
 const subTitleCn = clsx('text-2xl');
 
 /**
@@ -55,14 +54,7 @@ export default function GalleryPage() {
           SALSAVIVA GALLERY
         </AppearInViewport>
         <AppearInViewport
-          transition={{delay: 1.5, duration: TransitionDuration.LONG}}
-          className={textCn}
-        >
-          Welcome to our vibrant dancing studio image gallery, where the rhythm comes alive through
-          captivating moments frozen in time.
-        </AppearInViewport>
-        <AppearInViewport
-          transition={{delay: 3, duration: TransitionDuration.VERY_LONG}}
+          transition={{delay: 2, duration: TransitionDuration.VERY_LONG}}
           className={subTitleCn}
         >
           Enjoy!
@@ -74,7 +66,7 @@ export default function GalleryPage() {
           className={subTitleCn}
           as="h3"
         >
-          Whant more? Follow us on social media!
+          Want more? Follow us on social media!
         </AppearInViewport>
         <SocialIcons iconSize="2x" />
       </div>
