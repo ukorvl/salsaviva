@@ -16,16 +16,24 @@ body {
     display: block;
     content: "";
     background-color: theme(colors.white);
-    height: 1px;
+    height: 1.5px;
     width: 0;
     left: 0;
     position: absolute;
     transition: width 0.4s;
     transition-timing-function: cubic-bezier(0.91, 0.43, 0.84, 0.89);
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
   }
 
   .animated-link:hover:after {
     width: 100%;
+
+    @media (prefers-reduced-motion) {
+      width: 0;
+    }
   }
 
   .animated-link:focus {
@@ -34,6 +42,10 @@ body {
 
   .animated-link:focus:after {
     width: 100%;
+
+    @media (prefers-reduced-motion) {
+      width: 0;
+    }
   }
 
   .focus-ring {
