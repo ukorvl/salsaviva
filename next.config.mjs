@@ -9,6 +9,7 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: process.env.BASE_PATH,
+  assetPrefix: process.env.BASE_PATH,
 };
 
 const withAnalyzer = withBundleAnalyzer({
