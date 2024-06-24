@@ -3,7 +3,7 @@ import {memo} from 'react';
 import {env} from '@/app/env.mjs';
 import UniversalLink from '../UniversalLink/UniversalLink';
 
-const {NEXT_PUBLIC_CONTACT_EMAIL} = env;
+const {CONTACT_EMAIL} = env;
 
 const containerCn = clsx('flex', 'justify-center');
 const anchorCn = clsx('animated-link');
@@ -16,9 +16,10 @@ function Mail() {
     <div className={containerCn}>
       <UniversalLink
         className={anchorCn}
-        href={`mailto:${NEXT_PUBLIC_CONTACT_EMAIL}`}
+        href={`mailto:${CONTACT_EMAIL}`}
+        rel="noopener noreferrer"
       >
-        {NEXT_PUBLIC_CONTACT_EMAIL}
+        {CONTACT_EMAIL}
       </UniversalLink>
     </div>
   );

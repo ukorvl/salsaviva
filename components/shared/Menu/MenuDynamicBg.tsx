@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import {m, AnimatePresence} from 'framer-motion';
-import {useContextSafeSafe} from '@/utils/useContextSafe';
+import {useContextSafe} from '@/utils/useContextSafe';
 import {MenuContext} from './MenuContext';
 import ImageWrapper from '../ImageWrapper/ImageWrapper';
 
@@ -11,7 +11,7 @@ const dynamicBgCn = clsx('absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'z-3
  * @returns React component.
  */
 export default function MenuDynamicBg() {
-  const {menuBg} = useContextSafeSafe(MenuContext);
+  const {menuBg} = useContextSafe(MenuContext);
 
   return (
     <AnimatePresence mode="popLayout">

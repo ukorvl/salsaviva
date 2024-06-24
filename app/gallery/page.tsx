@@ -5,6 +5,7 @@ import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewp
 import SocialIcons from '@/components/shared/SocialIcons/SocialIcons';
 import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 import metadataBase from '../metadata';
+import getSocialicons from '../socialIcons';
 import './styles.css';
 
 export const metadata: Metadata = {
@@ -68,7 +69,7 @@ export default function GalleryPage() {
         >
           Want more? Follow us on social media!
         </AppearInViewport>
-        <SocialIcons iconSize="2x" />
+        <SocialIcons icons={getSocialicons('2x')} />
       </div>
     </div>
   );

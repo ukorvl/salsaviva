@@ -29,6 +29,7 @@ export default function GalleryItem({src, blurDataURL, width, height, alt}: Gall
           ref={ref as MutableRefObject<HTMLImageElement>}
           blurDataURL={blurDataURL}
           src={src}
+          alt={alt}
         />
       )}
     </Item>

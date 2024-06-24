@@ -86,6 +86,7 @@ export default function About() {
         className={CATLinkCn}
         path="/contact"
         customTransition={{delay: 0.5}}
+        rel="noopener noreferrer"
       />
     </div>
   );

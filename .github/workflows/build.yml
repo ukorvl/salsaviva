@@ -3,70 +3,27 @@ name: Build
 on:
   pull_request:
   workflow_dispatch:
-  workflow_call:
-    inputs:
-      public_path:
-        type: string
-        description: 'Inject public path'
-        required: false
-        default: ''
-      branch:
-        type: string
-        description: 'Branch to build'
-        required: true
-        default: 'master'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [18, 20, 22]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.inputs.branch }}
-
-      - name: Setup Nodejs
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-
+      - name: Clone repository
+        uses: actions/checkout@v4
       - name: Install dependencies
-        run: |
-          npm pkg delete scripts.prepare
-          npm ci
-
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v2.0
+        uses: ./.github/actions/install-dependencies
         with:
-            envkey_NEXT_PUBLIC_GA_TRACKING_ID: "${{ secrets.NEXT_PUBLIC_GA_TRACKING_ID }}"
-            envkey_NEXT_PUBLIC_FORMSPREE_ID: "${{ secrets.NEXT_PUBLIC_FORMSPREE_ID }}"
-            envkey_NEXT_PUBLIC_HOTJAR_ID: ${{ secrets.NEXT_PUBLIC_HOTJAR_ID }}
-            envkey_NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION: ${{ secrets.NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION }}
-            envkey_PUBLIC_PATH: ${{ github.event.inputs.public_path }}
-            directory: '.'
-            file_name: .env.local
-            fail_on_empty: false
-
-      - name: Lint
-        run: |
-          npm run lint
-          npm run lint:editorconfig
-
+          node_version: ${{ matrix.version }}
+      - name: Test
+        uses: ./.github/actions/test
       - name: Build
-        run: npm run build
+        uses: ./.github/actions/build
 
-      - name: Check seo
-        run: npm run check-seo
-
-      - name: e2e
-        uses: cypress-io/github-action@v5
-        with:
-          start: npm run start
-          record: false
-
-      - name: Upload build results
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: out

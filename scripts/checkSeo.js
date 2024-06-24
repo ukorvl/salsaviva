@@ -4,10 +4,9 @@ const SeoAnalyzer = require('seo-analyzer');
 new SeoAnalyzer()
   .ignoreFiles([process.cwd() + '/out' + '/404.html'])
   .inputFolders([process.cwd() + '/out'])
-  // Rules
-  .addRule('titleLengthRule', {min: 10, max: 50})
-  .addRule('metaBaseRule', {names: ['description', 'viewport']})
-  .addRule('metaSocialRule', {
+  .useRule('titleLengthRule', {min: 1, max: 50})
+  .useRule('metaBaseRule', {names: ['description', 'viewport']})
+  .useRule('metaSocialRule', {
     properties: [
       'og:url',
       'og:type',
@@ -26,11 +25,12 @@ new SeoAnalyzer()
       'twitter:site',
     ],
   })
-  //.addRule(h1TagRule)
-  .addRule('imgTagWithAltAttributeRule')
-  .addRule('aTagWithRelAttributeRule')
+  .useRule('aTagWithRelAttributeRule')
+  .addRule(h1TagRule)
+  .addRule(imgTagWithAltAttributeRule)
   // Output
-  .outputConsole();
+  .outputConsole()
+  .run();
 
 // eslint-disable-next-line jsdoc/require-jsdoc
 function h1TagRule(dom) {
@@ -53,5 +53,33 @@ function h1TagRule(dom) {
     }
 
     resolve();
+  });
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function imgTagWithAltAttributeRule(dom) {
+  return new Promise(resolve => {
+    let countAlt = 0;
+    let countSrc = 0;
+    const report = [];
+    const elements = dom.window.document.querySelectorAll('img');
+
+    elements.forEach(element => {
+      if (element.alt === undefined) {
+        countAlt++;
+      }
+      if (!element.src) {
+        countSrc++;
+      }
+    });
+
+    if (countSrc > 0) {
+      report.push(`There are ${countSrc} <img> tags without a src attribute`);
+    }
+
+    if (countAlt > 0) {
+      report.push(`There are ${countAlt} <img> tags without an alt attribute`);
+    }
+    resolve(report);
   });
 }

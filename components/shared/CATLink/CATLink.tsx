@@ -16,6 +16,7 @@ type CATLinkProps = {
   className?: string;
   customVariants?: HTMLMotionProps<'div'>['variants'];
   customTransition?: HTMLMotionProps<'div'>['transition'];
+  rel?: string;
 };
 
 const defaultTransition = {delay: 1.2};
@@ -38,6 +39,7 @@ export default function CATLink({
   customVariants,
   path,
   customTransition,
+  rel,
 }: CATLinkProps) {
   return (
     <AppearInViewport
@@ -48,6 +50,7 @@ export default function CATLink({
       <UniversalLink
         href={path}
         className={linkCn}
+        rel={rel}
       >
         {text}
       </UniversalLink>

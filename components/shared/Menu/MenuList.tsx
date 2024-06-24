@@ -5,7 +5,7 @@ import {m} from 'framer-motion';
 import {useHotkeys} from 'react-hotkeys-hook';
 import clsx from 'clsx';
 import useWindowDimensions from '@/lib/shared/useWindowDimensions';
-import {useContextSafeSafe} from '@/utils/useContextSafe';
+import {useContextSafe} from '@/utils/useContextSafe';
 import {MenuContext} from './MenuContext';
 import {MenuPosition} from './MenuPosition';
 import menuButtonSize from './menuButtonSize';
@@ -60,7 +60,7 @@ const navCn = clsx(
  * @returns React component.
  */
 export default function MenuList({children}: MenuListProps) {
-  const {isOpen, setIsOpen, position} = useContextSafeSafe(MenuContext);
+  const {isOpen, setIsOpen, position} = useContextSafe(MenuContext);
   const close = useCallback(() => setIsOpen(false), [setIsOpen]);
   const {height, width} = useWindowDimensions();
   const bodyHasOverflow = height ? height < document.body.clientHeight : undefined;

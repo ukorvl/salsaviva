@@ -37,9 +37,9 @@ export default function WhyJoinBlock() {
     >
       <h2 className={titleCn}>Why join Salsaviva?</h2>
       <div className={gridCn}>
-        {config.map((Item, index) => (
+        {config.map((Item, idx) => (
           <m.div
-            key={index}
+            key={`whyJoin-${idx}`}
             variants={variants}
           >
             <Item />

@@ -1,29 +1,19 @@
 'use client';
 
-import {useEffect} from 'react';
+import clsx from 'clsx';
+import Button from '@/components/shared/Button/Button';
+
+const errContainerCn = clsx('pt-64', 'flex', 'flex-col', 'gap-8');
 
 /**
  * @param {{error: Error; reset: () => void}} props Props.
  * @returns React component.
  */
-export default function Error({error, reset}: {error: Error; reset: () => void}) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    // eslint-disable-next-line no-console
-    console.error(error);
-  }, [error]);
-
+export default function Error({reset}: {error: Error; reset: () => void}) {
   return (
-    <div>
+    <div className={errContainerCn}>
       <h2>Something went wrong!</h2>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </button>
+      <Button onClick={() => reset()}>Try again</Button>
     </div>
   );
 }

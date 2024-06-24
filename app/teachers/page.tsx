@@ -39,6 +39,7 @@ export default function Teachers() {
   return (
     <div className={containerCn}>
       <AppearInViewport
+        as="h1"
         className={titleCn}
         variants={titleVariants}
         transition={{duration: TransitionDuration.VERY_LONG, type: 'spring', bounce: 0.5}}
@@ -57,6 +58,7 @@ export default function Teachers() {
         className={CATLinkCn}
         path="/contact"
         customTransition={{delay: 0.5}}
+        rel="noopener noreferrer"
       />
     </div>
   );

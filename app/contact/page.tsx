@@ -5,6 +5,7 @@ import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 import getTextSlideIntoViewVarinats from '@/lib/framerMotion/variants/getTextSlideIntoViewVarinats';
 import FormWrapper from '@/components/pages/Contact/FormWrapper/FormWrapper';
 import metadataBase from '../metadata';
+import {env} from '../env.mjs';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 const titleVariants = getTextSlideIntoViewVarinats('right');
-
+const {FORMSPREE_ID} = env;
 const containerCn = clsx('flex', 'flex-col', 'min-h-screen', 'w-full');
 const titleCn = clsx('text-8xl', 'mt-24', 'ml-4', 'text-center');
 
@@ -27,13 +28,14 @@ export default function Contact() {
   return (
     <div className={containerCn}>
       <AppearInViewport
+        as="h1"
         className={titleCn}
         variants={titleVariants}
         transition={{duration: TransitionDuration.LONG, type: 'spring', bounce: 0}}
       >
         CONTACT US
       </AppearInViewport>
-      <FormWrapper />
+      <FormWrapper formspreeId={FORMSPREE_ID} />
     </div>
   );
 }
