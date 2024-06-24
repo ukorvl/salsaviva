@@ -1,7 +1,6 @@
 'use client';
 
-import type {MutableRefObject} from 'react';
-import {useEffect, useRef, useState} from 'react';
+import {MutableRefObject, useEffect, useRef, useState} from 'react';
 
 /**
  * @see {@link https://usehooks.com/useHover/}

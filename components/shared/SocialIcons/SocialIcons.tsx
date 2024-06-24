@@ -1,13 +1,10 @@
 'use client';
 
-import {FontAwesomeIcon, FontAwesomeIconProps} from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import {twMerge} from 'tailwind-merge';
-import {memo} from 'react';
+import {ReactNode, memo} from 'react';
 import {m} from 'framer-motion';
-import iconsConfig from './iconsConfig';
 import AppearInViewport from '../AppearInViewport/AppearInViewport';
-import UniversalLink from '../UniversalLink/UniversalLink';
 
 /**
  * Direction.
@@ -18,10 +15,12 @@ type Direction = 'row' | 'column';
  * Props.
  */
 type SocialIconsProps = {
-  iconSize: FontAwesomeIconProps['size'];
   /** @default row */
   direction?: Direction;
   className?: string;
+  icons: Array<{
+    icon: ReactNode;
+  }>;
 };
 
 // eslint-disable-next-line jsdoc/require-jsdoc
@@ -34,7 +33,6 @@ const iconsCn = (direction: SocialIconsProps['direction']) =>
     'select-none',
     'z-10',
   );
-const iconCn = clsx('transition-transform hover:-translate-y-0.5 hover:scale-105');
 
 const variants = {
   // eslint-disable-next-line jsdoc/require-jsdoc
@@ -59,28 +57,19 @@ const variants = {
  * @param {SocialIconsProps} props Props.
  * @returns React component.
  */
-function SocialIcons({iconSize, direction = 'row', className}: SocialIconsProps) {
+function SocialIcons({direction = 'row', className, icons}: SocialIconsProps) {
   return (
     <AppearInViewport
       className={twMerge(iconsCn(direction), className)}
       transition={{delay: 0.6, staggerChildren: 0.2, delayChildren: 0.5}}
     >
-      {iconsConfig.map(({href, target, className, ...rest}) => (
+      {icons.map(({icon}, idx) => (
         <m.div
-          key={href}
+          key={`socialIcons-${idx}`}
           variants={variants}
           custom={direction}
         >
-          <UniversalLink
-            href={href}
-            target={target}
-          >
-            <FontAwesomeIcon
-              className={twMerge(iconCn, className)}
-              size={iconSize}
-              {...rest}
-            />
-          </UniversalLink>
+          {icon}
         </m.div>
       ))}
     </AppearInViewport>

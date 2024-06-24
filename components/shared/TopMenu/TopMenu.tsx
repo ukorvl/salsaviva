@@ -2,9 +2,22 @@
 
 import clsx from 'clsx';
 import {m} from 'framer-motion';
-import {menuItemsConfig, socialLinksConfig} from './topMenuCongif';
+import {ReactNode} from 'react';
 import Menu from '../Menu/Menu';
 import UniversalLink from '../UniversalLink/UniversalLink';
+
+/**
+ * TopMenu component props.
+ */
+type TopMenuProps = {
+  menuItems: Array<{
+    icon: ReactNode;
+    bgImgPath: string;
+  }>;
+  socialLinks: Array<{
+    link: ReactNode;
+  }>;
+};
 
 const variants = {
   open: {
@@ -15,16 +28,16 @@ const variants = {
   },
 };
 
-const linkCn = clsx('animated-link');
 const socialLiksListCn = clsx('flex', 'gap-8', 'mt-auto', 'mb-16');
 const socialLinkMenuItem = clsx('text-xs');
 const itemsListCn = clsx('mt-24');
 const homeMenuItem = clsx('mb-32', 'text-xl');
 
 /**
+ * @param {TopMenuProps} props Props.
  * @returns React component.
  */
-export default function TopMenu() {
+export default function TopMenu({menuItems, socialLinks}: TopMenuProps) {
   return (
     <Menu
       top={88}
@@ -39,22 +52,18 @@ export default function TopMenu() {
           <Menu.Item className={homeMenuItem}>
             <UniversalLink
               href="/"
-              className={linkCn}
+              className="animated-link"
+              rel="noopener noreferrer"
             >
               SALSAVIVA
             </UniversalLink>
           </Menu.Item>
-          {menuItemsConfig.map(({href, text, bgImgPath}, idx) => (
+          {menuItems.map(({icon, bgImgPath}, idx) => (
             <Menu.Item
-              key={idx}
+              key={`menuItems-${idx}`}
               bgImgPath={bgImgPath}
             >
-              <UniversalLink
-                href={href}
-                className={linkCn}
-              >
-                {text}
-              </UniversalLink>
+              {icon}
             </Menu.Item>
           ))}
         </m.ul>
@@ -62,18 +71,12 @@ export default function TopMenu() {
           variants={variants}
           className={socialLiksListCn}
         >
-          {socialLinksConfig.map(({href, text}, idx) => (
+          {socialLinks.map(({link}, idx) => (
             <Menu.Item
-              key={idx}
+              key={`socailLinks-${idx}`}
               className={socialLinkMenuItem}
             >
-              <UniversalLink
-                href={href}
-                className={linkCn}
-                target="_blank"
-              >
-                {text.toUpperCase()}
-              </UniversalLink>
+              {link}
             </Menu.Item>
           ))}
         </m.ul>

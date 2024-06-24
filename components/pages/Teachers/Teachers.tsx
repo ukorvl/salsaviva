@@ -18,7 +18,7 @@ export default function Teachers() {
     >
       {teachersListConfig.map(teacher => (
         <Teacher
-          key={teacher.id}
+          key={teacher.name}
           {...teacher}
         />
       ))}

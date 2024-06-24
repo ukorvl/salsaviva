@@ -4,7 +4,7 @@ import React from 'react';
  * @param context - React context.
  * @returns Context value.
  */
-export const useContextSafeSafe = <T>(context: React.Context<T>) => {
+export const useContextSafe = <T>(context: React.Context<T>) => {
   const contextValue = React.useContext(context);
 
   if (contextValue === undefined) {

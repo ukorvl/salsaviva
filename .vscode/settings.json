@@ -19,5 +19,16 @@
   "editor.formatOnType": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
-  }
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["eslintrc.json"],
+      "url": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/eslintrc.json"
+    },
+    {
+      "fileMatch": ["prettierrc"],
+      "url": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/prettierrc-2.8.8.json"
+    }
+  ],
+  "json.schemaDownload.enable": true
 }

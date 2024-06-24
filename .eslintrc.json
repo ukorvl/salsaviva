@@ -57,7 +57,8 @@
         "newlines-between": "never",
         "warnOnUnassignedImports": true
       }
-    ]
+    ],
+    "no-duplicate-imports": 1
   },
   "overrides": [
     {
@@ -79,5 +80,6 @@
         "project": "./tsconfig.json"
       }
     }
-  }
+  },
+  "env": {}
 }

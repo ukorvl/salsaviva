@@ -12,42 +12,32 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
-  build:
-    uses: ./.github/workflows/build.yml
-    with:
-      branch: ${{ github.event.head_commit.message }}
-      public_path: https://${{ github.repository_owner }}.github.io/${{ github.repository_name }}
-    secrets: inherit
-
   deploy:
     name: Deploy
-    needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Nodejs
-        uses: actions/setup-node@v3
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        uses: ./.github/actions/install-dependencies
         with:
-          node-version: 18.x
-      - name: Download build results
-        uses: actions/download-artifact@v4
+          node_version: 18
+      - name: Build
+        uses: ./.github/actions/build
         with:
-          name: build
-          path: ./out
+          assets_path: 'assets'
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: out
-          CLEAN: true
-          TARGET_FOLDER: .
-          GIT_CONFIG_NAME: ${{ github.actor }}
-          GIT_CONFIG_EMAIL: ${{ github.actor }}@users.noreply.github.com
-          COMMIT_MESSAGE: Deploy from commit ${{ github.sha }}
-
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: out
+          clean: true
+          target-folder: .
+          git-config-name: ${{ github.actor }}
+          git-config-email: ${{ github.actor }}@users.noreply.github.com
+          commit-message: Deploy from commit ${{ github.sha }}

@@ -1,6 +1,5 @@
-import {MouseEvent} from 'react';
+import {MouseEvent, forwardRef} from 'react';
 import clsx from 'clsx';
-import {forwardRef} from 'react';
 import {useHotkeys} from 'react-hotkeys-hook';
 import {customCursorClickableClass} from '@/lib/customCursor/customCursorClickableClass';
 import useDisableRightClick from '@/lib/shared/useDisableRightClick';
@@ -15,6 +14,7 @@ type GalleryItemProps = {
   src: string;
   blurDataURL: string;
   open: (e: MouseEvent) => void;
+  alt: string;
 };
 
 const imgCn = clsx('object-cover');
@@ -29,7 +29,7 @@ const overflowCn = clsx(
  * @returns React component.
  */
 const GalleryImage = forwardRef<HTMLImageElement, GalleryItemProps>(function GalleryItem(
-  {open, src, blurDataURL},
+  {open, src, blurDataURL, alt},
   ref,
 ) {
   const hotkeysRef = useHotkeys<HTMLDivElement>(['enter', 'space'], open as any, {
@@ -54,6 +54,7 @@ const GalleryImage = forwardRef<HTMLImageElement, GalleryItemProps>(function Gal
           src={src}
           blurDataURL={blurDataURL}
           fill
+          alt={alt}
         />
       </div>
     </AppearInViewport>

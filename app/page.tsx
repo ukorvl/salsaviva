@@ -3,9 +3,10 @@ import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewp
 import MainPageVideoPlayer from '@/components/pages/MainPageVideoPlayer/MainPageVideoPlayer';
 import CATLink from '@/components/shared/CATLink/CATLink';
 import SocialIcons from '@/components/shared/SocialIcons/SocialIcons';
+import getSocialicons from './socialIcons';
 
 const containerCn = clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'grow');
-const titleCn = clsx('font-light', 'text-8xl', 'mt-24');
+const titleCn = clsx('font-light', 'text-8xl', 'mt-24', 'text-center');
 const subtitleCn = clsx('text-1.5xl', 'font-light', 'tracking-widest', 'text-center');
 const titleContainerCn = clsx('font-sans', 'select-none');
 const exploreCn = clsx('mt-auto');
@@ -28,12 +29,13 @@ export default function Home() {
           text="EXPLORE"
           className={exploreCn}
           path="/about"
+          rel="noopener noreferrer"
         />
       </div>
       <SocialIcons
-        iconSize="2xl"
         direction="column"
         className={iconsCn}
+        icons={getSocialicons('xl')}
       />
       <MainPageVideoPlayer />
     </>

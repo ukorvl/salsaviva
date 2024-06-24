@@ -1,12 +1,19 @@
 import clsx from 'clsx';
 import '@/lib/fontawesome/configure';
 import Footer from '@/components/shared/Footer/Footer';
-import WithGtag from '@/lib/gtag/WithGtag';
+import WithGtagScript from '@/lib/gtag/WithGtagScript';
 import CustomCursor from '@/lib/customCursor/CustomCursor';
 import WebVitals from '@/components/shared/WebVitals/WebVitals';
+import WithHotjarScript from '@/lib/hotjar/WithHotjarScript';
+import {LocationChangeTracker} from '@/lib/gtag/LocationChangeTracker';
+import TopMenu from '@/components/shared/TopMenu/TopMenu';
+import ScrollToTopButton from '@/components/shared/ScrollToTop/ScrollToTop';
+import MotoinProvider from '@/lib/framerMotion/MotionProvider';
 import meta from './metadata';
 import viewportData from './viewport';
 import {kumbhSans, robotoMono} from './fonts';
+import {env} from './env.mjs';
+import {menuItems, socialLinks} from './topMenuConfig';
 import './styles.css';
 
 export const metadata = meta;
@@ -33,14 +40,33 @@ const mainCn = clsx('flex', 'flex-col', 'items-center', 'justify-start', 'grow')
  * @returns Global layout.
  */
 export default function RootLayout({children}: {children: React.ReactNode}) {
+  const {GA_TRACKING_ID, DISABLE_GA_IN_DEV_MODE} = env;
   return (
     <html lang="en">
       <body className={bodyCn}>
-        <WithGtag />
+        <WithGtagScript />
+        <WithHotjarScript />
         <CustomCursor />
-        <WebVitals />
-        <main className={mainCn}>{children}</main>
+        <main className={mainCn}>
+          <MotoinProvider>
+            <ScrollToTopButton
+              bottom={50}
+              right={50}
+            />
+            <TopMenu
+              menuItems={menuItems}
+              socialLinks={socialLinks}
+            />
+            {children}
+          </MotoinProvider>
+        </main>
         <Footer />
+        {!DISABLE_GA_IN_DEV_MODE && (
+          <>
+            <WebVitals />
+            <LocationChangeTracker trackingId={GA_TRACKING_ID} />
+          </>
+        )}
       </body>
     </html>
   );

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import {memo} from 'react';
 import {env} from '@/app/env.mjs';
 
-const {NEXT_PUBLIC_CONTACT_PHONE} = env;
+const {CONTACT_PHONE} = env;
 
 const containerCn = clsx('flex', 'justify-center');
 const telCn = clsx('animated-link', 'tracking-wider');
@@ -15,9 +15,10 @@ function Phone() {
     <div className={containerCn}>
       <a
         className={telCn}
-        href={`tel:${NEXT_PUBLIC_CONTACT_PHONE}`}
+        href={`tel:${CONTACT_PHONE}`}
+        rel="noopener noreferrer"
       >
-        {NEXT_PUBLIC_CONTACT_PHONE}
+        {CONTACT_PHONE}
       </a>
     </div>
   );

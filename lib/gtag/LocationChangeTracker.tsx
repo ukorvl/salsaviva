@@ -2,19 +2,28 @@
 
 import {useEffect} from 'react';
 import {usePathname, useSearchParams} from 'next/navigation';
-import * as gtag from './gtag';
 
 /**
+ * Location change tracker props.
+ */
+type LocationChangeTrackerProps = {
+  trackingId: string;
+};
+
+/**
+ * @param {LocationChangeTrackerProps} props Props.
  * @returns React component.
  */
-export function LocationChangeTracker() {
+export function LocationChangeTracker({trackingId}: LocationChangeTrackerProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const url = pathname + searchParams.toString();
 
   useEffect(() => {
-    gtag.pageview(url);
-  }, [url]);
+    window.gtag('config', trackingId, {
+      page_path: url,
+    });
+  }, [url, trackingId]);
 
   return null;
 }
