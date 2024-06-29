@@ -4,7 +4,7 @@ import {env} from '@/app/env.mjs';
 
 const {CONTACT_PHONE} = env;
 
-const containerCn = clsx('flex', 'justify-center');
+const containerCn = clsx('hidden', 'md:flex', 'justify-center');
 const telCn = clsx('animated-link', 'tracking-wider');
 
 /**

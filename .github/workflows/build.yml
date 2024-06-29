@@ -10,8 +10,13 @@ concurrency:
 
 jobs:
   build:
-    name: Build
+    name: Build on Node.js ${{ matrix.version }}
     runs-on: ubuntu-latest
+    env:
+      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+      FORMSPREE_ID: ${{ secrets.FORMSPREE_ID }}
+      HOTJAR_ID: ${{ secrets.HOTJAR_ID }}
+      HOTJAR_SNIPPET_VERSION: ${{ secrets.HOTJAR_SNIPPET_VERSION }}
     strategy:
       matrix:
         version: [18, 20, 22]
@@ -26,4 +31,3 @@ jobs:
         uses: ./.github/actions/test
       - name: Build
         uses: ./.github/actions/build
-

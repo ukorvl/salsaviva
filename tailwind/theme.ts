@@ -23,10 +23,18 @@ const letterSpacing = {
   widest: '.9em',
 };
 
+const screens = {
+  sm: '680px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+};
+
 export default {
   extend: {
     fontFamily,
     colors,
     letterSpacing,
+    screens,
   },
 } satisfies Config['theme'];
