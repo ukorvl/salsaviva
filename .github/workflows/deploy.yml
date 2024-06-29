@@ -19,6 +19,13 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    env:
+      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+      FORMSPREE_ID: ${{ secrets.FORMSPREE_ID }}
+      HOTJAR_ID: ${{ secrets.HOTJAR_ID }}
+      HOTJAR_SNIPPET_VERSION: ${{ secrets.HOTJAR_SNIPPET_VERSION }}
+      BASE_PATH: ''
+      ORIGIN: salsaviva.am
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
@@ -28,16 +35,5 @@ jobs:
           node_version: 18
       - name: Build
         uses: ./.github/actions/build
-        with:
-          assets_path: 'assets'
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          folder: out
-          clean: true
-          target-folder: .
-          git-config-name: ${{ github.actor }}
-          git-config-email: ${{ github.actor }}@users.noreply.github.com
-          commit-message: Deploy from commit ${{ github.sha }}
+        uses: ./.github/actions/deploy

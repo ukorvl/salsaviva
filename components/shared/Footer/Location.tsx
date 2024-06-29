@@ -5,7 +5,7 @@ import UniversalLink from '../UniversalLink/UniversalLink';
 
 const {LOCATION_ADDRESS_TEXT, LOCATION_GOOGLE_MAPS_LINK} = env;
 
-const containerCn = clsx('flex', 'justify-center', 'flex-nowrap', 'gap-4');
+const containerCn = clsx('hidden', 'md:flex', 'justify-center', 'flex-nowrap', 'gap-4');
 const addressCn = clsx('not-italic');
 const linkCn = clsx('animated-link');
 

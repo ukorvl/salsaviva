@@ -8,8 +8,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.ASSETS_BASE_PATH ?? '',
-  assetPrefix: process.env.ASSETS_BASE_PATH ?? '',
+  basePath: process.env.BASE_PATH ?? '',
 };
 
 const withAnalyzer = withBundleAnalyzer({
