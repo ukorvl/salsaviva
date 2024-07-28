@@ -4,6 +4,7 @@ import {Gallery as PSGallery, GalleryProps} from 'react-photoswipe-gallery';
 import 'photoswipe/dist/photoswipe.css';
 import config from './config';
 import GalleryItem from './GalleryItem';
+import clsx from 'clsx';
 
 const galleryId = 'images';
 const photoSwipeOptions: GalleryProps['options'] = {
@@ -16,21 +17,36 @@ const photoSwipeOptions: GalleryProps['options'] = {
   preload: [1, 4],
 };
 
+const containerCn = clsx(
+  'grow',
+  'w-full',
+  'h-full',
+  'grid',
+  'grid-rows-auto',
+  'sm: grid-cols-1',
+  'md:grid-cols-2',
+  'lg:grid-cols-3',
+  '2xl:grid-cols-4',
+  'select-none',
+);
+
 /**
  * @returns React component.
  */
 export default function Gallery() {
   return (
-    <PSGallery
-      options={photoSwipeOptions}
-      id={galleryId}
-    >
-      {config.map(props => (
-        <GalleryItem
-          key={props.src}
-          {...props}
-        />
-      ))}
-    </PSGallery>
+    <div className={containerCn}>
+      <PSGallery
+        options={photoSwipeOptions}
+        id={galleryId}
+      >
+        {config.map(props => (
+          <GalleryItem
+            key={props.src}
+            {...props}
+          />
+        ))}
+      </PSGallery>
+    </div>
   );
 }
