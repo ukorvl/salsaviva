@@ -13,7 +13,7 @@ export default function Error({reset}: {error: Error; reset: () => void}) {
   return (
     <div className={errContainerCn}>
       <h2>Something went wrong!</h2>
-      <Button onClick={() => reset()}>Try again</Button>
+      <Button onClick={() => reset()}>Reload</Button>
     </div>
   );
 }

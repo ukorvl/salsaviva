@@ -25,8 +25,7 @@ const config = [
   {fileName: 'gallery.11.jpg', width: 920, height: 600, alt: ''},
   {fileName: 'gallery.12.jpg', width: 920, height: 600, alt: ''},
   {fileName: 'gallery.13.jpg', width: 920, height: 600, alt: ''},
-  {fileName: 'gallery.14.jpg', width: 920, height: 600, alt: ''},
-  {fileName: 'gallery.15.jpg', width: 1280, height: 854, alt: ''},
+  {fileName: 'gallery.14.jpg', width: 1280, height: 854, alt: ''},
 ] as const;
 
 export default config.map(({fileName, ...rest}) => ({

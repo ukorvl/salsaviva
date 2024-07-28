@@ -6,6 +6,7 @@ import SocialIcons from '@/components/shared/SocialIcons/SocialIcons';
 import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
 import metadataBase from '../metadata';
 import getSocialicons from '../socialIcons';
+import getTextSlideIntoViewVarinats from '@/lib/framerMotion/variants/getTextSlideIntoViewVarinats';
 import './styles.css';
 
 export const metadata: Metadata = {
@@ -18,27 +19,28 @@ export const metadata: Metadata = {
 };
 
 const containerCn = clsx(
-  'grow',
-  'w-full',
-  'h-full',
-  'grid',
-  'grid-rows-auto',
-  'sm: grid-cols-1',
-  'md:grid-cols-2',
-  'lg:grid-cols-3',
-  '2xl:grid-cols-4',
-);
-const galleryTextItem = clsx(
-  'p-8',
   'flex',
   'flex-col',
+  'items-start',
+  'justify-start',
+  'min-h-screen',
+  'w-full',
+);
+const titleCn = clsx('lg:text-8xl', 'text-6xl', 'mt-24', 'ml-4');
+const bottomText = clsx('text-2xl');
+const bottomTextContainerCn = clsx(
+  'flex',
+  'flex-col',
+  'mt-16',
   'items-center',
   'justify-center',
-  'gap-8',
+  'w-full',
+  'gap-4',
+  'p-4',
   'text-center',
 );
-const titleCn = clsx('text-4xl');
-const subTitleCn = clsx('text-2xl');
+const subTitleCn = clsx('text-4xl', 'my-12', 'lg:my-4', 'lg:w-2/3', 'ml-4');
+const titleVariants = getTextSlideIntoViewVarinats('left');
 
 /**
  * @returns React component.
@@ -46,28 +48,27 @@ const subTitleCn = clsx('text-2xl');
 export default function GalleryPage() {
   return (
     <div className={containerCn}>
-      <div className={galleryTextItem}>
-        <AppearInViewport
-          className={titleCn}
-          transition={{delay: 0.5, duration: TransitionDuration.LONG}}
-          as="h1"
-        >
-          SALSAVIVA GALLERY
-        </AppearInViewport>
-        <AppearInViewport
-          transition={{delay: 2, duration: TransitionDuration.VERY_LONG}}
-          className={subTitleCn}
-        >
-          Enjoy!
-        </AppearInViewport>
-      </div>
+      <AppearInViewport
+        as="h1"
+        className={titleCn}
+        variants={titleVariants}
+        transition={{duration: TransitionDuration.VERY_LONG, type: 'spring', bounce: 0.5}}
+      >
+        GALLERY
+      </AppearInViewport>
+      <AppearInViewport
+        className={subTitleCn}
+        transition={{delay: 1, duration: TransitionDuration.LONG}}
+      >
+        Dive into our vibrant world of social dance
+      </AppearInViewport>
       <Gallery />
-      <div className={galleryTextItem}>
+      <div className={bottomTextContainerCn}>
         <AppearInViewport
-          className={subTitleCn}
+          className={bottomText}
           as="h3"
         >
-          Want more? Follow us on social media!
+          Want more? Follow us on social media
         </AppearInViewport>
         <SocialIcons icons={getSocialicons('2x')} />
       </div>
