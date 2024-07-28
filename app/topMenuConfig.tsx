@@ -16,7 +16,6 @@ const menuItems = [
       <UniversalLink
         href="/about"
         className={linkCn}
-        target="_blank"
         rel="noopener noreferrer"
       >
         ABOUT
@@ -28,7 +27,6 @@ const menuItems = [
       <UniversalLink
         href="/gallery"
         className={linkCn}
-        target="_blank"
         rel="noopener noreferrer"
       >
         GALLERY
@@ -41,7 +39,6 @@ const menuItems = [
       <UniversalLink
         href="/teachers"
         className={linkCn}
-        target="_blank"
         rel="noopener noreferrer"
       >
         TEACHERS
@@ -54,7 +51,6 @@ const menuItems = [
       <UniversalLink
         href="/contact"
         className={linkCn}
-        target="_blank"
         rel="noopener noreferrer"
       >
         CONTACT

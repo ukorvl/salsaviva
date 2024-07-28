@@ -1,15 +1,17 @@
 import {m} from 'framer-motion';
 import clsx from 'clsx';
-import {useHover} from '@/lib/shared/useHover';
+import {forwardRef} from 'react';
 import useDisableRightClick from '@/lib/shared/useDisableRightClick';
-import {TeachersListConfigItem} from './teachersListConfig';
 import ImageWrapper from '../../shared/ImageWrapper/ImageWrapper';
 import TeacherInfo from './TeacherInfo';
+import {TeachersListConfigItem} from './teachersListConfig';
 
 /**
  * Props.
  */
-type TeacherBlockProps = TeachersListConfigItem;
+type TeacherTemplateProps = {
+  isDescriptionVisible: boolean;
+} & TeachersListConfigItem;
 
 const variants = {
   visible: {
@@ -32,11 +34,13 @@ const cardCn = clsx('aspect-square', 'overflow-hidden', 'relative');
 const imgCn = clsx('object-cover', 'w-full', 'h-full');
 
 /**
- * @param {TeacherBlockProps} props Props.
+ * @param props Props.
  * @returns React component.
  */
-export default function Teacher({name, danceStyles, imgSrc, subtitle}: TeacherBlockProps) {
-  const [ref, isHover] = useHover<HTMLDivElement>();
+export default forwardRef<HTMLDivElement, TeacherTemplateProps>(function TeacherTemplate(
+  {isDescriptionVisible, name, danceStyles, imgSrc, subtitle},
+  ref,
+) {
   const imgRef = useDisableRightClick<HTMLImageElement>();
 
   return (
@@ -48,7 +52,7 @@ export default function Teacher({name, danceStyles, imgSrc, subtitle}: TeacherBl
       <TeacherInfo
         name={name}
         danceStyles={danceStyles}
-        isVisible={isHover}
+        isVisible={isDescriptionVisible}
         subtitle={subtitle}
       />
       <ImageWrapper
@@ -60,4 +64,4 @@ export default function Teacher({name, danceStyles, imgSrc, subtitle}: TeacherBl
       />
     </m.div>
   );
-}
+});

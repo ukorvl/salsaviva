@@ -44,9 +44,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <body className={bodyCn}>
-        <WithGtagScript />
-        <WithHotjarScript />
-        <CustomCursor />
         <main className={mainCn}>
           <MotoinProvider>
             <ScrollToTopButton
@@ -61,6 +58,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           </MotoinProvider>
         </main>
         <Footer />
+        <WithGtagScript />
+        <WithHotjarScript />
+        <CustomCursor />
         {!DISABLE_GA_IN_DEV_MODE && (
           <>
             <WebVitals />

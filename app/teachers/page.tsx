@@ -27,8 +27,8 @@ const containerCn = clsx(
   'w-full',
 );
 const titleCn = clsx('text-8xl', 'mt-24', 'ml-4');
-const subTitleCn = clsx('text-4xl', 'my-4', 'w-2/3', 'ml-4');
-const CATLinkCn = clsx('mt-16');
+const subTitleCn = clsx('text-4xl', 'my-12', 'lg:my-4', 'lg:w-2/3', 'ml-4');
+const CATLinkCn = clsx('mt-32', 'lg:mt-16');
 
 const titleVariants = getTextSlideIntoViewVarinats('left');
 

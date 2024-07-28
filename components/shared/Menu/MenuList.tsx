@@ -82,7 +82,7 @@ export default function MenuList({children}: MenuListProps) {
       custom={{height, position}}
       className={navCn}
       variants={navVariants}
-      style={{paddingRight: bodyHasOverflow ? `${scrollbarWidth}px` : 0}}
+      style={{paddingRight: bodyHasOverflow ? `${scrollbarWidth}px` : '0px'}}
     >
       {children}
       <MenuDynamicBg />

@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "serve -s out",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "lint:editorconfig": "npx editorconfig-checker",
     "prettier-check": "prettier --check .",
     "cypress": "cypress open",

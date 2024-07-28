@@ -5,7 +5,7 @@ import UniversalLink from '../UniversalLink/UniversalLink';
 
 const {CONTACT_EMAIL} = env;
 
-const containerCn = clsx('flex', 'justify-center');
+const containerCn = clsx('hidden', 'md:flex', 'justify-center');
 const anchorCn = clsx('animated-link');
 
 /**

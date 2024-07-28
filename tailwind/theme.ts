@@ -16,17 +16,25 @@ const colors = {
   accent1: '#933293',
   accent2: '#602e87',
   accent3: '#3f71b8',
-};
+} as const;
 
 const letterSpacing = {
   wider: '.25em',
   widest: '.9em',
-};
+} as const;
+
+const screens = {
+  sm: '680px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+} as const;
 
 export default {
   extend: {
     fontFamily,
     colors,
     letterSpacing,
+    screens,
   },
 } satisfies Config['theme'];
