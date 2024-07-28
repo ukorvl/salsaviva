@@ -6,11 +6,19 @@ import SocialIcons from '@/components/shared/SocialIcons/SocialIcons';
 import getSocialicons from './socialIcons';
 
 const containerCn = clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'grow');
-const titleCn = clsx('font-light', 'text-8xl', 'mt-24', 'text-center');
-const subtitleCn = clsx('text-1.5xl', 'font-light', 'tracking-widest', 'text-center');
+const titleCn = clsx('font-light', 'text-6xl', 'md:text-8xl', 'mt-24', 'text-center');
+const subtitleCn = clsx(
+  'text-lg',
+  'md:text-1.5xl',
+  'font-light',
+  'tracking-widest',
+  'text-center',
+  'p-12',
+  'md:p-0',
+);
 const titleContainerCn = clsx('font-sans', 'select-none');
-const exploreCn = clsx('mt-auto');
-const iconsCn = clsx('fixed', 'left-4', '-translate-y-2/4', 'top-2/4');
+const exploreCn = clsx('mt-auto', 'md:inline', 'hidden');
+const iconsCn = clsx('fixed', 'lg:left-4', 'lg:-translate-y-2/4', 'lg:top-2/4');
 
 /**
  * @returns React component.

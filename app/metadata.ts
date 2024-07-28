@@ -24,7 +24,6 @@ const metadata: Metadata = {
     'social dance',
   ],
   authors: [{name: 'Ukorvl', url: 'https://github.com/ukorvl'}],
-  manifest: '/manifest.json',
   metadataBase: new URL(origin),
   openGraph: {
     title: 'Salsaviva',

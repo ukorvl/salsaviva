@@ -1,14 +1,16 @@
-name: "Test"
-description: "Lint and test the project."
+name: 'Test'
+description: 'Lint and test the project.'
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Lint
+      shell: bash
       run: |
         npm run lint
         npm run lint:editorconfig
     - name: Prettier rules check
+      shell: bash
       run: npm run prettier-check
     - name: e2e
       uses: cypress-io/github-action@v5
@@ -17,4 +19,5 @@ runs:
         start: npm start
         record: false
     - name: Check seo
+      shell: bash
       run: npm run check-seo

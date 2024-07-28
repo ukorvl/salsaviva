@@ -35,6 +35,8 @@ const server = {
   CONTACT_PHONE: notEmptyString,
   LOCATION_GOOGLE_MAPS_LINK: notEmptyString.url(),
   LOCATION_ADDRESS_TEXT: notEmptyString,
+  BASE_PATH: z.string().optional(),
+  ORIGIN: notEmptyString.url(),
 };
 
 const client = {};
@@ -62,5 +64,7 @@ export const env = createEnv({
     CONTACT_PHONE: process.env.CONTACT_PHONE,
     LOCATION_GOOGLE_MAPS_LINK: process.env.LOCATION_GOOGLE_MAPS_LINK,
     LOCATION_ADDRESS_TEXT: process.env.LOCATION_ADDRESS_TEXT,
+    BASE_PATH: process.env.BASE_PATH,
+    ORIGIN: process.env.ORIGIN,
   },
 });

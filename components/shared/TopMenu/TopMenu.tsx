@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import {m} from 'framer-motion';
 import {ReactNode} from 'react';
+import useIsMobile from '@/lib/shared/useIsMobile';
 import Menu from '../Menu/Menu';
 import UniversalLink from '../UniversalLink/UniversalLink';
 
@@ -28,9 +29,9 @@ const variants = {
   },
 };
 
-const socialLiksListCn = clsx('flex', 'gap-8', 'mt-auto', 'mb-16');
+const socialLiksListCn = clsx('hidden', 'lg:flex', 'gap-8', 'mt-auto', 'mb-16');
 const socialLinkMenuItem = clsx('text-xs');
-const itemsListCn = clsx('mt-24');
+const itemsListCn = clsx('lg:mt-24');
 const homeMenuItem = clsx('mb-32', 'text-xl');
 
 /**
@@ -38,10 +39,14 @@ const homeMenuItem = clsx('mb-32', 'text-xl');
  * @returns React component.
  */
 export default function TopMenu({menuItems, socialLinks}: TopMenuProps) {
+  const [isMobile] = useIsMobile();
+  const top = isMobile ? 88 : 88;
+  const right = isMobile ? 50 : 50;
+
   return (
     <Menu
-      top={88}
-      right={50}
+      top={top}
+      right={right}
     >
       <Menu.Toggle />
       <Menu.List>

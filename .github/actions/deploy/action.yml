@@ -1,0 +1,20 @@
+name: 'Deploy'
+description: 'Deploy the project.'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: No jekyll
+      run: touch out/.nojekyll
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        folder: out
+        clean: true
+        clean-exclude: .nojekyll
+        target-folder: .
+        git-config-name: ${{ github.actor }}
+        git-config-email: ${{ github.actor }}@users.noreply.github.com
+        commit-message: Deploy from commit ${{ github.sha }}
