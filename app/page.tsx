@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewport';
-import MainPageVideoPlayer from '@/components/pages/MainPageVideoPlayer/MainPageVideoPlayer';
+import VideoPlayer from '@/components/pages/Main/MainPageVideoPlayer/VideoPlayer';
 import CATLink from '@/components/shared/CATLink/CATLink';
-import SocialIcons from '@/components/shared/SocialIcons/SocialIcons';
 import getSocialicons from './socialIcons';
+import MainPageSocialIcons from '@/components/pages/Main/MainPageSocialIcons/MainPageSocialIcons';
 
 const containerCn = clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'grow');
 const titleCn = clsx('font-light', 'text-6xl', 'md:text-8xl', 'mt-24', 'text-center');
@@ -18,7 +18,6 @@ const subtitleCn = clsx(
 );
 const titleContainerCn = clsx('font-sans', 'select-none');
 const exploreCn = clsx('mt-auto', 'md:inline', 'hidden');
-const iconsCn = clsx('fixed', 'lg:left-4', 'lg:-translate-y-2/4', 'lg:top-2/4');
 
 /**
  * @returns React component.
@@ -40,12 +39,8 @@ export default function Home() {
           rel="noopener noreferrer"
         />
       </div>
-      <SocialIcons
-        direction="column"
-        className={iconsCn}
-        icons={getSocialicons('xl')}
-      />
-      <MainPageVideoPlayer />
+      <MainPageSocialIcons icons={getSocialicons('2xl')} />
+      <VideoPlayer />
     </>
   );
 }

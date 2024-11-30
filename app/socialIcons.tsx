@@ -8,7 +8,7 @@ import UniversalLink from '@/components/shared/UniversalLink/UniversalLink';
 /**
  * Icon configuration.
  */
-type IconConfig = {
+export type IconConfig = {
   icon: ReactNode;
 };
 

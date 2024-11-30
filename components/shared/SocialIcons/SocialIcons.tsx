@@ -24,7 +24,7 @@ type SocialIconsProps = {
 };
 
 // eslint-disable-next-line jsdoc/require-jsdoc
-const iconsCn = (direction: SocialIconsProps['direction']) =>
+const iconsCn = (direction: Direction) =>
   clsx(
     'flex',
     direction === 'column' && 'flex-col',
