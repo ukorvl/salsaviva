@@ -1,7 +1,4 @@
 // eslint-disable-next-line jsdoc/require-param
-/**
- * Remove selection background.
- */
 export function removeSelectionBg({addBase}: {addBase: Function}) {
   addBase({
     'input:-webkit-autofill': {

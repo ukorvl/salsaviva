@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const titleVariants = getTextSlideIntoViewVarinats('right');
 const {FORMSPREE_ID} = env;
 const containerCn = clsx('flex', 'flex-col', 'min-h-screen', 'w-full');
-const titleCn = clsx('text-8xl', 'mt-24', 'ml-4', 'text-center');
+const titleCn = clsx('text-6xl', 'md:text-8xl', 'mt-24', 'ml-4', 'text-center');
 
 /**
  * @returns React component.

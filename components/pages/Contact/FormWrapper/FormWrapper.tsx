@@ -6,7 +6,6 @@ import useFormspree from '@/lib/formspree/useFormspree';
 import Form from '../Form/Form';
 import SubmittedForm from './SubmittedForm';
 import ErrorSubmitForm from './ErrorSubmitForm';
-import DynamicFormBg from '../DynamicFormBg/DynamicFormBg';
 import {ContactFormData} from '../Form/validationSchema';
 
 /**
@@ -52,9 +51,5 @@ export default function FormWrapper({formspreeId}: FormWrapperProps) {
 
   // here animation on swich screen should occur
 
-  return (
-    <DynamicFormBg>
-      <div className={wrapperCn}>{render()}</div>
-    </DynamicFormBg>
-  );
+  return <div className={wrapperCn}>{render()}</div>;
 }

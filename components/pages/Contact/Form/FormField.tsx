@@ -5,29 +5,13 @@ import formConfig from './formConfig';
 import type {ContactFormData} from './validationSchema';
 import TextField from '../TextField/TextField';
 import ErrorMessage from './ErrorMessage';
+import variants from './formElementChildrenVariants';
 
 /**
  * Props.
  */
 type FormFieldProps = {
   name: keyof ContactFormData;
-};
-
-const variants = {
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: {stiffness: 1000, velocity: -100},
-    },
-  },
-  hidden: {
-    y: 50,
-    opacity: 0,
-    transition: {
-      y: {stiffness: 1000},
-    },
-  },
 };
 
 /**

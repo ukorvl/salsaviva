@@ -6,6 +6,7 @@ import {useHotkeys} from 'react-hotkeys-hook';
 import clsx from 'clsx';
 import useWindowDimensions from '@/lib/shared/useWindowDimensions';
 import {useContextSafe} from '@/utils/useContextSafe';
+import {numericMobileMaxScreenSize} from '@/lib/shared/useIsMobile';
 import {MenuContext} from './MenuContext';
 import {MenuPosition} from './MenuPosition';
 import menuButtonSize from './menuButtonSize';
@@ -65,6 +66,7 @@ export default function MenuList({children}: MenuListProps) {
   const {height, width} = useWindowDimensions();
   const bodyHasOverflow = height ? height < document.body.clientHeight : undefined;
   const scrollbarWidth = width ? width - document.body.clientWidth : undefined;
+  const isMobile = width ? numericMobileMaxScreenSize >= width : false;
   useHotkeys('esc', close);
 
   useEffect(() => {
@@ -85,7 +87,7 @@ export default function MenuList({children}: MenuListProps) {
       style={{paddingRight: bodyHasOverflow ? `${scrollbarWidth}px` : '0px'}}
     >
       {children}
-      <MenuDynamicBg />
+      {!isMobile && <MenuDynamicBg />}
     </m.nav>
   );
 }

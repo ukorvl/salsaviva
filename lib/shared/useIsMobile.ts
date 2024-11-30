@@ -4,7 +4,11 @@ import tailwindConfig from '../../tailwind.config';
 import useWindowDimensions from './useWindowDimensions';
 
 const mobileMaxScreenSize = tailwindConfig.theme.extend.screens.sm;
-const numericMobileMaxScreenSize = parseInt(mobileMaxScreenSize.replace('px', ''));
+
+/**
+ * Numeric mobile max screen size.
+ */
+export const numericMobileMaxScreenSize = parseInt(mobileMaxScreenSize.replace('px', ''));
 
 /**
  * @returns Is mobile.

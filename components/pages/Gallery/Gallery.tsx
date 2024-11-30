@@ -2,9 +2,9 @@
 
 import {Gallery as PSGallery, GalleryProps} from 'react-photoswipe-gallery';
 import 'photoswipe/dist/photoswipe.css';
+import clsx from 'clsx';
 import config from './config';
 import GalleryItem from './GalleryItem';
-import clsx from 'clsx';
 
 const galleryId = 'images';
 const photoSwipeOptions: GalleryProps['options'] = {
