@@ -4,9 +4,9 @@ import Gallery from '@/components/pages/Gallery/Gallery';
 import AppearInViewport from '@/components/shared/AppearInViewport/AppearInViewport';
 import SocialIcons from '@/components/shared/SocialIcons/SocialIcons';
 import TransitionDuration from '@/lib/framerMotion/TransitionDuration';
+import getTextSlideIntoViewVarinats from '@/lib/framerMotion/variants/getTextSlideIntoViewVarinats';
 import metadataBase from '../metadata';
 import getSocialicons from '../socialIcons';
-import getTextSlideIntoViewVarinats from '@/lib/framerMotion/variants/getTextSlideIntoViewVarinats';
 import './styles.css';
 
 export const metadata: Metadata = {

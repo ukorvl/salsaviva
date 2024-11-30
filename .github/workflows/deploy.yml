@@ -25,7 +25,7 @@ jobs:
       HOTJAR_ID: ${{ secrets.HOTJAR_ID }}
       HOTJAR_SNIPPET_VERSION: ${{ secrets.HOTJAR_SNIPPET_VERSION }}
       BASE_PATH: ''
-      ORIGIN: salsaviva.am
+      ORIGIN: https://salsaviva.am
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
