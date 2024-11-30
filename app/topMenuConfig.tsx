@@ -61,54 +61,21 @@ const menuItems = [
 ];
 
 const socialLinks = [
-  {
-    link: (
-      <UniversalLink
-        href={INSTAGRAM_ADDRESS}
-        className={linkCn}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        INSTAGRAM
-      </UniversalLink>
-    ),
-  },
-  {
-    link: (
-      <UniversalLink
-        href={TELEGRAM_ADDRESS}
-        className={linkCn}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        TELEGRAM
-      </UniversalLink>
-    ),
-  },
-  {
-    link: (
-      <UniversalLink
-        href={FACEBOOK_ADDRESS}
-        className={linkCn}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        FACEBOOK
-      </UniversalLink>
-    ),
-  },
-  {
-    link: (
-      <UniversalLink
-        href={WHATSAPP_ADDRESS}
-        className={linkCn}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        WHATSAPP
-      </UniversalLink>
-    ),
-  },
-];
+  ['INSTAGRAM', INSTAGRAM_ADDRESS],
+  ['TELEGRAM', TELEGRAM_ADDRESS],
+  ['FACEBOOK', FACEBOOK_ADDRESS],
+  ['WHATSAPP', WHATSAPP_ADDRESS],
+].map(([text, href]) => ({
+  link: (
+    <UniversalLink
+      href={href}
+      className={linkCn}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {text}
+    </UniversalLink>
+  ),
+}));
 
 export {menuItems, socialLinks};

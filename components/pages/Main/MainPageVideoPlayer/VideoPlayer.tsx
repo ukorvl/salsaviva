@@ -13,7 +13,7 @@ const containerCn = clsx('fixed', 'top-0', 'left-0', 'w-full', 'h-full');
 /**
  * @returns React component.
  */
-export default function MainPageVideoPlayer() {
+export default function VideoPlayer() {
   const [vidIndex, setVidIndex] = useState(0);
   const videosListLength = bgVideoConfig.length;
   const nextVidIndex = vidIndex < videosListLength - 1 ? vidIndex + 1 : 0;
