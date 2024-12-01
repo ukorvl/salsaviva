@@ -47,7 +47,8 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(function MenuT
         variant="alternate"
         style={{width: menuButtonSize, height: menuButtonSize}}
       >
-        <MenuToggleSvgContent />
+        {/* <MenuToggleSvgContent /> */}
+        MENU
       </Button>
     </AppearInViewport>
   );

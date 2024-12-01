@@ -16,10 +16,10 @@ const MainPageSocialIcons = ({icons}: MainPageSocialIconsProps) => {
     'lg:-translate-y-2/4',
     'lg:top-2/4',
     'left-2',
-    'bottom-16',
+    'bottom-24',
     'translate-x-2/4',
   );
-  const isMobile = useIsMobile();
+  const [isMobile] = useIsMobile();
   const direction = isMobile ? 'row' : 'column';
 
   return (

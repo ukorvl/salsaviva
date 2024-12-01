@@ -40,7 +40,7 @@ const homeMenuItem = clsx('mb-32', 'text-xl');
  */
 export default function TopMenu({menuItems, socialLinks}: TopMenuProps) {
   const [isMobile] = useIsMobile();
-  const top = isMobile ? 88 : 88;
+  const top = isMobile ? 288 : 88;
   const right = isMobile ? 50 : 50;
 
   return (
